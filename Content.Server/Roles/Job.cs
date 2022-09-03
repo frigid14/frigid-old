@@ -40,7 +40,7 @@ namespace Content.Server.Roles
             {
                 var chatMgr = IoCManager.Resolve<IChatManager>();
                 var chatSys = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>();
-                chatMgr.DispatchServerMessage(session, Loc.GetString("job-greet-welcome"));
+                // chatMgr.DispatchServerMessage(session, Loc.GetString("job-greet-welcome"));
 
                 if(Prototype.RequireAdminNotify)
                     chatMgr.DispatchServerMessage(session, Loc.GetString("job-greet-important-disconnect-admin-notify"));
