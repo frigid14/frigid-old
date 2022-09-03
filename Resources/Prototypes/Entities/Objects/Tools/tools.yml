@@ -283,6 +283,14 @@
         Blunt: 10
   - type: Item
     sprite: Objects/Tools/shovel.rsi
+  - type: Tool
+    qualities:
+      - Digging
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: TilePrying
+    qualityNeeded: "Digging"
+    delay: 5
 
 - type: entity
   name: omnitool
