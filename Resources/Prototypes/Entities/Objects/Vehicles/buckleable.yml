@@ -71,6 +71,16 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
+  - type: Storage
+    capacity: 300 # Allow vehicles to have storage! At last, hooray!
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      - key: enum.StorageUiKey.Key
+        type: StorageBoundUserInterface
   - type: StaticPrice
     price: 750 # Grand Theft Auto.
 
