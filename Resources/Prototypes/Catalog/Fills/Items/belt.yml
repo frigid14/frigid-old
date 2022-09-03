@@ -37,6 +37,7 @@
         - id: Wrench
         - id: Screwdriver
         - id: Wirecutter
+        - id: Multitool
         - id: CableApcStack
         - id: CableMVStack
         - id: CableHVStack

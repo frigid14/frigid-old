@@ -13,7 +13,7 @@
     jumpsuit: ClothingUniformJumpsuitMechanic
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
-    id: EngineeringIDCard
+    id: MechanicIDCard
     belt: ClothingBeltMechanicFilled
   innerclothingskirt: ClothingUniformJumpskirtMechanic
   satchel: ClothingBackpackSatchelEngineeringFilled
