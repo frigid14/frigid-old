@@ -32,9 +32,10 @@
   name: snow
   sprite: /Textures/Tiles/snow.png
   baseTurfs:
-    - Space
-  isSubfloor: true
+    - FloorDirt
+  isSubfloor: false
   canCrowbar: false
+  canShovel: true
   footstepSounds:
     collection: FootstepSnow
   friction: 0.20

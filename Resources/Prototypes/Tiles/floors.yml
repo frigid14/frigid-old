@@ -703,7 +703,7 @@
   variants: 4
   placementVariants: [0, 1, 2, 3]
   baseTurfs:
-  - FloorSnow
+  - Space
   isSubfloor: true
   canCrowbar: false
   footstepSounds:
