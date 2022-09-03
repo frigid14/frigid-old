@@ -25,6 +25,7 @@
         - id: Screwdriver
         - id: Wirecutter
         - id: Welder
+        - id: FrigidWeldingFuel
 
 - type: entity
   id: ClothingBeltElectricalFilled

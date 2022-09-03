@@ -126,17 +126,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/engineering.rsi
 
 - type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformJumpskirtMechanic
-  description: A dark gray skirt for mechanical engineers. Looks dirty.
-  name: mechanic jumpsuit
-  components:
-    - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/Color/darkgrey.rsi
-    - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/Color/darkgrey.rsi
-
-- type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoP
   name: head of personnel's jumpskirt
