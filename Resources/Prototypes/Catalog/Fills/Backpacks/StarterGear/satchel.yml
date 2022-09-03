@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 #- type: entity
 #  noSpawn: true
@@ -23,7 +23,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalSecurity
+      - id: FlashlightHandLite
       - id: Flash
 
 - type: entity
@@ -33,7 +33,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -42,7 +42,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       #- name: StationCharter
       #- name: TelescopicBaton
 
@@ -53,7 +53,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalEngineering
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -62,7 +62,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -71,7 +71,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -80,7 +80,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -89,7 +89,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       - id: Bible
       - id: RubberStampChaplain
 
@@ -100,7 +100,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: AcousticGuitarInstrument
         - id: SaxophoneInstrument
 
@@ -111,7 +111,7 @@
   components:
     - type: StorageFill
       contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       - id: Lighter
       - id: CigPackBlack
       - id: BoxForensicPad

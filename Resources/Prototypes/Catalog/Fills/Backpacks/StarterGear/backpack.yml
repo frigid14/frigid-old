@@ -5,7 +5,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 #This should be temporary, at least until briefcases can spawn in hands.
 
@@ -16,7 +16,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       - id: BriefcaseBrownFilled
 
 - type: entity
@@ -37,7 +37,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalSecurity
+      - id: FlashlightHandLite
       - id: Flash
 
 - type: entity
@@ -47,7 +47,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalMedical
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -56,7 +56,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       #- name: StationCharter
       #- name: TelescopicBaton
 
@@ -67,7 +67,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvivalEngineering
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -76,7 +76,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -85,7 +85,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -94,7 +94,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       - id: RubberStampMime
 
 - type: entity
@@ -104,7 +104,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
 
 - type: entity
   noSpawn: true
@@ -113,7 +113,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       - id: Bible
       - id: RubberStampChaplain
 
@@ -124,7 +124,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: AcousticGuitarInstrument
         - id: SaxophoneInstrument
 
@@ -135,7 +135,7 @@
   components:
     - type: StorageFill
       contents:
-      - id: BoxSurvival
+      - id: FlashlightHandLite
       - id: Lighter
       - id: CigPackBlack
       - id: HandLabeler
@@ -150,7 +150,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: WeaponPulsePistol
         - id: WeaponPistolMk58
         - id: MagazinePistolHighCapacityRubber
@@ -165,7 +165,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: WeaponDisabler
         - id: WeaponPulsePistol
         - id: WeaponPulseCarbine
@@ -179,7 +179,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: WeaponPulseCarbine
         - id: Hypospray
         - id: MedkitAdvancedFilled
@@ -192,7 +192,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: trayScanner
         - id: WeaponPulseCarbine
         - id: RCD
@@ -207,7 +207,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: FlashlightHandLite
         - id: WeaponPulsePistol
         - id: MedkitFilled
         - id: BoxLightMixed
