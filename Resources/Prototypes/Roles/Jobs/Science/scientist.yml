@@ -7,7 +7,6 @@
   supervisors: job-supervisors-rd
   access:
   - Research
-  - Maintenance
 
 - type: startingGear
   id: ScientistGear
