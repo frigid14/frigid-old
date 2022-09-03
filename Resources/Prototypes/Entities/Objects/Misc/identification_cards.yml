@@ -32,7 +32,7 @@
     - state: default
     - state: idpassenger
   - type: PresetIdCard
-    job: Passenger
+    job: Civilian
 
 - type: entity
   parent: PassengerIDCard
