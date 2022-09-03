@@ -5,6 +5,6 @@
   name: mechanic jumpsuit
   components:
     - type: Sprite
-      sprite: _Frigid/Clothing/Uniforms/Jumpskirt/Color/mechanic.rsi
+      sprite: _Frigid/Clothing/Uniforms/Jumpskirt/mechanic.rsi
     - type: Clothing
-      sprite: _Frigid/Clothing/Uniforms/Jumpskirt/Color/mechanic.rsi
+      sprite: _Frigid/Clothing/Uniforms/Jumpskirt/mechanic.rsi

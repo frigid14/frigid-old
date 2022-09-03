@@ -1,0 +1,11 @@
+﻿- type: entity
+  id: SpawnPointMechanic
+  parent: SpawnPointJobBase
+  name: mechanic
+  components:
+    - type: SpawnPoint
+      job_id: Mechanic
+    - type: Sprite
+      layers:
+        - state: green
+        - state: engineer
