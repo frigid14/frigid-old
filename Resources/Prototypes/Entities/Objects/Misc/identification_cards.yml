@@ -134,18 +134,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: MechanicIDCard
-  name: mechanic ID card
-  components:
-    - type: Sprite # TODO: mechanic ID sprite
-      layers:
-        - state: default
-        - state: idmechanic
-    - type: PresetIdCard
-      job: StationEngineer
-
-- type: entity
-  parent: IDCardStandard
   id: MedicalIDCard
   name: medical ID card
   components:

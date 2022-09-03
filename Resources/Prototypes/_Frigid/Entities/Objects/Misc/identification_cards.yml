@@ -1,0 +1,11 @@
+﻿- type: entity
+  parent: IDCardStandard
+  id: MechanicIDCard
+  name: mechanic ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idmechanic
+    - type: PresetIdCard
+      job: StationEngineer

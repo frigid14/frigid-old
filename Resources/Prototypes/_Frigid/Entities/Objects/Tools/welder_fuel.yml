@@ -1,15 +1,15 @@
 ﻿- type: entity
   parent: BaseItem
-  id: WelderFuel
+  id: FrigidWeldingFuel
   name: welding can
   description: A portable welding can! Contains 500 units of welding fuel.
   components:
     - type: Sprite
-      sprite: Objects/Tools/welder_fuel.rsi
+      sprite: _Frigid/Objects/Tools/welder_fuel.rsi
       state: icon
       netsync: false
     - type: Item
-      sprite: Objects/Tools/welder_fuel.rsi
+      sprite: _Frigid/Objects/Tools/welder_fuel.rsi
     - type: SolutionContainerManager
       solutions:
         Welder:

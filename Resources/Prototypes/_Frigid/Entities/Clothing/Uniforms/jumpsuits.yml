@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMechanic
+  description: A dark gray jumpsuit for mechanical engineers. Looks dirty.
+  name: mechanic jumpsuit
+  components:
+    - type: Sprite
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/Color/mechanic.rsi
+    - type: Clothing
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/Color/mechanic.rsi
