@@ -1,9 +1,9 @@
 - type: job
   id: Civilian
-  name: job-name-civilian
+  name: job-name-passenger
   playTimeTracker: JobCivilian
   startingGear: PassengerGear
-  icon: "Assistant"
+  icon: "Passenger"
 
 - type: startingGear
   id: PassengerGear
