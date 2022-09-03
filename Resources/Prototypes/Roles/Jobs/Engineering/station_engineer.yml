@@ -2,19 +2,10 @@
   id: StationEngineer
   name: job-name-engineer
   playTimeTracker: JobStationEngineer
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 1800
   startingGear: StationEngineerGear
   icon: "StationEngineer"
-  supervisors: job-supervisors-ce
   access:
-  - Maintenance
   - Engineering
-  - External
-  extendedAccess:
-  - Atmospherics
 
 - type: startingGear
   id: StationEngineerGear
@@ -24,10 +15,8 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     outerClothing: ClothingOuterVestHazard
-    id: EngineerPDA
-    eyes: ClothingEyesGlassesMeson
+    id: EngineeringIDCard
     belt: ClothingBeltUtilityFilled
-    ears: ClothingHeadsetEngineering
   innerclothingskirt: ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

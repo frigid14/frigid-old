@@ -1,12 +1,9 @@
 - type: job
-  id: Passenger
-  name: job-name-passenger
-  playTimeTracker: JobPassenger
+  id: Civilian
+  name: job-name-civilian
+  playTimeTracker: JobCivilian
   startingGear: PassengerGear
-  icon: "Passenger"
-  supervisors: job-supervisors-everyone
-  access:
-  - Maintenance
+  icon: "Assistant"
 
 - type: startingGear
   id: PassengerGear
@@ -14,8 +11,6 @@
     jumpsuit: ClothingUniformJumpsuitColorGrey
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
-    id: PassengerPDA
-    ears: ClothingHeadsetGrey
   innerclothingskirt: ClothingUniformJumpskirtColorGrey
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
