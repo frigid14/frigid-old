@@ -2,13 +2,13 @@
   id: StationEngineer
   name: job-name-engineer
   playTimeTracker: JobStationEngineer
-  startingGear: StationEngineerGear
-  icon: "StationEngineer"
+  startingGear: ElectricalEngineerGear
+  icon: "ElectricalEngineer"
   access:
   - Engineering
 
 - type: startingGear
-  id: StationEngineerGear
+  id: ElectricalEngineerGear
   equipment:
     head: ClothingHeadHatHardhatYellow
     jumpsuit: ClothingUniformJumpsuitEngineering
