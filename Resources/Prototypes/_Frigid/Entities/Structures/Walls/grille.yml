@@ -1,0 +1,33 @@
+﻿- type: entity
+  id: GrilleBorder
+  parent: BaseStructure
+  name: military enclosure
+  suffix: border
+  description: A robust setting of iron rods with a quarantine notice on it. I'm glad I'm not inside of it.
+  components:
+    - type: MeleeSound
+      soundGroups:
+        Brute:
+          path:
+            "/Audio/Weapons/grille_hit.ogg"
+    - type: Sprite
+      netsync: false
+      drawdepth: Walls
+      sprite: Structures/Walls/grille.rsi
+      state: grille
+    - type: Icon
+      sprite: Structures/Walls/grille.rsi
+      state: grille
+    - type: PowerConsumer
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        - shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          layer:
+            - WallLayer
+    - type: Occluder
+      sizeX: 32
+      sizeY: 32
