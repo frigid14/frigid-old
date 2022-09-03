@@ -10,6 +10,7 @@
 - type: startingGear
   id: MechanicGear
   equipment:
+    head: ClothingHeadHatWelding
     jumpsuit: ClothingUniformJumpsuitMechanic
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
