@@ -11,6 +11,6 @@
         !type:NanotrasenNameGenerator
         prefixCreator: 'TG'
       overflowJobs:
-        - Passenger
+        - Civilian
       availableJobs:
-        Passenger: [ 0, 1 ]
+        Civilian: [ 0, 1 ]
