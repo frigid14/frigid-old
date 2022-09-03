@@ -35,7 +35,10 @@
             "name": "Chemist"
         },
         {
-            "name": "StationEngineer"
+            "name": "ElectricalEngineer"
+        },
+        {
+            "name": "Mechanic"
         },
         {
             "name": "SecurityOfficer"
@@ -122,7 +125,7 @@
             "name": "Psychologist"
         },
         {
-            "name": "MedicalIntern"
+            "name": "Nurse"
         },
         {
             "name": "TechnicalAssistant"

@@ -3,7 +3,7 @@
   name: job-name-intern
   playTimeTracker: JobMedicalIntern
   startingGear: MedicalInternGear
-  icon: "MedicalIntern"
+  icon: "Nurse"
   canBeAntag: false
   access:
   - Medical
@@ -12,10 +12,11 @@
 - type: startingGear
   id: MedicalInternGear
   equipment:
+    head: ClothingHeadNurseHat
     jumpsuit: ClothingUniformJumpsuitColorWhite
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
-    id: MedicalInternPDA
+    id: MedicalInternIDCard
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
   innerclothingskirt: ClothingUniformJumpskirtColorWhite
