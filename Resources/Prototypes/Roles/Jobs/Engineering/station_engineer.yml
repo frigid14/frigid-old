@@ -16,7 +16,8 @@
     shoes: ClothingShoesBootsWork
     outerClothing: ClothingOuterVestHazard
     id: EngineeringIDCard
-    belt: ClothingBeltUtilityFilled
+    belt: ClothingBeltElectricalFilled
+    hands: ClothingHandsGlovesColorYellow
   innerclothingskirt: ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled
