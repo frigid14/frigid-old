@@ -78,7 +78,7 @@
                                     </BoxContainer>
                                 </prefUi:HighlightedContainer>
                             </BoxContainer>
-                            <BoxContainer Orientation="Horizontal" SeparationOverride="10">
+                            <BoxContainer Orientation="Horizontal" SeparationOverride="10" Visible="False">
                                 <!-- Species -->
                                 <prefUi:HighlightedContainer>
                                     <BoxContainer Orientation="Horizontal">

@@ -8,6 +8,6 @@
     Empty:
       mapNameTemplate: "Empty"
       overflowJobs:
-        - Passenger
+        - Civilian
       availableJobs:
-        Passenger: [ -1, -1 ]
+        Civilian: [ -1, -1 ]

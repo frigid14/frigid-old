@@ -3,14 +3,45 @@
   parent: ClothingBeltUtility
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: Crowbar
-      - id: Wrench
-      - id: Screwdriver
-      - id: Wirecutter
-      - id: Welder
-      - id: Multitool
+    - type: StorageFill
+      contents:
+        - id: Crowbar
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Welder
+        - id: Multitool
+
+- type: entity
+  id: ClothingBeltMechanicFilled
+  name: mechanical toolbelt
+  parent: ClothingBeltUtility
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: Crowbar
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Welder
+        - id: FrigidWeldingFuel
+
+- type: entity
+  id: ClothingBeltElectricalFilled
+  name: electrical toolbelt
+  parent: ClothingBeltUtility
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Multitool
+        - id: CableApcStack
+        - id: CableMVStack
+        - id: CableHVStack
 
 - type: entity
   id: ClothingBeltChiefEngineerFilled

@@ -36,8 +36,10 @@ public sealed partial class ToolSystem
             Logger.Error("Attempted to pry from a non-existent grid?");
             return;
         }
-
-        grid.GetTileRef(args.Coordinates).PryTile(_mapManager, _tileDefinitionManager, EntityManager);
+        if (component.QualityNeeded == "Digging")
+            grid.GetTileRef(args.Coordinates).DigTile(_mapManager, _tileDefinitionManager, EntityManager);
+        else
+            grid.GetTileRef(args.Coordinates).PryTile(_mapManager, _tileDefinitionManager, EntityManager);
     }
 
     private void OnTilePryingAfterInteract(EntityUid uid, TilePryingComponent component, AfterInteractEvent args)
@@ -70,7 +72,7 @@ public sealed partial class ToolSystem
 
         var tileDef = (ContentTileDefinition)_tileDefinitionManager[tile.Tile.TypeId];
 
-        if (!tileDef.CanCrowbar)
+        if (!tileDef.CanCrowbar && !tileDef.CanShovel)
             return false;
 
         var token = new CancellationTokenSource();

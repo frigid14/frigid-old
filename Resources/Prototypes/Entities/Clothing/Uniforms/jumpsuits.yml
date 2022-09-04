@@ -207,7 +207,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/engineering_hazard.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/engineering_hazard.rsi
-    
+
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoP

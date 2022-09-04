@@ -7,7 +7,6 @@
   supervisors: job-supervisors-rd
   access:
   - Research
-  - Maintenance
 
 - type: startingGear
   id: ScientistGear
@@ -17,7 +16,7 @@
     shoes: ClothingShoesColorWhite
     outerClothing: ClothingOuterCoatLab
     id: SciencePDA
-    ears: ClothingHeadsetScience
+    pocket1: RadioHandheld
   innerclothingskirt: ClothingUniformJumpskirtScientist
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled

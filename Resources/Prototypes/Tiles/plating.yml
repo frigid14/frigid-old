@@ -27,6 +27,22 @@
   thermalConductivity: 0.04
   heatCapacity: 10000
 
+- type: tile
+  id: FloorSnow
+  name: snow
+  sprite: /Textures/Tiles/snow.png
+  baseTurfs:
+    - FloorDirt
+  isSubfloor: false
+  canCrowbar: false
+  canShovel: true
+  footstepSounds:
+    collection: FootstepSnow
+  friction: 0.20
+  itemDrop: FloorTileItemSnow
+  thermalConductivity: 0.04
+  heatCapacity: 10000000000
+
 # The final step in underplating's deprecation before it gets completely wiped from the codebase.
 - type: tileAlias
   id: UnderPlating

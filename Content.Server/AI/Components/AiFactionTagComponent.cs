@@ -6,6 +6,6 @@ namespace Content.Server.AI.Components
     public sealed class AiFactionTagComponent : Component
     {
         [DataField("factions")]
-        public Faction Factions { get; private set; } = Faction.None;
+        public Faction Factions { get; set; } = Faction.None;
     }
 }

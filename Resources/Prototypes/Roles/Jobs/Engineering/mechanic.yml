@@ -1,0 +1,22 @@
+- type: job
+  id: Mechanic
+  name: job-name-mechanic
+  playTimeTracker: JobStationEngineer
+  startingGear: MechanicGear
+  icon: "Mechanic"
+  access:
+  - Engineering
+
+- type: startingGear
+  id: MechanicGear
+  equipment:
+    head: ClothingHeadHatWelding
+    jumpsuit: ClothingUniformJumpsuitMechanic
+    back: ClothingBackpackEngineeringFilled
+    shoes: ClothingShoesBootsWork
+    id: MechanicIDCard
+    belt: ClothingBeltMechanicFilled
+    pocket1: RadioHandheld
+  innerclothingskirt: ClothingUniformJumpskirtMechanic
+  satchel: ClothingBackpackSatchelEngineeringFilled
+  duffelbag: ClothingBackpackDuffelEngineeringFilled

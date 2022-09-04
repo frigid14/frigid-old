@@ -174,13 +174,14 @@ namespace Content.Server.GameTicking
 
             if (lateJoin)
             {
-                _chatSystem.DispatchStationAnnouncement(station,
-                    Loc.GetString(
-                        "latejoin-arrival-announcement",
-                    ("character", character.Name),
-                    ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(job.Name))
-                    ), Loc.GetString("latejoin-arrival-sender"),
-                    playDefaultSound: false);
+                // Preferably don't do this as we're on a civilian place, no sense, anyway.
+                // _chatSy stem.DispatchStationAnnouncement(station,
+                //     Loc.GetString(
+                //         "latejoin-arrival-announcement",
+                //     ("character", character.Name),
+                //     ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(job.Name))
+                //     ), Loc.GetString("latejoin-arrival-sender"),
+                //     playDefaultSound: false);
             }
 
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character);

@@ -106,12 +106,31 @@ namespace Content.Shared.Maps
             // If the arguments are null, resolve the needed dependencies.
             tileDefinitionManager ??= IoCManager.Resolve<ITileDefinitionManager>();
 
-            if (tile.IsEmpty) return false;
+            if (tile.IsEmpty)
+                return false;
 
             var tileDef = (ContentTileDefinition) tileDefinitionManager[tile.TypeId];
 
-            if (!tileDef.CanCrowbar) return false;
+            if (!tileDef.CanCrowbar)
+                return false;
 
+            return DeconstructTile(tileRef, mapManager, tileDefinitionManager, entityManager, robustRandom);
+        }
+
+        public static bool DigTile(this TileRef tileRef,
+            IMapManager? mapManager = null,
+            ITileDefinitionManager? tileDefinitionManager = null,
+            IEntityManager? entityManager = null,
+            IRobustRandom? robustRandom = null)
+        {
+            var tile = tileRef.Tile;
+            // If the arguments are null, resolve the needed dependencies.
+            tileDefinitionManager ??= IoCManager.Resolve<ITileDefinitionManager>();
+            if (tile.IsEmpty)
+                return false;
+            var tileDef = (ContentTileDefinition) tileDefinitionManager[tile.TypeId];
+            if (!tileDef.CanShovel)
+                return false;
             return DeconstructTile(tileRef, mapManager, tileDefinitionManager, entityManager, robustRandom);
         }
 
@@ -126,11 +145,13 @@ namespace Content.Shared.Maps
             // If the arguments are null, resolve the needed dependencies.
             tileDefinitionManager ??= IoCManager.Resolve<ITileDefinitionManager>();
 
-            if (tile.IsEmpty) return false;
+            if (tile.IsEmpty)
+                return false;
 
             var tileDef = (ContentTileDefinition) tileDefinitionManager[tile.TypeId];
 
-            if (!tileDef.CanWirecutter) return false;
+            if (!tileDef.CanWirecutter)
+                return false;
 
             return DeconstructTile(tileRef, mapManager, tileDefinitionManager, entityManager, robustRandom);
         }

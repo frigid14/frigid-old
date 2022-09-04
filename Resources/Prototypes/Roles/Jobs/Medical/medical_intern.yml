@@ -2,14 +2,8 @@
   id: MedicalIntern
   name: job-name-intern
   playTimeTracker: JobMedicalIntern
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 1800
-      inverted: true # stop playing intern if you're good at med!
   startingGear: MedicalInternGear
-  icon: "MedicalIntern"
-  supervisors: job-supervisors-medicine
+  icon: "Nurse"
   canBeAntag: false
   access:
   - Medical
@@ -18,12 +12,13 @@
 - type: startingGear
   id: MedicalInternGear
   equipment:
+    head: ClothingHeadNurseHat
     jumpsuit: ClothingUniformJumpsuitColorWhite
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
-    id: MedicalInternPDA
-    ears: ClothingHeadsetMedical
+    id: MedicalInternIDCard
     belt: ClothingBeltMedicalFilled
+    pocket1: RadioHandheld
   innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

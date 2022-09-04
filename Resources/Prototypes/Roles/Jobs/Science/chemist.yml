@@ -1,0 +1,26 @@
+- type: job
+  id: Chemist
+  name: job-name-chemist
+  playTimeTracker: JobChemist
+  startingGear: ChemistGear
+  icon: "Chemist"
+  supervisors: job-supervisors-cmo
+  access:
+  - Chemistry
+  - Research
+
+- type: startingGear
+  id: ChemistGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChemistry
+    back: ClothingBackpackChemistryFilled
+    shoes: ClothingShoesColorWhite
+    outerClothing: ClothingOuterCoatLabChem
+    id: ChemistryPDA
+    belt: ClothingBeltMedical
+    pocket1: HandLabeler
+    pocket2: RadioHandheld
+    # the purple glasses?
+  innerclothingskirt: ClothingUniformJumpskirtChemistry
+  satchel: ClothingBackpackSatchelChemistryFilled
+  duffelbag: ClothingBackpackDuffelChemistryFilled

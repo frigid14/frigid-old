@@ -1,0 +1,19 @@
+﻿- type: gameMap
+  id: frigid
+  mapName: 'Frigid'
+  mapPath: /Maps/frigid.yml
+  minPlayers: 0
+  maxPlayers: 65
+  fallback: true
+  stations:
+    Frigid:
+      mapNameTemplate: '{0} Frigid {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs:
+        - Civilian
+      availableJobs:
+        Civilian: [ -1, -1 ]
+        Mechanic: [ 1, 2 ]
+        StationEngineer: [2, 3]
