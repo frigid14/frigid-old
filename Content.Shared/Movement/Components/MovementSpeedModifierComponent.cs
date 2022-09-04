@@ -23,8 +23,8 @@ namespace Content.Shared.Movement.Components
         public const float DefaultFrictionNoInput = 20f;
 
         // Invert these for a shift-sprint thing
-        public const float DefaultBaseWalkSpeed = 4.5f;
-        public const float DefaultBaseSprintSpeed = 2.5f;
+        public const float DefaultBaseWalkSpeed = 2.5f;
+        public const float DefaultBaseSprintSpeed = 4.5f;
 
         [ViewVariables]
         public float WalkSpeedModifier = 1.0f;
