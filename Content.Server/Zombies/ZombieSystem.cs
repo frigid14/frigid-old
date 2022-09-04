@@ -37,6 +37,12 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, MobStateChangedEvent>(OnMobState);
             SubscribeLocalEvent<ActiveZombieComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<ZombieComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
+            SubscribeLocalEvent<ZombifyOnInitComponent, ComponentInit>(HandleInit);
+        }
+
+        private void HandleInit(EntityUid uid, ZombifyOnInitComponent component, ComponentInit args)
+        {
+            _zombify.ZombifyEntity(uid);
         }
 
         private void OnMobState(EntityUid uid, ZombieComponent component, MobStateChangedEvent args)
