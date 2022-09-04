@@ -16,6 +16,7 @@
     shoes: ClothingShoesBootsWork
     id: MechanicIDCard
     belt: ClothingBeltMechanicFilled
+    pocket1: RadioHandheld
   innerclothingskirt: ClothingUniformJumpskirtMechanic
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

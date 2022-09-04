@@ -17,9 +17,9 @@
     shoes: ClothingShoesColorWhite
     outerClothing: ClothingOuterCoatLabChem
     id: ChemistryPDA
-    ears: ClothingHeadsetMedical
     belt: ClothingBeltMedical
     pocket1: HandLabeler
+    pocket2: RadioHandheld
     # the purple glasses?
   innerclothingskirt: ClothingUniformJumpskirtChemistry
   satchel: ClothingBackpackSatchelChemistryFilled

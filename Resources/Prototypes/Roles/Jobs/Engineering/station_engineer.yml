@@ -18,6 +18,7 @@
     id: EngineeringIDCard
     belt: ClothingBeltElectricalFilled
     gloves: ClothingHandsGlovesColorYellow
+    pocket1: RadioHandheld
   innerclothingskirt: ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

@@ -17,9 +17,9 @@
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
     outerClothing: ClothingOuterCoatLab
-    id: MedicalPDA
-    ears: ClothingHeadsetMedical
+    id: MedicalIDCard
     belt: ClothingBeltMedicalFilled
+    pocket1: RadioHandheld
   innerclothingskirt: ClothingUniformJumpskirtMedicalDoctor
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled
