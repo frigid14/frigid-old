@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: MobZed
-  name: Random Zombie
+  suffix: Random Zombie
   parent: MobHuman
   components:
     - type: CombatMode
@@ -11,7 +11,7 @@
       behaviorSets:
         - Idle
         - UnarmedAttackHostiles
-    - type: Temperature
+    - type: Temperature1
       heatDamageThreshold: 360
       coldDamageThreshold: -150
       currentTemperature: 310.15
