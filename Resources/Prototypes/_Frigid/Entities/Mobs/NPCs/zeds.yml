@@ -1,0 +1,28 @@
+﻿- type: entity
+  id: MobZed
+  name: Random Zombie
+  parent: MobHuman
+  components:
+    - type: CombatMode
+      canDisarm: true
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      behaviorSets:
+        - XenoCompound
+    - type: Temperature
+      heatDamageThreshold: 360
+      coldDamageThreshold: -150
+      currentTemperature: 310.15
+    - type: Tag
+      tags:
+        - CannotSuicide
+    - type: AiFactionTag
+      factions:
+        - SimpleHostile
+    - type: ZombifyOnInit
+    - type: GhostTakeoverAvailable
+      makeSentient: true
+      name: zombie
+      description: |
+        Become a zombie, wreck havoc amongst the survivors! New Life Rule is still in place.

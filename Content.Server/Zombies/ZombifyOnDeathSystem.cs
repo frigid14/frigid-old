@@ -28,6 +28,9 @@ using Content.Shared.Zombies;
 using Content.Shared.Popups;
 using Content.Server.Atmos.Miasma;
 using Content.Server.IdentityManagement;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
 
@@ -110,6 +113,18 @@ namespace Content.Server.Zombies
             RemComp<CombatModeComponent>(target);
             AddComp<CombatModeComponent>(target);
 
+            //Switch the infected's AI faction
+            TryComp<AiFactionTagComponent>(target, out var aiFaction);
+            if (aiFaction == null)
+            {
+                var aiFactionComponent = AddComp<AiFactionTagComponent>(target);
+                aiFactionComponent.Factions = Faction.SimpleHostile;
+            }
+            else
+            {
+                aiFaction.Factions = Faction.SimpleHostile;
+            }
+
             var vocal = EnsureComp<VocalComponent>(target);
             var scream = new SoundCollectionSpecifier ("ZombieScreams");
             vocal.FemaleScream = scream;
@@ -166,29 +181,34 @@ namespace Content.Server.Zombies
                 _damageable.SetAllDamage(damageablecomp, 0);
 
             //gives it the funny "Zombie ___" name.
-            if (TryComp<MetaDataComponent>(target, out var meta))
-                meta.EntityName = Loc.GetString("zombie-name-prefix", ("target", meta.EntityName));
-
-            _identity.QueueIdentityUpdate(target);
+            // if (TryComp<MetaDataComponent>(target, out var meta))
+            // meta.EntityName = Loc.GetString("zombie-name-prefix", ("target", meta.EntityName));
+            // _identity.QueueIdentityUpdate(target);
 
             //He's gotta have a mind
-            var mindcomp = EnsureComp<MindComponent>(target);
-            if (mindcomp.Mind != null && mindcomp.Mind.TryGetSession(out var session))
+            //UNLESS they're an AI
+            TryComp<HTNComponent>(target, out var utilityNpcComponent);
+            if (utilityNpcComponent == null)
             {
-                //Zombie role for player manifest
-                mindcomp.Mind.AddRole(new TraitorRole(mindcomp.Mind, _proto.Index<AntagPrototype>(zombiecomp.ZombieRoleId)));
-                //Greeting message for new bebe zombers
-                _chatMan.DispatchServerMessage(session, Loc.GetString("zombie-infection-greeting"));
+                var mindcomp = EnsureComp<MindComponent>(target);
+                if (mindcomp.Mind != null && mindcomp.Mind.TryGetSession(out var session))
+                {
+                    //Zombie role for player manifest
+                    mindcomp.Mind.AddRole(new TraitorRole(mindcomp.Mind, _proto.Index<AntagPrototype>(zombiecomp.ZombieRoleId)));
+                    //Greeting message for new bebe zombers
+                    _chatMan.DispatchServerMessage(session, Loc.GetString("zombie-infection-greeting"));
+                }
+
+                if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !mindcomp.HasMind) //this specific component gives build test trouble so pop off, ig
+                {
+                    //yet more hardcoding. Visit zombie.ftl for more information.
+                    EntityManager.EnsureComponent<GhostTakeoverAvailableComponent>(target, out var ghostcomp);
+                    ghostcomp.RoleName = Loc.GetString("zombie-generic");
+                    ghostcomp.RoleDescription = Loc.GetString("zombie-role-desc");
+                    ghostcomp.RoleRules = Loc.GetString("zombie-role-rules");
+                }
             }
 
-            if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !mindcomp.HasMind) //this specific component gives build test trouble so pop off, ig
-            {
-                //yet more hardcoding. Visit zombie.ftl for more information.
-                EntityManager.EnsureComponent<GhostTakeoverAvailableComponent>(target, out var ghostcomp);
-                ghostcomp.RoleName = Loc.GetString("zombie-generic");
-                ghostcomp.RoleDescription = Loc.GetString("zombie-role-desc");
-                ghostcomp.RoleRules = Loc.GetString("zombie-role-rules");
-            }
 
             //Goes through every hand, drops the items in it, then removes the hand
             //may become the source of various bugs.
