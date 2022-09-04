@@ -20,10 +20,6 @@
         collection: Coughs
     - !type:DiseaseAddComponent
       comp: ZombifyOnDeath
-  cures:
-    - !type:DiseaseReagentCure
-      reagent: Romerol
-      min: 5
 
 - type: disease
   id: PassiveZombieVirus
