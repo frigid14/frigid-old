@@ -6,8 +6,8 @@
   maxPlayers: 65
   fallback: true
   stations:
-    Saltern:
-      mapNameTemplate: '{0} Saltern {1}'
+    Frigid:
+      mapNameTemplate: '{0} Frigid {1}'
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
@@ -15,4 +15,5 @@
         - Civilian
       availableJobs:
         Civilian: [ -1, -1 ]
-        Mechanic: [ 2, 2 ]
+        Mechanic: [ 1, 2 ]
+        StationEngineer: [2, 3]
