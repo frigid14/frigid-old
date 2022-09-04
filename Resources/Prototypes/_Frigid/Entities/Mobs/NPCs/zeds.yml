@@ -11,7 +11,7 @@
       behaviorSets:
         - Idle
         - UnarmedAttackHostiles
-    - type: Temperature1
+    - type: Temperature
       heatDamageThreshold: 360
       coldDamageThreshold: -150
       currentTemperature: 310.15
