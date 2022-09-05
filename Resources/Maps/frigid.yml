@@ -41553,7 +41553,7 @@ entities:
       path: /Audio/Effects/stonedoor_openclose.ogg
     closeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/stonedoor_openclose.ogg
-    SecondsUntilStateChange: -8017.2993
+    SecondsUntilStateChange: -8061.9688
     state: Opening
     type: Door
   - damageModifierSet: Metallic
@@ -59048,15 +59048,87 @@ entities:
     parent: 92
     type: Transform
 - uid: 5132
+  type: Poweredlight
+  components:
+  - pos: 71.5,68.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 5133
   type: SpawnMobZed
   components:
   - pos: -44.5,87.5
     parent: 92
     type: Transform
-- uid: 5133
+- uid: 5134
   type: SpawnMobZed
   components:
   - pos: -40.5,85.5
+    parent: 92
+    type: Transform
+- uid: 5135
+  type: Lighter
+  components:
+  - pos: 77.591225,63.612743
+    parent: 92
+    type: Transform
+- uid: 5136
+  type: Poweredlight
+  components:
+  - pos: 77.5,68.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 5137
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 77.5,66.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 5138
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 71.5,66.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 5139
+  type: CigCartonBlack
+  components:
+  - pos: 78.23185,63.675243
+    parent: 92
+    type: Transform
+- uid: 5140
+  type: Lighter
+  components:
+  - pos: 77.778725,63.534615
     parent: 92
     type: Transform
 ...
