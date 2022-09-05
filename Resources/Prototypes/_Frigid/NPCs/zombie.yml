@@ -1,0 +1,7 @@
+﻿- type: htnCompound
+  id: ZombieCompound
+  branches:
+    - tasks:
+        - id: MeleeCombatCompound
+    - tasks:
+        - id: IdleCompound

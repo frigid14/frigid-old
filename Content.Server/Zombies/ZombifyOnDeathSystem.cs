@@ -142,7 +142,7 @@ namespace Content.Server.Zombies
             var melee = EnsureComp<MeleeWeaponComponent>(target);
             melee.Arc = zombiecomp.AttackArc;
             melee.ClickArc = zombiecomp.AttackArc;
-            melee.Range = 0.75f;
+            melee.Range = 1.25f;
 
             //We have specific stuff for humanoid zombies because they matter more
             if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp

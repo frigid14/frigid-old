@@ -10,8 +10,7 @@
     - type: InputMover
     - type: MobMover
     - type: HTN
-      behaviorSets:
-        - XenoCompound
+      rootTask: ZombieCompound
     - type: Temperature
       heatDamageThreshold: 360
       coldDamageThreshold: -150
