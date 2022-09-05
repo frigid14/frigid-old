@@ -3,6 +3,9 @@ namespace Content.Server.Zombies
     [RegisterComponent]
     public sealed class ZombifyOnInitComponent : Component
     {
-        //this is not the component you are looking for
+        /// <summary>
+        /// Should we have a random appearance on spawn?
+        /// </summary>
+        public bool RandomAppearance = false;
     }
 }

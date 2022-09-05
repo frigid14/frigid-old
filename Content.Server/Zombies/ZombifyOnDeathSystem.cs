@@ -30,8 +30,11 @@ using Content.Server.Traitor;
 using Content.Shared.Zombies;
 using Content.Shared.Popups;
 using Content.Server.Atmos.Miasma;
+using Content.Server.CharacterAppearance.Components;
+using Content.Server.CharacterAppearance.Systems;
 using Content.Server.IdentityManagement;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Preferences;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Zombies
@@ -54,6 +57,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
         [Dependency] private readonly IChatManager _chatMan = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
+        [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
 
         public override void Initialize()
         {
@@ -86,11 +90,23 @@ namespace Content.Server.Zombies
         ///     rewrite this, but this is how it shall lie eternal. Turn back now.
         ///     -emo
         /// </remarks>
-        public void ZombifyEntity(EntityUid target)
+        public void ZombifyEntity(EntityUid target, bool randomizeAppearance = false)
         {
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
                 return;
+
+            if (randomizeAppearance)
+            {
+                Logger.Debug("Yeah sure go randomize appearance");
+                // i would use random humanoid appearance but that fucks shit up
+                var appearance = EnsureComp<HumanoidAppearanceComponent>(target);
+                var profile = HumanoidCharacterProfile.Random();
+                _humanoidAppearance.UpdateFromProfile(target, profile, appearance);
+
+                var meta = MetaData(target);
+                meta.EntityName = profile.Name;
+            }
 
             //you're a real zombie now, son.
             var zombiecomp = AddComp<ZombieComponent>(target);
@@ -114,16 +130,8 @@ namespace Content.Server.Zombies
             AddComp<CombatModeComponent>(target);
 
             //Switch the infected's AI faction
-            TryComp<AiFactionTagComponent>(target, out var aiFaction);
-            if (aiFaction == null)
-            {
-                var aiFactionComponent = AddComp<AiFactionTagComponent>(target);
-                aiFactionComponent.Factions = Faction.SimpleHostile;
-            }
-            else
-            {
-                aiFaction.Factions = Faction.SimpleHostile;
-            }
+            var aiFactionComponent = EnsureComp<AiFactionTagComponent>(target);
+            aiFactionComponent.Factions = Faction.SimpleHostile;
 
             var vocal = EnsureComp<VocalComponent>(target);
             var scream = new SoundCollectionSpecifier ("ZombieScreams");
@@ -149,9 +157,9 @@ namespace Content.Server.Zombies
                 //This is done here because non-humanoids shouldn't get baller damage
                 //lord forgive me for the hardcoded damage
                 DamageSpecifier dspec = new();
-                dspec.DamageDict.Add("Slash", 13);
-                dspec.DamageDict.Add("Piercing", 7);
-                dspec.DamageDict.Add("Structural", 10);
+                dspec.DamageDict.Add("Slash", 13 / 4);
+                dspec.DamageDict.Add("Piercing", 7 / 4);
+                dspec.DamageDict.Add("Structural", 10 / 4);
                 melee.Damage = dspec;
             }
 
@@ -166,7 +174,8 @@ namespace Content.Server.Zombies
             _serverInventory.TryUnequip(target, "gloves", true, true);
 
             //popup
-            _popupSystem.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, Filter.Pvs(target), PopupType.LargeCaution);
+            // Disable the popup. Doesn't really make sense for there to be a massive red text.
+            // _popupSystem.PopupEntity(Loc.GetString("zombie-transform", ("target", target)), target, Filter.Pvs(target), PopupType.LargeCaution);
 
             //Make it sentient if it's an animal or something
             if (!HasComp<InputMoverComponent>(target)) //this component is cursed and fucks shit up

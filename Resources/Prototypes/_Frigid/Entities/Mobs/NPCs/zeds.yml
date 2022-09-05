@@ -5,6 +5,8 @@
   components:
     - type: CombatMode
       canDisarm: true
+    - type: Loadout
+      preset: PassengerGear
     - type: InputMover
     - type: MobMover
     - type: UtilityNPC
@@ -22,6 +24,7 @@
       factions:
         - SimpleHostile
     - type: ZombifyOnInit
+      randomAppearance: true
     - type: GhostTakeoverAvailable
       makeSentient: true
       name: zombie
