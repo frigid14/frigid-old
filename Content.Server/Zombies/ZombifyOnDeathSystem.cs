@@ -156,9 +156,9 @@ namespace Content.Server.Zombies
                 //This is done here because non-humanoids shouldn't get baller damage
                 //lord forgive me for the hardcoded damage
                 DamageSpecifier dspec = new();
-                dspec.DamageDict.Add("Slash", 13 / 4);
-                dspec.DamageDict.Add("Piercing", 7 / 4);
-                dspec.DamageDict.Add("Structural", 10 / 4);
+                dspec.DamageDict.Add("Slash", 2);
+                dspec.DamageDict.Add("Piercing", 1);
+                dspec.DamageDict.Add("Structural", 10);
                 melee.Damage = dspec;
             }
 
