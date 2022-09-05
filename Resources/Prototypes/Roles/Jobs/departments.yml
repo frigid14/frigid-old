@@ -21,8 +21,8 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
-  - Detective
-  - Warden
+#  - Detective
+#  - Warden
 
 - type: department
   id: Science

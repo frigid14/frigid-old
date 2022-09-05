@@ -13,9 +13,6 @@
   access:
   - Security
   - Brig
-  - Maintenance
-  - Service
-  - External
 
 - type: startingGear
   id: SecurityOfficerGear
@@ -24,11 +21,9 @@
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsJack
     eyes: ClothingEyesGlassesSecurity
-    head: ClothingHeadHelmetHelmetOld
     outerClothing: ClothingOuterVestKevlar
-    id: SecurityPDA
-    ears: ClothingHeadsetSecurity
-    belt: ClothingBeltSecurityFilled
+    id: SecurityIDCard
+    belt: ClothingSecBeltHolsterFilled
   innerclothingskirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled
