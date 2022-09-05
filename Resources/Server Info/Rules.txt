@@ -9,7 +9,8 @@
 
 [color=#a4885c]2.[/color] These are english servers. Do not speak other languages in IC or OOC, our staff cannot moderate it and you will be asked to stop.
 
-[color=#a4885c]3.[/color] These servers are "Medium Roleplay", roleplaying is expected.
+[color=#a4885c]3.[/color] These servers are "Medium Roleplay", roleplaying is expected and required.
+        - Perfect roleplay isn't required, just stay in character and you'll be fine.
 
 [color=#a4885c]4.[/color] Erotic Roleplay (ERP) is [color=#ff0000]not allowed under any circumstance[/color]. This includes any direct or implied sexual acts as well as explicit mentions of sexual behavior.
 
@@ -36,3 +37,7 @@
     - This is a roleplaying game, thus IC conflicts must only be resolved with IC (Local) chat. Utilizing voice chat, calling across the room, OOC, or other out-of-game communication methods to coordinate in-game actions is forbidden and will result in a [color=#ff0000]appeal-only permanent ban[/color] in most cases.
     - Using emotes or LOOC to bypass IC chat restrictions (accents, unconsciousness, death) is not allowed.
     - Preemptive spacing or destruction of high-risk items also falls under this rule.
+
+[color=#a4885c]New Life Rule (NLR).[/color] New Life Rule extends upon Rule 10? If you manage to respawn (via an admin or a respawn button), you are not allowed to remember anything in your past life.
+    - Remembering where you last died is NOT allowed
+    - Essentially, you're a new person. Get over your death.
