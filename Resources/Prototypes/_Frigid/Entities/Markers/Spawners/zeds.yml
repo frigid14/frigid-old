@@ -1,0 +1,11 @@
+﻿- type: entity
+  name: Zombie Spawner
+  id: SpawnVehicleZed
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+    - type: ConditionalSpawner
+      prototypes:
+        - MobZed

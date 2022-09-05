@@ -98,7 +98,6 @@ namespace Content.Server.Zombies
 
             if (randomizeAppearance)
             {
-                Logger.Debug("Yeah sure go randomize appearance");
                 // i would use random humanoid appearance but that fucks shit up
                 var appearance = EnsureComp<HumanoidAppearanceComponent>(target);
                 var profile = HumanoidCharacterProfile.Random();
