@@ -69,6 +69,12 @@ grids:
     tilesize: 1
   chunks:
   - ind: -1,-1
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAAA==
+- settings:
+    chunksize: 16
+    tilesize: 1
+  chunks:
+  - ind: -1,-1
     tiles: KgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAACoAAAAVAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAqAAAAFQAAADMAAAAzAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAMwAAADMAAAAzAAAAOAAAADgAAAA4AAAAKgAAABUAAAAzAAAAMwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADMAAAAzAAAAMwAAADgAAAA4AAAAOAAAACoAAAAVAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAzAAAAMwAAADMAAAA4AAAAOAAAADgAAAAqAAAAFQAAADMAAAAzAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAMwAAADMAAAAzAAAAOAAAADgAAAA4AAAAKgAAABUAAAAzAAAAMwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAACoAAAAVAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAqAAAAFQAAADMAAAAzAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAKgAAABUAAAAzAAAAMwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAACoAAAAVAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAqAAAAFQAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAKgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAACoAAAAVAAAAMwAAADMAAAAzAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAqAAAAFQAAADMAAAAzAAAAMwAAADMAAAAzAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAKgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAA==
   - ind: -1,0
     tiles: KgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAACoAAAAVAAAAMwAAADMAAAAzAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAqAAAAKgAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAqAAAAKgAAACoAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAABUAAAAVAAAAFQAAACoAAAAVAAAAMwAAADMAAAAzAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAqAAAAFQAAADMAAAAzAAAAMwAAADMAAAAzAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAKgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAACoAAAAVAAAAMwAAADMAAAAzAAAAMwAAADMAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAqAAAAFQAAADMAAAAzAAAAMwAAADMAAAAzAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAKgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAACoAAAAVAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAqAAAAFQAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAKgAAABUAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAAA==
@@ -142,12 +148,6 @@ grids:
     tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
   - ind: 1,3
     tiles: MwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAAAAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAAAAAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAAAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAAAAAAAAAAAAAAAAAAAAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAAAAAAAAAAAAAAAAAAAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAMwAAADMAAAAzAAAAAAAAAAAAAAAAAAAAAAAAADMAAAAzAAAAMwAAADMAAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAMwAAADMAAAAzAAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-- settings:
-    chunksize: 16
-    tilesize: 1
-  chunks:
-  - ind: -1,-1
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAAA==
 entities:
 - uid: 0
   type: Poweredlight
@@ -764,7 +764,7 @@ entities:
   - pos: 0.52123225,0.39157388
     parent: 93
     type: Transform
-  - index: 0
+  - index: 1
     type: MapGrid
   - angularDamping: 0.05
     linearDamping: 0.05
@@ -7488,8 +7488,6 @@ entities:
   - pos: -0.5,-0.5
     parent: 1573
     type: Transform
-  - bodyType: Dynamic
-    type: Physics
 - uid: 149
   type: GrilleBorder
   components:
@@ -16811,7 +16809,7 @@ entities:
   - pos: 13.472225,59.920326
     parent: 93
     type: Transform
-  - index: 1
+  - index: 0
     type: MapGrid
   - angularDamping: 0.05
     linearDamping: 0.05
@@ -23032,4 +23030,1028 @@ entities:
   - pos: 32.5,-16.5
     parent: 92
     type: Transform
+- uid: 2568
+  type: CableApcExtension
+  components:
+  - pos: -1.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2569
+  type: CableApcExtension
+  components:
+  - pos: -1.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2570
+  type: CableApcExtension
+  components:
+  - pos: -1.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2571
+  type: SubstationBasic
+  components:
+  - pos: -2.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2572
+  type: APCBasic
+  components:
+  - pos: -1.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2573
+  type: CableMV
+  components:
+  - pos: -1.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2574
+  type: CableHV
+  components:
+  - pos: -3.5,-7.5
+    parent: 92
+    type: Transform
+- uid: 2575
+  type: CableHV
+  components:
+  - pos: -3.5,-6.5
+    parent: 92
+    type: Transform
+- uid: 2576
+  type: CableHV
+  components:
+  - pos: -3.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2577
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2578
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-12.5
+    parent: 92
+    type: Transform
+- uid: 2579
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2580
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2581
+  type: CableApcExtension
+  components:
+  - pos: -0.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2582
+  type: CableApcExtension
+  components:
+  - pos: -2.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2583
+  type: CableMV
+  components:
+  - pos: -1.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2584
+  type: CableMV
+  components:
+  - pos: -2.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2585
+  type: CableHV
+  components:
+  - pos: -2.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2586
+  type: CableHV
+  components:
+  - pos: -3.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2587
+  type: CableHV
+  components:
+  - pos: -3.5,-4.5
+    parent: 92
+    type: Transform
+- uid: 2588
+  type: CableHV
+  components:
+  - pos: -3.5,-3.5
+    parent: 92
+    type: Transform
+- uid: 2589
+  type: CableHV
+  components:
+  - pos: -3.5,-2.5
+    parent: 92
+    type: Transform
+- uid: 2590
+  type: CableHV
+  components:
+  - pos: -3.5,-1.5
+    parent: 92
+    type: Transform
+- uid: 2591
+  type: CableHV
+  components:
+  - pos: -3.5,-0.5
+    parent: 92
+    type: Transform
+- uid: 2592
+  type: Poweredlight
+  components:
+  - pos: -2.5,-13.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2593
+  type: Poweredlight
+  components:
+  - pos: -0.5,-13.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2594
+  type: Poweredlight
+  components:
+  - pos: 1.5,-10.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2595
+  type: SubstationBasic
+  components:
+  - pos: 42.5,-7.5
+    parent: 92
+    type: Transform
+- uid: 2596
+  type: WeaponRifleLecter
+  components:
+  - pos: 47.497185,-10.326725
+    parent: 92
+    type: Transform
+- uid: 2597
+  type: WeaponRifleLecter
+  components:
+  - pos: 47.66906,-10.52985
+    parent: 92
+    type: Transform
+- uid: 2598
+  type: MagazineRiflePractice
+  components:
+  - pos: 48.38781,-10.34235
+    parent: 92
+    type: Transform
+- uid: 2599
+  type: MagazineRiflePractice
+  components:
+  - pos: 48.590935,-10.420475
+    parent: 92
+    type: Transform
+- uid: 2600
+  type: MagazineRiflePractice
+  components:
+  - pos: 48.809685,-10.5611
+    parent: 92
+    type: Transform
+- uid: 2601
+  type: MagazineRifleRubber
+  components:
+  - pos: 48.45031,-10.5611
+    parent: 92
+    type: Transform
+- uid: 2602
+  type: MagazineRifleRubber
+  components:
+  - pos: 48.63781,-10.670475
+    parent: 92
+    type: Transform
+- uid: 2603
+  type: MagazineRifleRubber
+  components:
+  - pos: 48.872185,-10.826725
+    parent: 92
+    type: Transform
+- uid: 2604
+  type: MagazineRifleHighVelocity
+  components:
+  - pos: 48.304714,-10.372677
+    parent: 92
+    type: Transform
+- uid: 2605
+  type: MagazineRifleHighVelocity
+  components:
+  - pos: 48.66409,-10.763302
+    parent: 92
+    type: Transform
+- uid: 2606
+  type: MagazineRifleHighVelocity
+  components:
+  - pos: 48.47659,-10.607052
+    parent: 92
+    type: Transform
+- uid: 2607
+  type: CableHV
+  components:
+  - pos: 41.5,8.5
+    parent: 92
+    type: Transform
+- uid: 2608
+  type: CableHV
+  components:
+  - pos: 41.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2609
+  type: CableHV
+  components:
+  - pos: 41.5,6.5
+    parent: 92
+    type: Transform
+- uid: 2610
+  type: CableHV
+  components:
+  - pos: 41.5,5.5
+    parent: 92
+    type: Transform
+- uid: 2611
+  type: CableHV
+  components:
+  - pos: 41.5,4.5
+    parent: 92
+    type: Transform
+- uid: 2612
+  type: CableHV
+  components:
+  - pos: 41.5,3.5
+    parent: 92
+    type: Transform
+- uid: 2613
+  type: CableHV
+  components:
+  - pos: 41.5,2.5
+    parent: 92
+    type: Transform
+- uid: 2614
+  type: CableHV
+  components:
+  - pos: 41.5,1.5
+    parent: 92
+    type: Transform
+- uid: 2615
+  type: CableHV
+  components:
+  - pos: 41.5,0.5
+    parent: 92
+    type: Transform
+- uid: 2616
+  type: CableHV
+  components:
+  - pos: 41.5,-0.5
+    parent: 92
+    type: Transform
+- uid: 2617
+  type: CableHV
+  components:
+  - pos: 41.5,-1.5
+    parent: 92
+    type: Transform
+- uid: 2618
+  type: CableHV
+  components:
+  - pos: 41.5,-2.5
+    parent: 92
+    type: Transform
+- uid: 2619
+  type: CableHV
+  components:
+  - pos: 41.5,-3.5
+    parent: 92
+    type: Transform
+- uid: 2620
+  type: CableHV
+  components:
+  - pos: 41.5,-4.5
+    parent: 92
+    type: Transform
+- uid: 2621
+  type: CableHV
+  components:
+  - pos: 42.5,-4.5
+    parent: 92
+    type: Transform
+- uid: 2622
+  type: CableHV
+  components:
+  - pos: 41.5,-6.5
+    parent: 92
+    type: Transform
+- uid: 2623
+  type: CableHV
+  components:
+  - pos: 42.5,-6.5
+    parent: 92
+    type: Transform
+- uid: 2624
+  type: CableHV
+  components:
+  - pos: 42.5,-7.5
+    parent: 92
+    type: Transform
+- uid: 2625
+  type: CableHV
+  components:
+  - pos: 48.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2626
+  type: CableHV
+  components:
+  - pos: 47.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2627
+  type: CableHV
+  components:
+  - pos: 46.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2628
+  type: CableHV
+  components:
+  - pos: 45.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2629
+  type: CableHV
+  components:
+  - pos: 44.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2630
+  type: CableHV
+  components:
+  - pos: 43.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2631
+  type: CableHV
+  components:
+  - pos: 42.5,7.5
+    parent: 92
+    type: Transform
+- uid: 2632
+  type: CableHV
+  components:
+  - pos: 47.5,5.5
+    parent: 92
+    type: Transform
+- uid: 2633
+  type: CableHV
+  components:
+  - pos: 47.5,4.5
+    parent: 92
+    type: Transform
+- uid: 2634
+  type: CableHV
+  components:
+  - pos: 47.5,3.5
+    parent: 92
+    type: Transform
+- uid: 2635
+  type: CableHV
+  components:
+  - pos: 47.5,2.5
+    parent: 92
+    type: Transform
+- uid: 2636
+  type: CableHV
+  components:
+  - pos: 47.5,1.5
+    parent: 92
+    type: Transform
+- uid: 2637
+  type: CableHV
+  components:
+  - pos: 47.5,0.5
+    parent: 92
+    type: Transform
+- uid: 2638
+  type: CableHV
+  components:
+  - pos: 47.5,-0.5
+    parent: 92
+    type: Transform
+- uid: 2639
+  type: CableHV
+  components:
+  - pos: 47.5,-1.5
+    parent: 92
+    type: Transform
+- uid: 2640
+  type: CableHV
+  components:
+  - pos: 47.5,-2.5
+    parent: 92
+    type: Transform
+- uid: 2641
+  type: CableHV
+  components:
+  - pos: 47.5,-3.5
+    parent: 92
+    type: Transform
+- uid: 2642
+  type: CableHV
+  components:
+  - pos: 47.5,-4.5
+    parent: 92
+    type: Transform
+- uid: 2643
+  type: CableHV
+  components:
+  - pos: 47.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2644
+  type: CableHV
+  components:
+  - pos: 46.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2645
+  type: CableHV
+  components:
+  - pos: 45.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2646
+  type: CableHV
+  components:
+  - pos: 44.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2647
+  type: CableHV
+  components:
+  - pos: 43.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2648
+  type: CableHV
+  components:
+  - pos: 42.5,-5.5
+    parent: 92
+    type: Transform
+- uid: 2649
+  type: CableMV
+  components:
+  - pos: 42.5,-7.5
+    parent: 92
+    type: Transform
+- uid: 2650
+  type: CableMV
+  components:
+  - pos: 41.5,-7.5
+    parent: 92
+    type: Transform
+- uid: 2651
+  type: CableMV
+  components:
+  - pos: 41.5,-6.5
+    parent: 92
+    type: Transform
+- uid: 2652
+  type: CableMV
+  components:
+  - pos: 42.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2653
+  type: CableMV
+  components:
+  - pos: 42.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2654
+  type: CableMV
+  components:
+  - pos: 42.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2655
+  type: CableMV
+  components:
+  - pos: 42.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2656
+  type: CableMV
+  components:
+  - pos: 41.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2657
+  type: CableMV
+  components:
+  - pos: 41.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2658
+  type: CableMV
+  components:
+  - pos: 40.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2659
+  type: CableMV
+  components:
+  - pos: 39.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2660
+  type: CableMV
+  components:
+  - pos: 38.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2661
+  type: CableMV
+  components:
+  - pos: 38.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2662
+  type: CableMV
+  components:
+  - pos: 38.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2663
+  type: APCBasic
+  components:
+  - pos: 38.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2664
+  type: CableApcExtension
+  components:
+  - pos: 38.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2665
+  type: CableApcExtension
+  components:
+  - pos: 38.5,-12.5
+    parent: 92
+    type: Transform
+- uid: 2666
+  type: CableApcExtension
+  components:
+  - pos: 38.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2667
+  type: CableApcExtension
+  components:
+  - pos: 38.5,-14.5
+    parent: 92
+    type: Transform
+- uid: 2668
+  type: CableApcExtension
+  components:
+  - pos: 37.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2669
+  type: CableApcExtension
+  components:
+  - pos: 36.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2670
+  type: CableApcExtension
+  components:
+  - pos: 39.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2671
+  type: APCBasic
+  components:
+  - pos: 41.5,-11.5
+    parent: 92
+    type: Transform
+- uid: 2672
+  type: CableApcExtension
+  components:
+  - pos: 41.5,-12.5
+    parent: 92
+    type: Transform
+- uid: 2673
+  type: CableApcExtension
+  components:
+  - pos: 41.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2674
+  type: CableApcExtension
+  components:
+  - pos: 41.5,-14.5
+    parent: 92
+    type: Transform
+- uid: 2675
+  type: CableApcExtension
+  components:
+  - pos: 42.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2676
+  type: CableApcExtension
+  components:
+  - pos: 43.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2677
+  type: CableApcExtension
+  components:
+  - pos: 44.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2678
+  type: CableApcExtension
+  components:
+  - pos: 45.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2679
+  type: CableApcExtension
+  components:
+  - pos: 46.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2680
+  type: CableApcExtension
+  components:
+  - pos: 47.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2681
+  type: CableApcExtension
+  components:
+  - pos: 48.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2682
+  type: CableApcExtension
+  components:
+  - pos: 49.5,-13.5
+    parent: 92
+    type: Transform
+- uid: 2683
+  type: APCBasic
+  components:
+  - pos: 41.5,-6.5
+    parent: 92
+    type: Transform
+- uid: 2684
+  type: CableApcExtension
+  components:
+  - pos: 41.5,-6.5
+    parent: 92
+    type: Transform
+- uid: 2685
+  type: CableApcExtension
+  components:
+  - pos: 41.5,-7.5
+    parent: 92
+    type: Transform
+- uid: 2686
+  type: CableApcExtension
+  components:
+  - pos: 41.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2687
+  type: CableApcExtension
+  components:
+  - pos: 42.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2688
+  type: CableApcExtension
+  components:
+  - pos: 43.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2689
+  type: CableApcExtension
+  components:
+  - pos: 44.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2690
+  type: CableApcExtension
+  components:
+  - pos: 45.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2691
+  type: CableApcExtension
+  components:
+  - pos: 46.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2692
+  type: CableApcExtension
+  components:
+  - pos: 47.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2693
+  type: CableApcExtension
+  components:
+  - pos: 48.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2694
+  type: CableApcExtension
+  components:
+  - pos: 49.5,-8.5
+    parent: 92
+    type: Transform
+- uid: 2695
+  type: CableApcExtension
+  components:
+  - pos: 49.5,-9.5
+    parent: 92
+    type: Transform
+- uid: 2696
+  type: CableApcExtension
+  components:
+  - pos: 49.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2697
+  type: CableApcExtension
+  components:
+  - pos: 48.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2698
+  type: CableApcExtension
+  components:
+  - pos: 47.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2699
+  type: CableApcExtension
+  components:
+  - pos: 46.5,-10.5
+    parent: 92
+    type: Transform
+- uid: 2700
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 46.5,-10.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2701
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 49.5,-10.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2702
+  type: Poweredlight
+  components:
+  - pos: 49.5,-7.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2703
+  type: Poweredlight
+  components:
+  - pos: 46.5,-7.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2704
+  type: Poweredlight
+  components:
+  - pos: 38.5,-7.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2705
+  type: Poweredlight
+  components:
+  - pos: 36.5,-7.5
+    parent: 92
+    type: Transform
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2706
+  type: Poweredlight
+  components:
+  - pos: 40.5,-7.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2707
+  type: Poweredlight
+  components:
+  - pos: 44.5,-7.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2708
+  type: Poweredlight
+  components:
+  - pos: 39.5,-12.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2709
+  type: Poweredlight
+  components:
+  - pos: 37.5,-12.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2710
+  type: Poweredlight
+  components:
+  - pos: 44.5,-12.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2711
+  type: Poweredlight
+  components:
+  - pos: 48.5,-12.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2712
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 48.5,-14.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2713
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 44.5,-14.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2714
+  type: Poweredlight
+  components:
+  - pos: 41.5,-12.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 2715
+  type: Poweredlight
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 38.5,-10.5
+    parent: 92
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
 ...
