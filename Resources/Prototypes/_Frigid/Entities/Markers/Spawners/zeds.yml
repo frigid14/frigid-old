@@ -1,16 +1,28 @@
 ﻿- type: entity
-  name: Zombie Spawner
+  name: Timed Zombie Spawner
   id: SpawnMobZed
   parent: MarkerBase
   components:
     - type: Sprite
       layers:
-        - state: green
+        - state: red
     - type: Timer
     - type: TimedSpawner
       prototypes:
         - MobZed
-      chance: 0.85
-      intervalSeconds: 90
+      chance: 0.5
+      intervalSeconds: 500
       minimumEntitiesSpawned: 2
-      maximumEntitiesSpawned: 100000 # practically infinite
+      maximumEntitiesSpawned: 4 # practically infinite
+
+- type: entity
+  name: Zombie Spawner
+  id: SpawnMobZedOne
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+    - type: ConditionalSpawner
+      prototypes:
+        - MobZed
