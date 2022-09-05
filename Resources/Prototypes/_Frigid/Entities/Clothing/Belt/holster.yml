@@ -1,0 +1,23 @@
+﻿- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingSecBeltHolster
+  name: police officer's holster
+  description: 'A holster given to police officers, can hold handguns and ammo.'
+  components:
+    - type: Sprite
+      sprite: Clothing/Belt/holster.rsi
+    - type: Clothing
+      sprite: Clothing/Belt/holster.rsi
+    - type: Storage
+      capacity: 20
+
+- type: entity
+  id: ClothingSecBeltHolsterFilled
+  parent: ClothingSecBeltHolster
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponPistolMk58
+        - id: CartridgePistol
+        - id: CartridgePistol

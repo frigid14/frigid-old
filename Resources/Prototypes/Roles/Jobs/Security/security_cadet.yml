@@ -14,7 +14,6 @@
   access:
   - Security
   - Brig
-  - Maintenance
 
 - type: startingGear
   id: SecurityCadetGear
@@ -22,8 +21,7 @@
     jumpsuit: ClothingUniformJumpsuitColorRed
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsJack
-    id: SecurityCadetPDA
-    ears: ClothingHeadsetSecurity
+    id: SecurityCadetIDCard
   innerclothingskirt: ClothingUniformJumpskirtColorRed
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled
