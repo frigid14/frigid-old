@@ -1,11 +1,16 @@
 ﻿- type: entity
   name: Zombie Spawner
-  id: SpawnVehicleZed
+  id: SpawnMobZed
   parent: MarkerBase
   components:
     - type: Sprite
       layers:
         - state: green
-    - type: ConditionalSpawner
+    - type: Timer
+    - type: TimedSpawner
       prototypes:
         - MobZed
+      chance: 0.85
+      intervalSeconds: 90
+      minimumEntitiesSpawned: 2
+      maximumEntitiesSpawned: 100000 # practically infinite
