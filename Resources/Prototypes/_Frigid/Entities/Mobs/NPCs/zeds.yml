@@ -6,7 +6,7 @@
     - type: CombatMode
       canDisarm: true
     - type: Loadout
-      preset: PassengerGear
+      prototype: PassengerGear
     - type: InputMover
     - type: MobMover
     - type: HTN
