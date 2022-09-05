@@ -27545,16 +27545,11 @@ entities:
       id: docking
     type: Fixtures
 - uid: 162
-  type: Paper
+  type: SpawnMobZed
   components:
-  - desc: ''
-    type: MetaData
-  - pos: -78.665634,111.16595
+  - pos: 40.5,72.5
     parent: 92
     type: Transform
-  - content: >
-      I honestly don't recommend going beyond this point... It may cause reality distortions if you go far enough. I've found a clip in reality, this is not an escape. For the brave.
-    type: Paper
 - uid: 163
   type: GrilleBorder
   components:
@@ -30238,9 +30233,9 @@ entities:
     parent: 92
     type: Transform
 - uid: 600
-  type: GrilleBorder
+  type: SpawnPointLatejoin
   components:
-  - pos: -79.5,5.5
+  - pos: 75.5,24.5
     parent: 92
     type: Transform
 - uid: 601
@@ -30708,6 +30703,275 @@ entities:
   type: GrilleBorder
   components:
   - pos: -79.5,64.5
+    parent: 92
+    type: Transform
+- uid: 674
+  type: SpawnPointLatejoin
+  components:
+  - pos: 69.5,20.5
+    parent: 92
+    type: Transform
+- uid: 675
+  type: SpawnPointLatejoin
+  components:
+  - pos: 67.5,60.5
+    parent: 92
+    type: Transform
+- uid: 676
+  type: SpawnPointLatejoin
+  components:
+  - pos: 70.5,30.5
+    parent: 92
+    type: Transform
+- uid: 677
+  type: SpawnPointLatejoin
+  components:
+  - pos: 66.5,39.5
+    parent: 92
+    type: Transform
+- uid: 678
+  type: SpawnPointLatejoin
+  components:
+  - pos: -23.5,23.5
+    parent: 92
+    type: Transform
+- uid: 679
+  type: SpawnPointLatejoin
+  components:
+  - pos: 67.5,50.5
+    parent: 92
+    type: Transform
+- uid: 680
+  type: SpawnPointLatejoin
+  components:
+  - pos: 36.5,87.5
+    parent: 92
+    type: Transform
+- uid: 681
+  type: SpawnPointLatejoin
+  components:
+  - pos: 44.5,89.5
+    parent: 92
+    type: Transform
+- uid: 682
+  type: SpawnPointLatejoin
+  components:
+  - pos: 60.5,95.5
+    parent: 92
+    type: Transform
+- uid: 683
+  type: SpawnPointLatejoin
+  components:
+  - pos: 67.5,79.5
+    parent: 92
+    type: Transform
+- uid: 684
+  type: SpawnPointLatejoin
+  components:
+  - pos: 63.5,70.5
+    parent: 92
+    type: Transform
+- uid: 685
+  type: SpawnMobZed
+  components:
+  - pos: -48.5,93.5
+    parent: 92
+    type: Transform
+- uid: 686
+  type: SpawnMobZed
+  components:
+  - pos: -26.5,97.5
+    parent: 92
+    type: Transform
+- uid: 687
+  type: SpawnMobZed
+  components:
+  - pos: -13.5,93.5
+    parent: 92
+    type: Transform
+- uid: 688
+  type: SpawnMobZed
+  components:
+  - pos: 8.5,92.5
+    parent: 92
+    type: Transform
+- uid: 689
+  type: SpawnMobZed
+  components:
+  - pos: 25.5,96.5
+    parent: 92
+    type: Transform
+- uid: 690
+  type: SpawnMobZed
+  components:
+  - pos: 33.5,103.5
+    parent: 92
+    type: Transform
+- uid: 691
+  type: SpawnMobZed
+  components:
+  - pos: 35.5,76.5
+    parent: 92
+    type: Transform
+- uid: 692
+  type: SpawnMobZed
+  components:
+  - pos: 23.5,77.5
+    parent: 92
+    type: Transform
+- uid: 693
+  type: SpawnMobZed
+  components:
+  - pos: 19.5,85.5
+    parent: 92
+    type: Transform
+- uid: 694
+  type: SpawnMobZed
+  components:
+  - pos: 32.5,65.5
+    parent: 92
+    type: Transform
+- uid: 695
+  type: SpawnMobZed
+  components:
+  - pos: 30.5,44.5
+    parent: 92
+    type: Transform
+- uid: 696
+  type: SpawnMobZed
+  components:
+  - pos: 31.5,55.5
+    parent: 92
+    type: Transform
+- uid: 697
+  type: SpawnMobZed
+  components:
+  - pos: 22.5,54.5
+    parent: 92
+    type: Transform
+- uid: 698
+  type: SpawnPointLatejoin
+  components:
+  - pos: -0.5,27.5
+    parent: 92
+    type: Transform
+- uid: 699
+  type: SpawnMobZed
+  components:
+  - pos: 33.5,36.5
+    parent: 92
+    type: Transform
+- uid: 700
+  type: SpawnPointLatejoin
+  components:
+  - pos: 49.5,25.5
+    parent: 92
+    type: Transform
+- uid: 701
+  type: SpawnPointLatejoin
+  components:
+  - pos: 29.5,22.5
+    parent: 92
+    type: Transform
+- uid: 702
+  type: SpawnPointLatejoin
+  components:
+  - pos: 15.5,26.5
+    parent: 92
+    type: Transform
+- uid: 703
+  type: SpawnPointLatejoin
+  components:
+  - pos: 8.5,19.5
+    parent: 92
+    type: Transform
+- uid: 704
+  type: SpawnPointLatejoin
+  components:
+  - pos: -17.5,19.5
+    parent: 92
+    type: Transform
+- uid: 705
+  type: SpawnMobZed
+  components:
+  - pos: -58.5,84.5
+    parent: 92
+    type: Transform
+- uid: 706
+  type: SpawnMobZed
+  components:
+  - pos: -71.5,72.5
+    parent: 92
+    type: Transform
+- uid: 707
+  type: SpawnMobZed
+  components:
+  - pos: -74.5,64.5
+    parent: 92
+    type: Transform
+- uid: 708
+  type: SpawnMobZed
+  components:
+  - pos: -62.5,56.5
+    parent: 92
+    type: Transform
+- uid: 709
+  type: SpawnMobZed
+  components:
+  - pos: -71.5,54.5
+    parent: 92
+    type: Transform
+- uid: 710
+  type: SpawnMobZed
+  components:
+  - pos: -61.5,63.5
+    parent: 92
+    type: Transform
+- uid: 711
+  type: SpawnMobZed
+  components:
+  - pos: -61.5,49.5
+    parent: 92
+    type: Transform
+- uid: 712
+  type: SpawnMobZed
+  components:
+  - pos: -56.5,51.5
+    parent: 92
+    type: Transform
+- uid: 713
+  type: SpawnMobZed
+  components:
+  - pos: -48.5,43.5
+    parent: 92
+    type: Transform
+- uid: 714
+  type: SpawnMobZed
+  components:
+  - pos: -50.5,28.5
+    parent: 92
+    type: Transform
+- uid: 715
+  type: SpawnMobZed
+  components:
+  - pos: -45.5,39.5
+    parent: 92
+    type: Transform
+- uid: 716
+  type: Paper
+  components:
+  - desc: ''
+    type: MetaData
+  - pos: -78.665634,111.16595
+    parent: 92
+    type: Transform
+  - content: >
+      I honestly don't recommend going beyond this point... It may cause reality distortions if you go far enough. I've found a clip in reality, this is not an escape. For the brave.
+    type: Paper
+- uid: 717
+  type: GrilleBorder
+  components:
+  - pos: -79.5,5.5
     parent: 92
     type: Transform
 - uid: 718
@@ -41289,7 +41553,7 @@ entities:
       path: /Audio/Effects/stonedoor_openclose.ogg
     closeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/stonedoor_openclose.ogg
-    SecondsUntilStateChange: -7757.999
+    SecondsUntilStateChange: -8017.2993
     state: Opening
     type: Door
   - damageModifierSet: Metallic
@@ -58661,6 +58925,138 @@ entities:
   type: CableApcExtension
   components:
   - pos: 77.5,122.5
+    parent: 92
+    type: Transform
+- uid: 5112
+  type: SpawnMobZed
+  components:
+  - pos: -39.5,73.5
+    parent: 92
+    type: Transform
+- uid: 5113
+  type: SpawnPointAssistant
+  components:
+  - pos: 65.5,3.5
+    parent: 92
+    type: Transform
+- uid: 5114
+  type: SpawnPointLatejoin
+  components:
+  - pos: 70.5,11.5
+    parent: 92
+    type: Transform
+- uid: 5115
+  type: SpawnPointAssistant
+  components:
+  - pos: 75.5,14.5
+    parent: 92
+    type: Transform
+- uid: 5116
+  type: SpawnPointAssistant
+  components:
+  - pos: 75.5,3.5
+    parent: 92
+    type: Transform
+- uid: 5117
+  type: SpawnPointAssistant
+  components:
+  - pos: 65.5,14.5
+    parent: 92
+    type: Transform
+- uid: 5118
+  type: SpawnPointAssistant
+  components:
+  - pos: 55.5,14.5
+    parent: 92
+    type: Transform
+- uid: 5119
+  type: SpawnPointAssistant
+  components:
+  - pos: 55.5,3.5
+    parent: 92
+    type: Transform
+- uid: 5120
+  type: SpawnMobZed
+  components:
+  - pos: 81.5,76.5
+    parent: 92
+    type: Transform
+- uid: 5121
+  type: SpawnMobZed
+  components:
+  - pos: 75.5,85.5
+    parent: 92
+    type: Transform
+- uid: 5122
+  type: SpawnMobZed
+  components:
+  - pos: 75.5,97.5
+    parent: 92
+    type: Transform
+- uid: 5123
+  type: SpawnMobZed
+  components:
+  - pos: 67.5,116.5
+    parent: 92
+    type: Transform
+- uid: 5124
+  type: SpawnMobZed
+  components:
+  - pos: -18.5,41.5
+    parent: 92
+    type: Transform
+- uid: 5125
+  type: SpawnMobZed
+  components:
+  - pos: -12.5,48.5
+    parent: 92
+    type: Transform
+- uid: 5126
+  type: SpawnMobZed
+  components:
+  - pos: -22.5,50.5
+    parent: 92
+    type: Transform
+- uid: 5127
+  type: SpawnMobZed
+  components:
+  - pos: -20.5,58.5
+    parent: 92
+    type: Transform
+- uid: 5128
+  type: SpawnMobZed
+  components:
+  - pos: -31.5,75.5
+    parent: 92
+    type: Transform
+- uid: 5129
+  type: SpawnMobZed
+  components:
+  - pos: -29.5,65.5
+    parent: 92
+    type: Transform
+- uid: 5130
+  type: SpawnMobZed
+  components:
+  - pos: -32.5,61.5
+    parent: 92
+    type: Transform
+- uid: 5131
+  type: SpawnMobZed
+  components:
+  - pos: -32.5,82.5
+    parent: 92
+    type: Transform
+- uid: 5132
+  type: SpawnMobZed
+  components:
+  - pos: -44.5,87.5
+    parent: 92
+    type: Transform
+- uid: 5133
+  type: SpawnMobZed
+  components:
+  - pos: -40.5,85.5
     parent: 92
     type: Transform
 ...
