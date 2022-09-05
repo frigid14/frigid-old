@@ -18,10 +18,10 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorRed
+    jumpsuit: ClothingUniformJumpsuitPolice
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsJack
     id: SecurityCadetIDCard
-  innerclothingskirt: ClothingUniformJumpskirtColorRed
+  innerclothingskirt: ClothingUniformJumpsuitPolice
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled
