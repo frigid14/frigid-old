@@ -19,3 +19,14 @@
       sprite: _Frigid/Clothing/Uniforms/Jumpsuit/military.rsi
     - type: Clothing
       sprite: _Frigid/Clothing/Uniforms/Jumpsuit/military.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPolice
+  description: A blue jumpsuit littered with donut crumbs all over it.
+  name: military uniform
+  components:
+    - type: Sprite
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/police.rsi
+    - type: Clothing
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/police.rsi
