@@ -17,3 +17,8 @@
         Civilian: [ -1, -1 ]
         Mechanic: [ 1, 2 ]
         StationEngineer: [2, 3]
+        MedicalDoctor: [1, 2]
+        MedicalIntern: [1, 2]
+        HeadOfSecurity: [1, 1]
+        SecurityCadet: [1, 1]
+        SecurityOfficer: [1, 2]
