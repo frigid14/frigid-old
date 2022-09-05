@@ -3,8 +3,9 @@
   name: plating
   sprite: /Textures/Tiles/plating.png
   baseTurfs:
-  - Lattice
+  - FloorDirt
   isSubfloor: true
+  canCrowbar: true
   footstepSounds:
     collection: FootstepPlating
   friction: 0.5
