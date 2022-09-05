@@ -1,0 +1,39 @@
+﻿- type: entity
+  parent: MetalDoor
+  id: FrigidEngiMetalDoor
+  suffix: Engineering, Locked
+  components:
+    - type: AccessReader
+      access: [["Engineering"]]
+
+- type: entity
+  parent: MetalDoor
+  id: FrigidMedMetalDoor
+  suffix: Medical, Locked
+  components:
+    - type: AccessReader
+      access: [["Medical"]]
+
+- type: entity
+  parent: MetalDoor
+  id: FrigidSecMetalDoor
+  suffix: Security, Locked
+  components:
+    - type: AccessReader
+      access: [["Security"]]
+
+- type: entity
+  parent: MetalDoor
+  id: FrigidArmoryMetalDoor
+  suffix: Armory, Locked
+  components:
+    - type: AccessReader
+      access: [["Armory"]]
+
+- type: entity
+  parent: MetalDoor
+  id: FrigidHOSMetalDoor
+  suffix: HeadOfSecurity, Locked
+  components:
+    - type: AccessReader
+      access: [["HeadOfSecurity"]]

@@ -2,6 +2,9 @@
   id: Civilian
   roles:
   - Civilian
+  - Bartender
+  - Chef
+  - Farmer
 
 - type: department
   id: Engineering
