@@ -65,9 +65,34 @@
   name: metal door
   parent: BaseMaterialDoor
   components:
-  - type: Construction
-    graph: DoorGraph
-    node: metalDoor
+    - type: Sprite
+      netsync: false
+      sprite: _Frigid/Structures/Doors/metaldoor.rsi
+      layers:
+        - state: closed
+          map: [ "enum.DoorVisualLayers.Base" ]
+    - type: Door
+      bumpOpen: false
+      clickOpen: true
+      closeTimeOne: 0.2
+      closeTimeTwo: 0.6
+      openTimeOne: 0.6
+      openTimeTwo: 0.2
+      openSound:
+        path: /Audio/Effects/door_open.ogg
+      closeSound:
+        path: /Audio/Effects/door_close.ogg
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Wood
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
 
 - type: entity
   id: WoodDoor
@@ -77,7 +102,7 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: Structures/Doors/MineralDoors/wood_door.rsi
+    sprite: _Frigid/Structures/Doors/roomdoor.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
