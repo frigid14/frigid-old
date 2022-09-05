@@ -1,0 +1,28 @@
+﻿- type: job
+  id: Bartender
+  name: job-name-bartender
+  playTimeTracker: JobBartender
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 1800
+  startingGear: BartenderGear
+  icon: "Bartender"
+  access:
+    - Service
+    - Bar
+  extendedAccess:
+    - Kitchen
+    - Hydroponics
+
+- type: startingGear
+  id: BartenderGear
+  equipment:
+    head: ClothingHeadHatTophat
+    jumpsuit: ClothingUniformJumpsuitBartender
+    outerClothing: ClothingOuterVestKevlar
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtBartender
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
