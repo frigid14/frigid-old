@@ -7,10 +7,11 @@ game-ticker-delay-start = Round start has been delayed for {$seconds} seconds.
 game-ticker-pause-start = Round start has been paused.
 game-ticker-pause-start-resumed = Round start countdown is now resumed.
 game-ticker-player-join-game-message = Welcome to Frigid. A game about the freezing cold and surviving a zombie apocalypse. Read the rules, remember that this is an MRP server and roleplay is expected.
-game-ticker-get-info-text = Welcome to Frigid 14, a zombie survival fork of Space Station 14.
-                            There are currently {$playerCount} players playing on {$mapName}.
-                            [color=#00ffee]{$gmTitle}[/color]
-                            >[color=yellow]{$desc}[/color]
+game-ticker-get-info-text = Hi and welcome to [color=#00ffee]Frigid 14![/color]
+                            The current round is: [color=#00ffee]#{$roundId}[/color]
+                            The current player count is: [color=#00ffee]{$playerCount}[/color]
+                            The current map is: [color=#00ffee]{$mapName}[/color]
+                            The current game mode is: [color=#00ffee]{$gmTitle}[/color]
 game-ticker-no-map-selected = [color=red]No map selected![/color]
 game-ticker-player-no-jobs-available-when-joining = When attempting to join to the game, no jobs were available.
 
