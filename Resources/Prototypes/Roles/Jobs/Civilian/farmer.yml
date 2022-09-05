@@ -1,5 +1,5 @@
 ﻿- type: job
-  id: Farmer
+  id: Botanist
   name: job-name-botanist
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
