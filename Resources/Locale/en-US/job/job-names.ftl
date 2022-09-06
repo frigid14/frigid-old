@@ -35,7 +35,7 @@ job-name-cargotech = Warehouse Worker
 job-name-chef = Chef
 job-name-clown = Clown
 
-job-name-soldier = Soldier
+job-name-soldier = U.S Military Private
 
 job-name-ertleader = ERT leader
 job-name-ertengineer = ERT engineer

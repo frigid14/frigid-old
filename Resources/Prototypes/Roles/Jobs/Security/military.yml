@@ -2,9 +2,12 @@
   id: FrigidSoldier
   name: job-name-soldier
   playTimeTracker: JobSoldier
-  setPreference: false
   startingGear: SoldierGear
-  icon: "Nanotrasen"
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000
+  icon: "Soldier"
   canBeAntag: false
   accessGroups:
     - AllAccess
@@ -13,7 +16,7 @@
   id: SoldierGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitMilitary
-    back: ClothingBackpackERTLeaderFilled
+    back: WeaponRifleLecter
     shoes: ClothingShoesBootsJack
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
@@ -21,5 +24,5 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityWebbing
-    pocket1: Flare
-    pocket2:
+    pocket1: BaseMagazineRifle
+    pocket2: BaseMagazineRifle
