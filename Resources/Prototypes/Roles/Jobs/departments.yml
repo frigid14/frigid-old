@@ -32,13 +32,3 @@
   roles:
   - Chemist
   - Scientist
-
-- type: department
-  id: Command
-  roles:
-    - ERTEngineer
-    - ERTJanitor
-    - ERTLeader
-    - ERTMedical
-    - ERTSecurity
-    - FrigidSoldier
