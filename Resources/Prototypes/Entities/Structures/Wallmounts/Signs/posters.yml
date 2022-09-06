@@ -404,8 +404,8 @@
 - type: entity
   parent: PosterBase
   id: PosterContrabandSpaceCola
-  name: "Space Cola"
-  description: "Your favorite cola, in space."
+  name: "Cola"
+  description: "Your favorite cola."
   components:
   - type: Sprite
     state: poster41_contraband

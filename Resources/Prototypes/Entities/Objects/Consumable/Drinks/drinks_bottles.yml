@@ -103,7 +103,7 @@
 - type: entity
   parent: DrinkBottleBaseFull
   id: DrinkColaBottleFull
-  name: space cola bottle
+  name: cola bottle
   description: Cola. In space.
   components:
   - type: SolutionContainerManager
