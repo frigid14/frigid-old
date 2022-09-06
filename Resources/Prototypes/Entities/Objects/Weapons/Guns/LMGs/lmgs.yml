@@ -8,7 +8,7 @@
   - type: Sprite
     netsync: false
   - type: Item
-    size: 60
+    size: 130
   - type: Clothing
     sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     quickEquip: false
@@ -53,7 +53,7 @@
       gun_chamber: !type:ContainerSlot
 
 - type: entity
-  name: L6 SAW
+  name: M249 Light Machine Gun
   id: WeaponLightMachineGunL6
   parent: BaseWeaponLightMachineGun
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip.

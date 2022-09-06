@@ -8,7 +8,7 @@
   - type: Sprite
     netsync: false
   - type: Item
-    size: 30
+    size: 70
   - type: Clothing
     sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
     quickEquip: false
@@ -51,7 +51,7 @@
       gun_chamber: !type:ContainerSlot
 
 - type: entity
-  name: Atreides
+  name: UZI
   parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunAtreides
   description: Pla-ket-ket-ket-ket!
@@ -74,10 +74,10 @@
   - type: Appearance
 
 - type: entity
-  name: C-20r sub machine gun
+  name: H&K UMP-45
   parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunC20r
-  description: A firearm that is often used by the infamous nuclear operatives.
+  description: A firearm that is favored by the infamous insurgents.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
@@ -153,7 +153,7 @@
   name: WT550
   parent: BaseWeaponSubMachineGun
   id: WeaponSubMachineGunWt550
-  description: An excellent SMG, produced by NanoTrasen's Small Arms Division.
+  description: An excellent SMG, produced by the US Small Arms Division.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
