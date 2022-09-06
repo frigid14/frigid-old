@@ -71,6 +71,9 @@
       layers:
         - state: closed
           map: [ "enum.DoorVisualLayers.Base" ]
+    - type: Construction
+      graph: DoorGraph
+      node: metalDoor
     - type: Door
       bumpOpen: false
       clickOpen: true
