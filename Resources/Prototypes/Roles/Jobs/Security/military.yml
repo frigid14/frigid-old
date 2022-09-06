@@ -7,7 +7,7 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000
-  icon: "Soldier"
+  icon: "Nanotrasen" # TODO: Change this to soldier
   canBeAntag: false
   accessGroups:
     - AllAccess
@@ -18,11 +18,11 @@
     jumpsuit: ClothingUniformJumpsuitMilitary
     back: WeaponRifleLecter
     shoes: ClothingShoesBootsJack
-    eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerclothing: ClothingOuterVestKevlar
+    mask: ClothingMaskGas
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityWebbing
-    pocket1: BaseMagazineRifle
-    pocket2: BaseMagazineRifle
+    pocket1: MagazineRifle
+    pocket2: MagazineRifle

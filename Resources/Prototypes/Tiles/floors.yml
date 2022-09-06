@@ -710,7 +710,7 @@
     collection: FootstepAsteroid
   friction: 0.30
   thermalConductivity: 0.4
-  heatCapacity: 700000
+  heatCapacity: 10000
 
 # Asteroid
 - type: tile
