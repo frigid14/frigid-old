@@ -1,0 +1,25 @@
+﻿- type: job
+  id: FrigidSoldier
+  name: job-name-soldier
+  playTimeTracker: JobSoldier
+  setPreference: false
+  startingGear: SoldierGear
+  icon: "Nanotrasen"
+  canBeAntag: false
+  accessGroups:
+    - AllAccess
+
+- type: startingGear
+  id: SoldierGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitary
+    back: ClothingBackpackERTLeaderFilled
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerclothing: ClothingOuterVestKevlar
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCommand
+    belt: ClothingBeltSecurityWebbing
+    pocket1: Flare
+    pocket2:

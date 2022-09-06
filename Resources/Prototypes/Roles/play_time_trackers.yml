@@ -44,6 +44,9 @@
   id: JobDetective
 
 - type: playTimeTracker
+  id: JobSoldier
+
+- type: playTimeTracker
   id: JobERTEngineer
 
 - type: playTimeTracker
