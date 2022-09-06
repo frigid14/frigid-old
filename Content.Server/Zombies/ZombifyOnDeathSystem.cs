@@ -1,6 +1,3 @@
-using Content.Server.AI.Components;
-using Content.Server.AI.EntitySystems;
-using Content.Server.AI.Utility.AiLogic;
 using Content.Shared.Damage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.CharacterAppearance.Components;
@@ -33,6 +30,9 @@ using Content.Server.Atmos.Miasma;
 using Content.Server.CharacterAppearance.Components;
 using Content.Server.CharacterAppearance.Systems;
 using Content.Server.IdentityManagement;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.HTN;
+using Content.Server.NPC.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Preferences;
 using Robust.Shared.Audio;
@@ -142,7 +142,7 @@ namespace Content.Server.Zombies
             var melee = EnsureComp<MeleeWeaponComponent>(target);
             melee.Arc = zombiecomp.AttackArc;
             melee.ClickArc = zombiecomp.AttackArc;
-            melee.Range = 0.75f;
+            melee.Range = 1.25f;
 
             //We have specific stuff for humanoid zombies because they matter more
             if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp
@@ -195,7 +195,7 @@ namespace Content.Server.Zombies
 
             //He's gotta have a mind
             //UNLESS they're an AI
-            TryComp<UtilityNPCComponent>(target, out var utilityNpcComponent);
+            TryComp<HTNComponent>(target, out var utilityNpcComponent);
             if (utilityNpcComponent == null)
             {
                 var mindcomp = EnsureComp<MindComponent>(target);

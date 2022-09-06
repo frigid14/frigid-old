@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: MobZed
-  suffix: Random Zombie
+  name: Random Zombie
   parent: MobHuman
   components:
     - type: CombatMode
@@ -9,10 +9,8 @@
       prototype: PassengerGear
     - type: InputMover
     - type: MobMover
-    - type: UtilityNPC
-      behaviorSets:
-        - Idle
-        - UnarmedAttackHostiles
+    - type: HTN
+      rootTask: ZombieCompound
     - type: Temperature
       heatDamageThreshold: 360
       coldDamageThreshold: -150

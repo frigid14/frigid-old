@@ -32,3 +32,20 @@
   roles:
   - Chemist
   - Scientist
+
+- type: department
+  id: Command
+  roles:
+    - Captain
+    - CentralCommandOfficial
+    - ChiefEngineer
+    - ChiefMedicalOfficer
+    - ERTEngineer
+    - ERTJanitor
+    - ERTLeader
+    - ERTMedical
+    - ERTSecurity
+    - FrigidSoldier
+    - HeadOfPersonnel
+    - HeadOfSecurity
+    - ResearchDirector

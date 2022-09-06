@@ -8,3 +8,25 @@
       sprite: _Frigid/Clothing/Uniforms/Jumpsuit/mechanic.rsi
     - type: Clothing
       sprite: _Frigid/Clothing/Uniforms/Jumpsuit/mechanic.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMilitary
+  description: A jumpsuit designed by the US military and given granted to soldiers regardless of rank.
+  name: military uniform
+  components:
+    - type: Sprite
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/military.rsi
+    - type: Clothing
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/military.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPolice
+  description: A blue jumpsuit littered with donut crumbs all over it.
+  name: military uniform
+  components:
+    - type: Sprite
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/police.rsi
+    - type: Clothing
+      sprite: _Frigid/Clothing/Uniforms/Jumpsuit/police.rsi
