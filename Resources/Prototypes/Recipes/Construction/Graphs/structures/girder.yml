@@ -10,8 +10,8 @@
               southRotation: true
           steps:
             - material: Steel
-              amount: 2
-              doAfter: 1
+              amount: 5
+              doAfter: 5
 
     - node: girder
       entity: Girder
@@ -25,14 +25,14 @@
           completed:
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 2
+              amount: 5
             - !type:DeleteEntity {}
           conditions:
             - !type:EntityAnchored
               anchored: false
           steps:
             - tool: Screwing
-              doAfter: 2
+              doAfter: 6
 
         - to: wall
           completed:
@@ -42,8 +42,8 @@
             - !type:EntityAnchored {}
           steps:
             - material: Steel
-              amount: 2
-              doAfter: 2
+              amount: 10
+              doAfter: 25
 
         - to: reinforcedGirder
           completed:
@@ -53,8 +53,8 @@
             - !type:EntityAnchored {}
           steps:
             - material: Plasteel
-              amount: 2
-              doAfter: 1
+              amount: 5
+              doAfter: 15
 
         - to: woodWall
           completed:
@@ -64,8 +64,8 @@
             - !type:EntityAnchored {}
           steps:
             - material: WoodPlank
-              amount: 2
-              doAfter: 2
+              amount: 1
+              doAfter: 5
 
         - to: uraniumWall
           completed:
@@ -133,10 +133,10 @@
           completed:
             - !type:SpawnPrototype
               prototype: SheetSteel1
-              amount: 2
+              amount: 10
           steps:
             - tool: Welding
-              doAfter: 10
+              doAfter: 30
 
     - node: woodWall
       entity: WallWood
@@ -293,7 +293,7 @@
                   data: 0
             - tool: Cutting
               doAfter: 1
-              
+
     - node: wallrust
       entity: WallSolidRust
       edges:
