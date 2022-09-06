@@ -19,6 +19,7 @@
     belt: ClothingBeltElectricalFilled
     gloves: ClothingHandsGlovesColorYellow
     pocket1: RadioHandheld
+    pocket2: SpaceCash20
   innerclothingskirt: ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

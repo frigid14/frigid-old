@@ -18,7 +18,7 @@
     outerClothing: ClothingOuterCoatLabChem
     id: ChemistryPDA
     belt: ClothingBeltMedical
-    pocket1: HandLabeler
+    pocket1: SpaceCash30
     pocket2: RadioHandheld
     # the purple glasses?
   innerclothingskirt: ClothingUniformJumpskirtChemistry

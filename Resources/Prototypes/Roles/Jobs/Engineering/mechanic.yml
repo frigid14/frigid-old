@@ -17,6 +17,7 @@
     id: MechanicIDCard
     belt: ClothingBeltMechanicFilled
     pocket1: RadioHandheld
+    pocket2: SpaceCash10
   innerclothingskirt: ClothingUniformJumpskirtMechanic
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

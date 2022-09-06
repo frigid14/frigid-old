@@ -30,6 +30,7 @@
     id: HoSIDCard
     gloves: ClothingHandsGlovesCombat
     belt: ClothingSecBeltHolsterFilled
+    pocket2: SpaceCash100
   innerclothingskirt: ClothingUniformJumpskirtHoS
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled
