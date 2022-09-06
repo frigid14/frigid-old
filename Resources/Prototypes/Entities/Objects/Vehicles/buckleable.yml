@@ -73,6 +73,9 @@
             volume: -3
   - type: Storage
     capacity: 300 # Allow vehicles to have storage! At last, hooray!
+    blacklist: # Keys go in the key slot
+      tags:
+        - VehicleKey
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

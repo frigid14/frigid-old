@@ -13,7 +13,7 @@
       chance: 0.5
       intervalSeconds: 500
       minimumEntitiesSpawned: 2
-      maximumEntitiesSpawned: 4 # practically infinite
+      maximumEntitiesSpawned: 1000 # practically infinite
 
 - type: entity
   name: Zombie Spawner

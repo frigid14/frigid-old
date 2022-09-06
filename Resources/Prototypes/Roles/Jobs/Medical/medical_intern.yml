@@ -18,7 +18,7 @@
     shoes: ClothingShoesColorWhite
     id: MedicalInternIDCard
     belt: ClothingBeltMedicalFilled
-    pocket1: RadioHandheld
+    pocket2: SpaceCash10
   innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled

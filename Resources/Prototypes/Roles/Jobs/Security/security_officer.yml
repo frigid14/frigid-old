@@ -24,6 +24,8 @@
     outerClothing: ClothingOuterVestKevlar
     id: SecurityIDCard
     belt: ClothingSecBeltHolsterFilled
+    pocket1: RadioHandheld
+    pocket2: SpaceCash30
   innerclothingskirt: ClothingUniformJumpsuitPolice
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled

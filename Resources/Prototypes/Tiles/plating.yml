@@ -39,10 +39,10 @@
   canShovel: true
   footstepSounds:
     collection: FootstepSnow
-  friction: 0.20
+  friction: 0.4
   itemDrop: FloorTileItemSnow
   thermalConductivity: 0.04
-  heatCapacity: 10000000000
+  heatCapacity: 10000
 
 # The final step in underplating's deprecation before it gets completely wiped from the codebase.
 - type: tileAlias

@@ -17,6 +17,7 @@
     outerClothing: ClothingOuterCoatLab
     id: SciencePDA
     pocket1: RadioHandheld
+    pocket2: SpaceCash30
   innerclothingskirt: ClothingUniformJumpskirtScientist
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled

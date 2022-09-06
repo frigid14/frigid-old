@@ -57,10 +57,10 @@
   - type: Appearance
 
 - type: entity
-  name: viper
+  name: M1911
   parent: BaseWeaponPistol
   id: WeaponPistolViper
-  description: A small, easily concealable, but somewhat underpowered gun.
+  description: A small, easily concealable, but somewhat underpowered gun. This one is painted in black.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Pistols/viper.rsi
@@ -107,7 +107,7 @@
       - SemiAuto
 
 - type: entity
-  name: cobra
+  name: H&K USP
   parent: BaseWeaponPistol
   id: WeaponPistolCobra
   description: A rugged, robust operator handgun with inbuilt silencer.
@@ -149,7 +149,7 @@
       gun_chamber: !type:ContainerSlot
 
 - type: entity
-  name: mk 58
+  name: Glock 17
   parent: BaseWeaponPistol
   id: WeaponPistolMk58
   description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary.

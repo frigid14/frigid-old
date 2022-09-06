@@ -18,6 +18,6 @@
   components:
     - type: StorageFill
       contents:
+        - id: MagazinePistol
+        - id: MagazinePistol
         - id: WeaponPistolMk58
-        - id: CartridgePistol
-        - id: CartridgePistol

@@ -9,7 +9,7 @@
     netsync: false
     state: icon
   - type: Item
-    size: 10
+    size: 20
   - type: Clothing
     sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
     quickEquip: false
