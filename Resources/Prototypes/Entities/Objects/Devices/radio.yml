@@ -6,14 +6,11 @@
 
 - type: entity
   name: handheld radio
-  description: A handy handheld radio broadcasting to the Common frequency.
+  description: A handy handheld radio.
   parent: RadioBase
   id: RadioHandheld
   components:
   - type: Radio
-  - type: Headset
-    channels:
-    - Common
   - type: Sprite
     sprite: Objects/Devices/communication.rsi
     layers:
