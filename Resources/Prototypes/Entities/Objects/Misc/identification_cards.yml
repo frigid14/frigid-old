@@ -36,18 +36,6 @@
 
 - type: entity
   parent: PassengerIDCard
-  id: TechnicalAssistantIDCard
-  name: technical assistant ID card
-  components:
-  - type: PresetIdCard
-    job: TechnicalAssistant
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-tech
-
-- type: entity
-  parent: PassengerIDCard
   id: MedicalInternIDCard
   name: nurse ID card
   components:
@@ -61,7 +49,7 @@
 - type: entity
   parent: PassengerIDCard
   id: SecurityCadetIDCard
-  name: security cadet ID card
+  name: police cadet ID card
   components:
   - type: PresetIdCard
     job: SecurityCadet
@@ -73,7 +61,7 @@
 - type: entity
   parent: PassengerIDCard
   id: ServiceWorkerIDCard
-  name: service worker ID card
+  name: community worker ID card
   components:
   - type: PresetIdCard
     job: ServiceWorker
@@ -81,20 +69,6 @@
     layers:
     - state: default
     - state: idintern-service
-
-- type: entity
-  parent: IDCardStandard
-  id: CaptainIDCard
-  name: captain ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: gold
-    - state: idcaptain
-  - type: Item
-    heldPrefix: gold
-  - type: PresetIdCard
-    job: Captain
 
 - type: entity
   parent: IDCardStandard
@@ -158,42 +132,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: CargoIDCard
-  name: cargo ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idcargotechnician
-  - type: PresetIdCard
-    job: CargoTechnician
-
-- type: entity
-  parent: IDCardStandard
-  id: SalvageIDCard
-  name: salvage ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idshaftminer
-  - type: PresetIdCard
-    job: SalvageSpecialist
-
-- type: entity
-  parent: IDCardStandard
-  id: QuartermasterIDCard
-  name: quartermaster ID card
-  components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idquartermaster
-    - type: PresetIdCard
-      job: Quartermaster
-
-- type: entity
-  parent: IDCardStandard
   id: ResearchIDCard
   name: research ID card
   components:
@@ -203,30 +141,6 @@
     - state: idscientist
   - type: PresetIdCard
     job: Scientist
-
-- type: entity
-  parent: IDCardStandard
-  id: ClownIDCard
-  name: clown ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idclown
-  - type: PresetIdCard
-    job: Clown
-
-- type: entity
-  parent: IDCardStandard
-  id: MimeIDCard
-  name: mime ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idmime
-  - type: PresetIdCard
-    job: Mime
 
 - type: entity
   parent: IDCardStandard
@@ -240,17 +154,17 @@
     - type: PresetIdCard
       job: Chaplain
 
-- type: entity
-  parent: IDCardStandard
-  id: JanitorIDCard
-  name: janitor ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idjanitor
-  - type: PresetIdCard
-    job: Janitor
+#- type: entity
+#  parent: IDCardStandard
+#  id: JanitorIDCard
+#  name: janitor ID card
+$  components:
+#  - type: Sprite
+#    layers:
+#    - state: default
+#    - state: idjanitor
+#  - type: PresetIdCard
+#    job: Janitor
 
 - type: entity
   parent: IDCardStandard
@@ -299,74 +213,6 @@
         - state: idcurator
     - type: PresetIdCard
       job: Librarian
-
-- type: entity
-  parent: IDCardStandard
-  id: LawyerIDCard
-  name: lawyer ID card
-  components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idlawyer
-    - type: PresetIdCard
-      job: Lawyer
-
-- type: entity
-  parent: IDCardStandard
-  id: HoPIDCard
-  name: head of personnel ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - state: idheadofpersonnel
-  - type: Item
-    heldPrefix: silver
-  - type: PresetIdCard
-    job: HeadOfPersonnel
-
-- type: entity
-  parent: IDCardStandard
-  id: CEIDCard
-  name: chief engineer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - state: idchiefengineer
-  - type: Item
-    heldPrefix: silver
-  - type: PresetIdCard
-    job: ChiefEngineer
-
-- type: entity
-  parent: IDCardStandard
-  id: CMOIDCard
-  name: chief medical officer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - state: idchiefmedicalofficer
-  - type: Item
-    heldPrefix: silver
-  - type: PresetIdCard
-    job: ChiefMedicalOfficer
-
-- type: entity
-  parent: IDCardStandard
-  id: RDIDCard
-  name: research director ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - state: idresearchdirector
-  - type: Item
-    heldPrefix: silver
-  - type: PresetIdCard
-    job: ResearchDirector
 
 - type: entity
   parent: IDCardStandard
@@ -427,17 +273,17 @@
     tags:
     - Maintenance
 
-- type: entity
-  parent: IDCardStandard
-  id: MusicianIDCard
-  name: musician ID card
-  components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idmusician
-    - type: PresetIdCard
-      job: Musician
+#- type: entity
+#  parent: IDCardStandard
+#  id: MusicianIDCard
+#  name: musician ID card
+#  components:
+#    - type: Sprite
+#      layers:
+#        - state: default
+#        - state: idmusician
+#    - type: PresetIdCard
+#      job: Musician
 
 - type: entity
   parent: CentcomIDCard
@@ -465,17 +311,17 @@
       - key: enum.AgentIDCardUiKey.Key
         type: AgentIDCardBoundUserInterface
 
-- type: entity
-  parent: IDCardStandard
-  id: AtmosIDCard
-  name: atmospheric technician ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: orange
-    - state: idatmospherictechnician
-  - type: PresetIdCard
-    job: AtmosphericTechnician
+#- type: entity
+#  parent: IDCardStandard
+#  id: AtmosIDCard
+#  name: atmospheric technician ID card
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: orange
+#    - state: idatmospherictechnician
+#  - type: PresetIdCard
+#    job: AtmosphericTechnician
 
 - type: entity
   parent: IDCardStandard
