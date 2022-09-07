@@ -55,4 +55,4 @@ jobs:
         host: 421034.xyz
         username: maid
         key: ${{ secrets.CENTCOMM_WIZARDS_BUILDS_PUSH_KEY }}
-        script: /var/www/builds.421034.xyz/manifest.py -c 2g2c -v ${{ github.sha }}
+        script: python3 /var/www/builds.421034.xyz/manifest.py -c 2g2c -v ${{ github.sha }}
