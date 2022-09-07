@@ -12,4 +12,4 @@
         prefixCreator: '14'
       overflowJobs: []
       availableJobs:
-        Captain: [ 1, 1 ]
+        Civilian: [ 1, 1 ]
