@@ -39,6 +39,13 @@
   toolName: tool-quality-pulsing-tool-name
   spawn: Multitool
   icon: Objects/Tools/multitool.rsi/icon.png
+  
+- type: tool
+  id: Digging
+  name: tool-quality-digging-name
+  toolName: tool-quality-digging-tool-name
+  spawn: Shovel
+  icon: Objects/Tools/shovel.rsi/icon.png
 
 - type: tool
   id: Slicing
