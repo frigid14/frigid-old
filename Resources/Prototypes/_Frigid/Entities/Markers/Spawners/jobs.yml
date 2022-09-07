@@ -20,3 +20,15 @@
     - type: Sprite
       layers:
         - state: green
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+    - type: SpawnPoint
+      job_id: Prisoner
+    - type: Sprite
+      layers:
+        - state: green
+        - state: engineer

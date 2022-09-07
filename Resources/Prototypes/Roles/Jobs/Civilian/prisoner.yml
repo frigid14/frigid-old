@@ -1,0 +1,13 @@
+- type: job
+  id: Prisoner
+  name: job-name-prisoner
+  playTimeTracker: JobPrisoner
+  startingGear: PrisonerGear
+  icon: "Prisoner"
+
+- type: startingGear
+  id: PrisonerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtPrisoner
