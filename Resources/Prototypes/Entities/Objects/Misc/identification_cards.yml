@@ -158,7 +158,7 @@
 #  parent: IDCardStandard
 #  id: JanitorIDCard
 #  name: janitor ID card
-$  components:
+#  components:
 #  - type: Sprite
 #    layers:
 #    - state: default
