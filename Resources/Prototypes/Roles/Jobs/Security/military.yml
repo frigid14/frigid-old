@@ -13,8 +13,8 @@
   - !type:AddComponentSpecial
     components:
     - type: AiFactionTag
-    factions:
-      - Nanotrasen
+      factions:
+        - Nanotrasen
   accessGroups:
     - AllAccess
 

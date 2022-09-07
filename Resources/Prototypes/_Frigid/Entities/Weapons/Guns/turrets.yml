@@ -5,5 +5,5 @@
   parent: WeaponTurretSyndicate
   components:
     - type: AiFactionTag
-    factions:
-      - Nanotrasen
+      factions:
+        - Nanotrasen
