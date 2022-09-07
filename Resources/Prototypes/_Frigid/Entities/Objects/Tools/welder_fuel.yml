@@ -8,6 +8,9 @@
       sprite: _Frigid/Objects/Tools/welder_fuel.rsi
       state: icon
       netsync: false
+    - type: Tag
+      tags:
+        - WeldingFuel
     - type: Item
       sprite: _Frigid/Objects/Tools/welder_fuel.rsi
     - type: SolutionContainerManager
