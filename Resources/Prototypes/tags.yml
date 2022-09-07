@@ -470,6 +470,9 @@
 
 - type: Tag
   id: WetFloorSign
+  
+- type: Tag
+  id: WeldingFuel
 
 - type: Tag
   id: Wall
