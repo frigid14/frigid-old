@@ -202,17 +202,17 @@
     - type: PresetIdCard
       job: Botanist
 
-- type: entity
-  parent: IDCardStandard
-  id: LibrarianIDCard
-  name: librarian ID card
-  components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idcurator
-    - type: PresetIdCard
-      job: Librarian
+#- type: entity
+#  parent: IDCardStandard
+#  id: LibrarianIDCard
+#  name: librarian ID card
+#  components:
+#    - type: Sprite
+#      layers:
+#        - state: default
+#        - state: idcurator
+#    - type: PresetIdCard
+#      job: Librarian
 
 - type: entity
   parent: IDCardStandard
