@@ -2,6 +2,7 @@
   id: FrigidSoldier
   name: job-name-soldier
   playTimeTracker: JobSoldier
+  setPreference: false
   startingGear: SoldierGear
   requirements:
     - !type:DepartmentTimeRequirement
