@@ -6,8 +6,6 @@
   name: extended-title
   showInVote: true
   description: extended-description
-  rules:
-    - BasicStationEventScheduler
 
 - type: gamePreset
   id: Secret
