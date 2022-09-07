@@ -2,6 +2,7 @@
   id: FrigidSoldier
   name: job-name-soldier
   playTimeTracker: JobSoldier
+  setPreference: false
   startingGear: SoldierGear
   requirements:
     - !type:DepartmentTimeRequirement
@@ -9,12 +10,6 @@
       time: 18000
   icon: "Nanotrasen" # TODO: Change this to soldier
   canBeAntag: false
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: AiFactionTag
-      factions:
-        - Nanotrasen
   accessGroups:
     - AllAccess
 

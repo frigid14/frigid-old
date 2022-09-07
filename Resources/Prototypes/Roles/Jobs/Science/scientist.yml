@@ -7,12 +7,6 @@
   supervisors: job-supervisors-rd
   access:
   - Research
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: AiFactionTag
-      factions:
-        - Nanotrasen
 
 - type: startingGear
   id: ScientistGear

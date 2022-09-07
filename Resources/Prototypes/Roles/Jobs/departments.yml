@@ -1,11 +1,13 @@
 - type: department
   id: Civilian
   roles:
-  - Civilian
-  - Bartender
   - Chef
+  - Civilian
   - Botanist
   - Chaplain
+  - Prisoner
+  - Bartender
+  - ServiceWorker
 
 - type: department
   id: Engineering
@@ -25,6 +27,8 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
+  - FrigidSoldier
+  - Prisoner
 #  - Detective
 #  - Warden
 

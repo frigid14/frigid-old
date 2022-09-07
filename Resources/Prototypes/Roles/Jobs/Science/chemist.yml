@@ -8,12 +8,6 @@
   access:
   - Chemistry
   - Research
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: AiFactionTag
-      factions:
-        - Nanotrasen
 
 - type: startingGear
   id: ChemistGear

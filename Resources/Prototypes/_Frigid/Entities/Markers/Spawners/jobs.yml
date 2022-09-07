@@ -16,7 +16,7 @@
   name: soldier
   components:
     - type: SpawnPoint
-      job_id: Soldier
+      job_id: FrigidSoldier
     - type: Sprite
       layers:
         - state: green
