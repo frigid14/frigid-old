@@ -1,0 +1,9 @@
+- type: entity
+  id: WeaponTurretMilitary
+  name: ballistic turret
+  suffix: Military
+  parent: WeaponTurretSyndicate
+  components:
+    - type: AiFactionTag
+    factions:
+      - Nanotrasen
