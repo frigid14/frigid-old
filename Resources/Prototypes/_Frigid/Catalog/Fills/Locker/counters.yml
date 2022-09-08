@@ -4,6 +4,8 @@
   noSpawn: true # You should use HouseRandomCounterSpawner instead
   parent: TableCounterWood
   components:
+    - type: Storage
+      capacity: 50
     - type: StorageFill
       contents:
         # Common (60%-100%)
@@ -42,36 +44,6 @@
           prob: 0.6
         - id: Soap
           prob: 0.6
-        - id: FoodSnackBoritos
-          prob: 0.6
-        - id: FoodSnackCheesie
-          prob: 0.6
-        - id: FoodSnackChips
-          prob: 0.6
-        - id: FoodSnackChocolate
-          prob: 0.6
-        - id: FoodSnackEnergy
-          prob: 0.6
-        - id: FoodSnackChocolateBar
-          prob: 0.6
-        - id: FoodSnackPopcorn
-          prob: 0.6
-        - id: FoodSnackRaisins
-          prob: 0.6
-        - id: FoodSnackSus
-          prob: 0.6
-        - id: FoodSnackSyndi
-          prob: 0.6
-        - id: FoodSnackChowMein
-          prob: 0.6
-        - id: FoodSnackDanDanNoodles
-          prob: 0.6
-        - id: FoodSnackCookieFortune
-          prob: 0.6
-        - id: FoodSnackNutribrick
-          prob: 0.6
-        - id: FoodSnackMREBrownie
-          prob: 0.6
         # Uncommon (30%-50%)
         - id: ClothingOuterWinterCoat
           prob: 0.5
@@ -95,6 +67,36 @@
           prob: 0.30
 
         # Rare (1%-20%)
+        - id: FoodSnackBoritos
+          prob: 0.2
+        - id: FoodSnackCheesie
+          prob: 0.2
+        - id: FoodSnackChips
+          prob: 0.2
+        - id: FoodSnackChocolate
+          prob: 0.2
+        - id: FoodSnackEnergy
+          prob: 0.2
+        - id: FoodSnackChocolateBar
+          prob: 0.2
+        - id: FoodSnackPopcorn
+          prob: 0.2
+        - id: FoodSnackRaisins
+          prob: 0.2
+        - id: FoodSnackSus
+          prob: 0.2
+        - id: FoodSnackSyndi
+          prob: 0.2
+        - id: FoodSnackChowMein
+          prob: 0.2
+        - id: FoodSnackDanDanNoodles
+          prob: 0.2
+        - id: FoodSnackCookieFortune
+          prob: 0.2
+        - id: FoodSnackNutribrick
+          prob: 0.2
+        - id: FoodSnackMREBrownie
+          prob: 0.2
         - id: ClothingHeadHatWelding
           prob: 0.2
         - id: SpaceCash10
@@ -111,6 +113,8 @@
           prob: 0.1
         - id: SpaceCash20
           prob: 0.1
+        - id: WeaponPistolMk58
+          prob: 0.07 # 7%
         - id: WeaponShotgunDoubleBarreled
           prob: 0.05 # 5%
         - id: SpaceCash100

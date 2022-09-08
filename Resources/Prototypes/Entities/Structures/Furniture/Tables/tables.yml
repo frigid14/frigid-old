@@ -497,7 +497,7 @@
     graph: Table
     node: CounterWood
   - type: Storage
-    capacity: 250
+    capacity: 150
   - type: UserInterface
     interfaces:
       - key: enum.StorageUiKey.Key
@@ -517,7 +517,7 @@
     graph: Table
     node: CounterMetal
   - type: Storage
-    capacity: 250
+    capacity: 150
   - type: UserInterface
     interfaces:
       - key: enum.StorageUiKey.Key
