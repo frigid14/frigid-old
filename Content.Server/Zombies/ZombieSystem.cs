@@ -15,6 +15,7 @@ using Content.Server.Speech;
 using Content.Server.Chat.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Zombies;
+using Content.Server.Administration.Components;
 
 namespace Content.Server.Zombies
 {
