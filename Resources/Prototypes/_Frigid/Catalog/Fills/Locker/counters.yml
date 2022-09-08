@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: CounterWoodHouseRandom
   suffix: Filled, House Random
-  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
+  noSpawn: true # You should use HouseRandomCounterSpawner instead
   parent: TableCounterWood
   components:
     - type: StorageFill
