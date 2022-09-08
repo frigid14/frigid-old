@@ -21,7 +21,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: WeaponShotgunDoubleBarreled
       - id: BoxShotgunFlare
         amount: 2
       - id: GrenadeFlashBang
@@ -156,7 +155,6 @@
       - id: ClothingShoesClown
       - id: ClothingMaskClown
       - id: BikeHorn
-      - id: ClownPDA
       - id: ClothingHeadsetService
 
 - type: entity

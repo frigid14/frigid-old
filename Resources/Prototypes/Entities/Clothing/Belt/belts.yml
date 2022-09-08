@@ -23,6 +23,7 @@
         - Flare
         - CableCoil
         - CigPack
+        - WeldingFuel
       components:
         - AirlockPainter
         - SignalLinker
