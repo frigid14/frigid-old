@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: FrigidCrateChemistry
   suffix: Filled, Chemistry
-  parent: CrateGenericPlastic
+  parent: CratePlastic
   components:
     - type: StorageFill
       contents:

@@ -1,0 +1,61 @@
+﻿- type: entity
+  id: CounterWoodHouseRandom
+  suffix: Filled, House Random
+  noSpawn: true # You should use SalvageMaterialCrateSpawner instead
+  parent: TableCounterWood
+  components:
+    - type: StorageFill
+      contents:
+        # Common (60%-100%)
+        # Usually foodstuff.
+        - id: SpoonPlastic
+          prob: 0.9
+        - id: ForkPlastic
+          prob: 0.9
+        - id: DrinkWaterBottleFull
+          prob: 0.8
+        - id: KitchenKnife
+          prob: 0.7
+        - id: FoodTinMRE
+          prob: 0.6
+        - id: Spoon
+          prob: 0.6
+        - id: Fork
+          prob: 0.6
+        # Uncommon (30%-50%)
+        - id: ClothingOuterWinterCoat
+          prob: 0.5
+        - id: HydroponicsToolClippers
+          prob: 0.4
+        - id: HydroponicsToolSpade
+          prob: 0.4
+        - id: Screwdriver
+          prob: 0.35
+        - id: Crowbar
+          prob: 0.35
+        - id: Wrench
+          prob: 0.35
+        - id: Wirecutter
+          prob: 0.35
+        - id: WelderMini
+          prob: 0.30
+        - id: FrigidWeldingFuel
+          prob: 0.30
+
+        # Rare (1%-20%)
+        - id: ClothingHeadHatWelding
+          prob: 0.2
+        - id: ShellShotgun
+          prob: 0.2
+        - id: ShellShotgunBeanbag
+          prob: 0.2
+        - id: ShellShotgunFlare
+          prob: 0.2
+        - id: MagazineRifle
+          prob: 0.15
+        - id: WeaponFlareGun
+          prob: 0.1
+        - id: WeaponShotgunDoubleBarreled
+          prob: 0.05 # 5%
+        - id: ClothingUniformJumpsuitMilitary
+          prob: 0.01 # 1%
