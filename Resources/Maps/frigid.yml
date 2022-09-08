@@ -47596,7 +47596,7 @@ entities:
       path: /Audio/Effects/stonedoor_openclose.ogg
     closeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/stonedoor_openclose.ogg
-    SecondsUntilStateChange: -22884.496
+    SecondsUntilStateChange: -22938.379
     state: Opening
     type: Door
   - damageModifierSet: Metallic
@@ -61153,12 +61153,6 @@ entities:
   - pos: -46.12995,7.3127804
     parent: 92
     type: Transform
-- uid: 4523
-  type: ChemistryEmptyBottle03
-  components:
-  - pos: -59.053818,16.541786
-    parent: 92
-    type: Transform
 - uid: 4524
   type: Poweredlight
   components:
@@ -61361,28 +61355,10 @@ entities:
   - pos: -59.366318,16.635536
     parent: 92
     type: Transform
-- uid: 4545
-  type: ChemistryEmptyBottle03
-  components:
-  - pos: -58.866318,16.541786
-    parent: 92
-    type: Transform
-- uid: 4546
-  type: ChemistryEmptyBottle03
-  components:
-  - pos: -59.022568,16.666786
-    parent: 92
-    type: Transform
 - uid: 4547
   type: CableApcExtension
   components:
   - pos: -64.5,13.5
-    parent: 92
-    type: Transform
-- uid: 4548
-  type: ChemistryEmptyBottle03
-  components:
-  - pos: -59.022568,16.416786
     parent: 92
     type: Transform
 - uid: 4549
@@ -61398,12 +61374,6 @@ entities:
       Off: []
       Toggle: []
     type: SignalReceiver
-- uid: 4550
-  type: ChemistryEmptyBottle03
-  components:
-  - pos: -59.210068,16.510536
-    parent: 92
-    type: Transform
 - uid: 4551
   type: Poweredlight
   components:
