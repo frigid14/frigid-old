@@ -22,6 +22,56 @@
           prob: 0.6
         - id: Fork
           prob: 0.6
+        - id: DrinkColaCan
+          prob: 0.6
+        - id: DrinkStarkistCan
+          prob: 0.6
+        - id: DrinkSpaceUpCan
+          prob: 0.6
+        - id: DrinkSpaceMountainWindCan
+          prob: 0.6
+        - id: DrinkSodaWaterCan
+          prob: 0.6
+        - id: DrinkRootBeerCan
+          prob: 0.6
+        - id: DrinkGrapeCan
+          prob: 0.6
+        - id: DrinkLemonLimeCan
+          prob: 0.6
+        - id: DrinkIcedTeaCan
+          prob: 0.6
+        - id: Soap
+          prob: 0.6
+        - id: FoodSnackBoritos
+          prob: 0.6
+        - id: FoodSnackCheesie
+          prob: 0.6
+        - id: FoodSnackChips
+          prob: 0.6
+        - id: FoodSnackChocolate
+          prob: 0.6
+        - id: FoodSnackEnergy
+          prob: 0.6
+        - id: FoodSnackChocolateBar
+          prob: 0.6
+        - id: FoodSnackPopcorn
+          prob: 0.6
+        - id: FoodSnackRaisins
+          prob: 0.6
+        - id: FoodSnackSus
+          prob: 0.6
+        - id: FoodSnackSyndi
+          prob: 0.6
+        - id: FoodSnackChowMein
+          prob: 0.6
+        - id: FoodSnackDanDanNoodles
+          prob: 0.6
+        - id: FoodSnackCookieFortune
+          prob: 0.6
+        - id: FoodSnackNutribrick
+          prob: 0.6
+        - id: FoodSnackMREBrownie
+          prob: 0.6
         # Uncommon (30%-50%)
         - id: ClothingOuterWinterCoat
           prob: 0.5
