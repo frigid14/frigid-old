@@ -324,10 +324,10 @@
 
 # Shotgun
 - type: entity
-  name: box of (.50 pellet) ammo drums
+  name: box of (.12 pellet) ammo drums
   parent: BoxCardboard
   id: BoxMagazineShotgun
-  description: A box full of (.50 pellet) ammo drums.
+  description: A box full of (.12 pellet) ammo drums.
   components:
   - type: StorageFill
     contents:
@@ -335,10 +335,10 @@
         amount: 6
 
 - type: entity
-  name: box of (.50 beanbag) ammo drums
+  name: box of (.12 beanbag) ammo drums
   parent: BoxCardboard
   id: BoxMagazineShotgunBeanbag
-  description: A box full of (.50 beanbag) ammo drums.
+  description: A box full of (.12 beanbag) ammo drums.
   components:
   - type: StorageFill
     contents:
@@ -346,10 +346,10 @@
         amount: 6
 
 - type: entity
-  name: box of (.50 slug) ammo drums
+  name: box of (.12 slug) ammo drums
   parent: BoxCardboard
   id: BoxMagazineShotgunSlug
-  description: A box full of (.50 slug) ammo drums.
+  description: A box full of (.12 slug) ammo drums.
   components:
   - type: StorageFill
     contents:
@@ -357,10 +357,10 @@
         amount: 6
 
 - type: entity
-  name: box of (.50 incendiary) ammo drums
+  name: box of (.12 incendiary) ammo drums
   parent: BoxCardboard
   id: BoxMagazineShotgunIncendiary
-  description: A box full of (.50 incendiary) ammo drums.
+  description: A box full of (.12 incendiary) ammo drums.
   components:
   - type: StorageFill
     contents:
