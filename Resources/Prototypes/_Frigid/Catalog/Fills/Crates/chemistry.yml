@@ -1,0 +1,23 @@
+﻿- type: entity
+  id: FrigidCrateChemistry
+  suffix: Filled, Chemistry
+  parent: CrateGenericPlastic
+  components:
+    - type: StorageFill
+      contents:
+        - id: CarbonChemistryBottle
+        - id: OxygenChemistryBottle
+        - id: WaterChemistryBottle
+        - id: PhosphorusChemistryBottle
+        - id: HydrogenChemistryBottle
+        - id: NitrogenChemistryBottle
+        - id: SulfurChemistryBottle
+        - id: PotassiumChemistryBottle
+        - id: LithiumChemistryBottle
+        - id: IronChemistryBottle
+        - id: ChlorineChemistryBottle
+        - id: FluorineChemistryBottle
+        - id: IodineChemistryBottle
+        - id: MercuryChemistryBottle
+        - id: RadiumChemistryBottle
+        - id: SugarChemistryBottle
