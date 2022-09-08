@@ -29,7 +29,7 @@ namespace Content.Client.Stylesheets
                 // Ew, but ok
                 new []
                 {
-                    $"/Fonts/NotoSans{ds}/NotoSans{ds}-{variation}.ttf",
+                    $"/Fonts/Barlow{ds}/Barlow{ds}-{variation}.ttf",
                     $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
                 },
