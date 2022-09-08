@@ -33,7 +33,7 @@ public sealed class ExplosionDebugOverlay : Overlay
         IoCManager.InjectDependencies(this);
 
         var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 8);
+        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/Barlow/Barlow-Regular.ttf"), 8);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

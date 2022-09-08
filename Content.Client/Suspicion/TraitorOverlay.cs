@@ -31,7 +31,7 @@ namespace Content.Client.Suspicion
 
             _entityManager = entityManager;
 
-            _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+            _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/Barlow/Barlow-Regular.ttf"), 10);
         }
 
         protected override void Draw(in OverlayDrawArgs args)
