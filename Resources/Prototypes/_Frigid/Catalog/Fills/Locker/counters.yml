@@ -29,6 +29,8 @@
           prob: 0.4
         - id: HydroponicsToolSpade
           prob: 0.4
+        - id: SpaceCash
+          prob: 0.4
         - id: Screwdriver
           prob: 0.35
         - id: Crowbar
@@ -45,6 +47,8 @@
         # Rare (1%-20%)
         - id: ClothingHeadHatWelding
           prob: 0.2
+        - id: SpaceCash10
+          prob: 0.2
         - id: ShellShotgun
           prob: 0.2
         - id: ShellShotgunBeanbag
@@ -55,7 +59,11 @@
           prob: 0.15
         - id: WeaponFlareGun
           prob: 0.1
+        - id: SpaceCash20
+          prob: 0.1
         - id: WeaponShotgunDoubleBarreled
           prob: 0.05 # 5%
+        - id: SpaceCash100
+          prob: 0.02 # 2%
         - id: ClothingUniformJumpsuitMilitary
           prob: 0.01 # 1%
