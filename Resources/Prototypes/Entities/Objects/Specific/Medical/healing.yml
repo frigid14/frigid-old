@@ -260,7 +260,7 @@
           Quantity: 15
 
 - type: entity
-  name: spaceacillin syringe
+  name: penicillin syringe
   parent: Syringe
   id: SyringeSpaceacillin
   components:
