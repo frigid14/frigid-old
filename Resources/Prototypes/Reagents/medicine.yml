@@ -494,7 +494,7 @@
   group: Medicine
   desc: reagent-desc-spaceacillin
   physicalDesc: reagent-physical-desc-opaque
-  color: "#9942f5"
+  color: "#0d98ba"
   metabolisms:
     Medicine:
       effects:
