@@ -36,6 +36,7 @@ using Content.Server.NPC.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Preferences;
 using Robust.Shared.Audio;
+using Content.Server.Administration.Components;
 
 namespace Content.Server.Zombies
 {
