@@ -46,21 +46,18 @@
   name: bottle
   parent: BaseChemistryEmptyBottle
   id: ChemistryEmptyBottle01
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Chemistry/bottle.rsi
-    layers:
-      - state: bottle-1
-      - state: bottle-1-1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: bottle-1-
-  - type: Tag
-    tags:
-    - Bottle
+  #components:
+  #- type: Sprite
+  #  sprite: Objects/Specific/Chemistry/bottle.rsi
+  #  layers:
+  #    - state: bottle-1
+  #    - state: bottle-1-1
+  #      map: ["enum.SolutionContainerLayers.Fill"]
+  #      visible: false
+  #- type: Appearance
+  #- type: SolutionContainerVisuals
+  #  maxFillLevels: 6
+  #  fillBaseName: bottle-1-
 
 - type: entity
   id: EpinephrineChemistryBottle
