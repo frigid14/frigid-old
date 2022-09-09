@@ -272,39 +272,40 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: construction
-  name: metal counter
-  id: TableCounterMetal
-  graph: Table
-  startNode: start
-  targetNode: CounterMetal
-  category: construction-category-furniture
-  description: Looks like a good place to put a drink down.
-  icon:
-    sprite: Structures/Furniture/Tables/countermetal.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
-  name: wood counter
-  id: TableCounterWood
-  graph: Table
-  startNode: start
-  targetNode: CounterWood
-  category: construction-category-furniture
-  description: Do not apply fire to this. Rumour says it burns easily.
-  icon:
-    sprite: Structures/Furniture/Tables/counterwood.rsi
-    state: full
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
+# they function as storage items and i dont want an infinite counter warehouse
+#- type: construction
+#  name: metal counter
+#  id: TableCounterMetal
+#  graph: Table
+#  startNode: start
+#  targetNode: CounterMetal
+#  category: construction-category-furniture
+#  description: Looks like a good place to put a drink down.
+#  icon:
+#    sprite: Structures/Furniture/Tables/countermetal.rsi
+#    state: full
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
+#
+#- type: construction
+#  name: wood counter
+#  id: TableCounterWood
+#  graph: Table
+#  startNode: start
+#  targetNode: CounterWood
+#  category: construction-category-furniture
+#  description: Do not apply fire to this. Rumour says it burns easily.
+#  icon:
+#    sprite: Structures/Furniture/Tables/counterwood.rsi
+#    state: full
+#  objectType: Structure
+#  placementMode: SnapgridCenter
+#  canBuildInImpassable: false
+#  conditions:
+#    - !type:TileNotBlocked
 
 #bathroom
 - type: construction

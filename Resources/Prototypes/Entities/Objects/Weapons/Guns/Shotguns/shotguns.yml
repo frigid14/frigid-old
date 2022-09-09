@@ -103,6 +103,8 @@
   id: WeaponShotgunDoubleBarreled
   description: An immortal classic.
   components:
+  - type: Item
+    size: 60
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   - type: Gun
