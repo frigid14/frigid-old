@@ -5,7 +5,7 @@
   parent: TableCounterWood
   components:
     - type: Storage
-      capacity: 60
+      capacity: 500
     - type: StorageFill
       contents:
         # Common (60%-100%)
