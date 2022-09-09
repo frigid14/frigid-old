@@ -212,8 +212,6 @@ namespace Content.Server.Chemistry.EntitySystems
 
             for (int i = 0; i < amount; i++)
             {
-                // Hacky, I know. I'm sorry.
-                pills = true;
                 var item = Spawn(pills ? "Pill" : "ChemistryEmptyBottle01", Transform(chemMaster.Owner).Coordinates);
 
                 if (label != "")
