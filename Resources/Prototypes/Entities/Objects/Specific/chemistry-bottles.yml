@@ -8,6 +8,9 @@
   - type: Tag
     tags:
     - Bottle
+    - Trash
+  - type: Recyclable
+  - type: SpaceGarbage
   - type: Sprite
     sprite: Objects/Specific/Chemistry/bottle.rsi
     netsync: false
