@@ -4,6 +4,8 @@
   noSpawn: true # You should use HouseRandomCounterSpawner instead
   parent: TableCounterWood
   components:
+    - type: Storage
+      capacity: 60
     - type: StorageFill
       contents:
         # Common (60%-100%)
@@ -21,6 +23,26 @@
         - id: Spoon
           prob: 0.6
         - id: Fork
+          prob: 0.6
+        - id: DrinkColaCan
+          prob: 0.6
+        - id: DrinkStarkistCan
+          prob: 0.6
+        - id: DrinkSpaceUpCan
+          prob: 0.6
+        - id: DrinkSpaceMountainWindCan
+          prob: 0.6
+        - id: DrinkSodaWaterCan
+          prob: 0.6
+        - id: DrinkRootBeerCan
+          prob: 0.6
+        - id: DrinkGrapeCan
+          prob: 0.6
+        - id: DrinkLemonLimeCan
+          prob: 0.6
+        - id: DrinkIcedTeaCan
+          prob: 0.6
+        - id: Soap
           prob: 0.6
         # Uncommon (30%-50%)
         - id: ClothingOuterWinterCoat
@@ -70,24 +92,22 @@
           prob: 0.2
         - id: FoodSnackPopcorn
           prob: 0.2
+        - id: FoodSnackRaisins
+          prob: 0.2
+        - id: FoodSnackSus
+          prob: 0.2
+        - id: FoodSnackSyndi
+          prob: 0.2
+        - id: FoodSnackChowMein
+          prob: 0.2
+        - id: FoodSnackDanDanNoodles
+          prob: 0.2
+        - id: FoodSnackCookieFortune
+          prob: 0.2
         - id: FoodSnackNutribrick
           prob: 0.2
         - id: FoodSnackMREBrownie
           prob: 0.2
-        - id: DrinkColaCan
-          prob: 0.15
-        - id: DrinkStarkistCan
-          prob: 0.15
-        - id: DrinkSodaWaterCan
-          prob: 0.15
-        - id: DrinkRootBeerCan
-          prob: 0.15
-        - id: DrinkGrapeCan
-          prob: 0.15
-        - id: DrinkIcedTeaCan
-          prob: 0.15
-        - id: Soap
-          prob: 0.15
         - id: ClothingHeadHatWelding
           prob: 0.2
         - id: SpaceCash10
