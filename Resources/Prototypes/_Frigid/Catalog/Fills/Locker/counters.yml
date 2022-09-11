@@ -6,6 +6,10 @@
   components:
     - type: Storage
       capacity: 500
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: [ ]
     - type: StorageFill
       contents:
         # For the record, the percentages are divided by 10.
