@@ -14,17 +14,17 @@ public sealed class ZombieSystem : SharedZombieSystem
 
     public void OnMobState(EntityUid uid, ZombieComponent component, MobStateChangedEvent args)
     {
-        var mgr = IoCManager.Resolve<ILightManager>();
-        if (!mgr.LockConsoleAccess)
-        {
-            if (args.CurrentMobState == DamageState.Alive)
-            {
-                mgr.Enabled = false;
-            }
-            else
-            {
-                mgr.Enabled = true;
-            }
-        }
+        //var mgr = IoCManager.Resolve<ILightManager>();
+        //if (!mgr.LockConsoleAccess)
+        //{
+        //    if (args.CurrentMobState == DamageState.Alive)
+        //    {
+        //        mgr.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        mgr.Enabled = true;
+        //    }
+        //}
     }
 }
