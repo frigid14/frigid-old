@@ -144,9 +144,10 @@ namespace Content.Server.Zombies
             melee.Arc = zombiecomp.AttackArc;
             melee.ClickArc = zombiecomp.AttackArc;
             melee.Range = 1.25f;
-            
+
             // Make them disarm prone
-            EnsureComp<DisarmProneComponent>(target);
+            // Don't do this actually
+            // EnsureComp<DisarmProneComponent>(target);
 
             //We have specific stuff for humanoid zombies because they matter more
             if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp

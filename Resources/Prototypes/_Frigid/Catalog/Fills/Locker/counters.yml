@@ -1,0 +1,139 @@
+﻿- type: entity
+  id: CounterWoodHouseRandom
+  suffix: Filled, House Random
+  noSpawn: true # You should use HouseRandomCounterSpawner instead
+  parent: TableCounterWood
+  components:
+    - type: Storage
+      capacity: 500
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: [ ]
+    - type: StorageFill
+      contents:
+        # For the record, the percentages are divided by 10.
+        # Common (60%-100%)
+        # Usually foodstuff.
+        - id: SpoonPlastic
+          prob: 0.09
+        - id: ForkPlastic
+          prob: 0.09
+        - id: DrinkWaterBottleFull
+          prob: 0.08
+        - id: KitchenKnife
+          prob: 0.07
+        - id: FoodTinMRE
+          prob: 0.06
+        - id: Spoon
+          prob: 0.06
+        - id: Fork
+          prob: 0.06
+        - id: DrinkColaCan
+          prob: 0.06
+        - id: DrinkStarkistCan
+          prob: 0.06
+        - id: DrinkSpaceUpCan
+          prob: 0.06
+        - id: DrinkSpaceMountainWindCan
+          prob: 0.06
+        - id: DrinkSodaWaterCan
+          prob: 0.06
+        - id: DrinkRootBeerCan
+          prob: 0.06
+        - id: DrinkGrapeCan
+          prob: 0.06
+        - id: DrinkLemonLimeCan
+          prob: 0.06
+        - id: DrinkIcedTeaCan
+          prob: 0.06
+        - id: Soap
+          prob: 0.06
+        # Uncommon (30%-50%)
+        - id: ClothingOuterWinterCoat
+          prob: 0.05
+        - id: HydroponicsToolClippers
+          prob: 0.04
+        - id: HydroponicsToolSpade
+          prob: 0.04
+        - id: PillAntibiotic
+          prob: 0.04
+        - id: SpaceCash
+          prob: 0.04
+        - id: Screwdriver
+          prob: 0.035
+        - id: Crowbar
+          prob: 0.035
+        - id: Wrench
+          prob: 0.035
+        - id: Wirecutter
+          prob: 0.035
+        - id: WelderMini
+          prob: 0.030
+        - id: FrigidWeldingFuel
+          prob: 0.030
+        - id: Brutepack
+          prob: 0.025
+          amount: 5
+        - id: Ointment
+          prob: 0.0225
+          amount: 5
+        - id: Gauze
+          prob: 0.02125
+          amount: 5
+
+        # Rare (1%-20%)
+        - id: FoodSnackBoritos
+          prob: 0.02
+        - id: FoodSnackCheesie
+          prob: 0.02
+        - id: FoodSnackChips
+          prob: 0.02
+        - id: FoodSnackChocolate
+          prob: 0.02
+        - id: FoodSnackEnergy
+          prob: 0.02
+        - id: FoodSnackChocolateBar
+          prob: 0.02
+        - id: FoodSnackPopcorn
+          prob: 0.02
+        - id: FoodSnackRaisins
+          prob: 0.02
+        - id: FoodSnackSus
+          prob: 0.02
+        - id: FoodSnackSyndi
+          prob: 0.02
+        - id: FoodSnackChowMein
+          prob: 0.02
+        - id: FoodSnackDanDanNoodles
+          prob: 0.02
+        - id: FoodSnackCookieFortune
+          prob: 0.02
+        - id: FoodSnackNutribrick
+          prob: 0.02
+        - id: FoodSnackMREBrownie
+          prob: 0.02
+        - id: ClothingHeadHatWelding
+          prob: 0.02
+        - id: SpaceCash10
+          prob: 0.02
+        - id: ShellShotgun
+          prob: 0.02
+        - id: ShellShotgunBeanbag
+          prob: 0.02
+        - id: ShellShotgunFlare
+          prob: 0.02
+        - id: MagazineRifle
+          prob: 0.015
+        - id: WeaponFlareGun
+          prob: 0.01
+        - id: SpaceCash20
+          prob: 0.01
+        - id: WeaponPistolMk58
+          prob: 0.007 # 7%
+        - id: WeaponShotgunDoubleBarreled
+          prob: 0.005 # 5%
+        - id: SpaceCash100
+          prob: 0.002 # 2%
+        - id: ClothingUniformJumpsuitMilitary
+          prob: 0.001 # 1%
