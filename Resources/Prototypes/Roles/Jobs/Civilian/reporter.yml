@@ -15,7 +15,6 @@
     jumpsuit: ClothingUniformJumpsuitReporter
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorWhite
-    id: ReporterPIDCard
   innerclothingskirt: ClothingUniformJumpsuitJournalist
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

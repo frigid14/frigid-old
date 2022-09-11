@@ -9,6 +9,7 @@
   footstepSounds:
     collection: FootstepPlating
   friction: 0.5
+  itemDrop: SheetSteel1
   thermalConductivity: 0.04
   heatCapacity: 10000
 

@@ -6,6 +6,7 @@
   - Botanist
   - Chaplain
   - Prisoner
+  - Reporter
   - Bartender
   - ServiceWorker
 
@@ -28,12 +29,13 @@
   - SecurityCadet
   - SecurityOfficer
   - FrigidSoldier
+  - ServiceWorker
   - Prisoner
 #  - Detective
 #  - Warden
 
-- type: department
-  id: Science
-  roles:
-  - Chemist
-  - Scientist
+#- type: department
+#  id: Science
+#  roles:
+#  - Chemist
+#  - Scientist

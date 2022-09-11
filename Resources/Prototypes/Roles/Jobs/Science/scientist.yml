@@ -3,6 +3,7 @@
   name: job-name-scientist
   playTimeTracker: JobScientist
   startingGear: ScientistGear
+  setPreference: false
   icon: "Scientist"
   supervisors: job-supervisors-rd
   access:
