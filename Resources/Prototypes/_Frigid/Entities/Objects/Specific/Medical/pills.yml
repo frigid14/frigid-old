@@ -1,0 +1,12 @@
+﻿- type: entity
+  name: antibiotics
+  parent: Pill
+  id: PillAntibiotic
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 50
+          reagents:
+            - ReagentId: Spaceacillin
+              Quantity: 10

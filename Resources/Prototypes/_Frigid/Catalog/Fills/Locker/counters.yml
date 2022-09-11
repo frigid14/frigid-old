@@ -52,8 +52,8 @@
           prob: 0.04
         - id: HydroponicsToolSpade
           prob: 0.04
-        #- id: PillAntibiotic
-        #  prob: 0.04
+        - id: PillAntibiotic
+          prob: 0.04
         - id: SpaceCash
           prob: 0.04
         - id: Screwdriver
