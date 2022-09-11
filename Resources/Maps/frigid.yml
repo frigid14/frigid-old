@@ -63060,7 +63060,7 @@ entities:
   - fixtures: []
     type: Fixtures
 - uid: 4794
-  type: FrigidCrateChemistry
+  type: CounterWoodHouseRandom
   components:
   - pos: -63.5,13.5
     parent: 92
@@ -64979,7 +64979,7 @@ entities:
     parent: 92
     type: Transform
 - uid: 5080
-  type: FrigidCrateChemistry
+  type: CounterWoodHouseRandom
   components:
   - pos: -64.5,13.5
     parent: 92
