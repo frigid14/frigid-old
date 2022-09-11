@@ -137,7 +137,7 @@
   isSubfloor: false
   canCrowbar: true
   footstepSounds:
-    collection: FootstepFloorSnow
+    collection: FloorTileItemElevatorShaft
   friction: 0.30
   itemDrop: FloorTileItemDirty
   thermalConductivity: 0.04
