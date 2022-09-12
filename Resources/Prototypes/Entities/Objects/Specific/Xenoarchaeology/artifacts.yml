@@ -20,9 +20,8 @@
           !type:PhysShapeCircle
           radius: 0.45
         mass: 150
-        layer: # doesn't collide with artifact storage
-        - Opaque
-        - BulletImpassable
+        layer:
+        - WallLayer
         mask:
         - MachineMask
     - type: InteractionOutline

@@ -47,10 +47,6 @@ namespace Content.Server.Weapon.Melee.Components
         [DataField("clickAttackEffect")]
         public bool ClickAttackEffect { get; set; } = true;
 
-        [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("hidden")]
-        public bool HideFromExamine { get; set; } = false;
-
         public TimeSpan LastAttackTime;
         public TimeSpan CooldownEnd;
 

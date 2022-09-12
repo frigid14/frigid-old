@@ -54,9 +54,6 @@
   id: FoodSoupPea
   description: A humble split pea soup.
   components:
-  - type: FlavorProfile
-    flavors:
-      - peas
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
     layers:
@@ -82,9 +79,6 @@
   id: FoodSaladAesir
   description: Probably too incredible for mortals to fully enjoy.
   components:
-  - type: FlavorProfile
-    flavors:
-      - leafy
   - type: Sprite
     layers:
     - state: bowl
@@ -108,10 +102,6 @@
   id: FoodSaladHerb
   description: A tasty salad with apples on top.
   components:
-  - type: FlavorProfile
-    flavors:
-      - leafy
-      - apple
   - type: Sprite
     layers:
     - state: bowl
@@ -133,12 +123,6 @@
   id: FoodSaladValid
   description: It's just an herb salad with meatballs and fried potato slices. Nothing suspicious about it.
   components:
-  - type: FlavorProfile
-    flavors:
-      - leafy
-      - meaty
-      - potatoes
-      - validhunting
   - type: Sprite
     layers:
     - state: bowl
@@ -162,9 +146,6 @@
   id: FoodSaladFruit
   description: Your standard fruit salad.
   components:
-  - type: FlavorProfile
-    flavors:
-      - fruity
   - type: Sprite
     layers:
     - state: bowl
@@ -186,9 +167,6 @@
   id: FoodSaladJungle
   description: Exotic fruits in a bowl.
   components:
-  - type: FlavorProfile
-    flavors:
-      - fruity
   - type: Sprite
     layers:
     - state: bowl
@@ -210,10 +188,6 @@
   id: FoodSaladCitrus
   description: Citrus overload!
   components:
-  - type: FlavorProfile
-    flavors:
-      - leafy
-      - sour
   - type: Sprite
     layers:
     - state: bowl
@@ -235,9 +209,6 @@
   id: FoodSaladEden
   description: A salad brimming with untapped potential.
   components:
-  - type: FlavorProfile
-    flavors:
-      - bitter
   - type: Sprite
     layers:
     - state: bowl
@@ -263,9 +234,6 @@
   id: FoodRiceBoiled
   description: A warm bowl of rice.
   components:
-  - type: FlavorProfile
-    flavors:
-      - rice
   - type: Sprite
     layers:
     - state: bowl
@@ -278,10 +246,6 @@
   id: FoodRiceEgg
   description: A bowl of rice with a fried egg.
   components:
-  - type: FlavorProfile
-    flavors:
-      - rice
-      - egg
   - type: Sprite
     layers:
     - state: bowl
@@ -302,10 +266,6 @@
   id: FoodRicePork
   description: Well, it looks like pork...
   components:
-  - type: FlavorProfile
-    flavors:
-      - rice
-      - meaty
   - type: Sprite
     layers:
     - state: bowl
@@ -331,10 +291,6 @@
   id: FoodRicePudding
   description: Everybody loves rice pudding!
   components:
-  - type: FlavorProfile
-    flavors:
-      - rice
-      - sweet
   - type: Sprite
     layers:
     - state: bowl
@@ -360,12 +316,6 @@
   id: FoodRiceGumbo
   description: A spicy and savory meat and rice dish.
   components:
-  - type: FlavorProfile
-    flavors:
-      - rice
-      - spicy
-      - meaty
-      - savory
   - type: Sprite
     layers:
     - state: bowl
@@ -391,9 +341,6 @@
   id: FoodOatmeal
   description: A nice bowl of oatmeal.
   components:
-  - type: FlavorProfile
-    flavors:
-      - oats
   - type: Sprite
     layers:
     - state: bowl
@@ -428,10 +375,6 @@
   id: FoodJellyAmanita
   description: It's evil, don't touch it!
   components:
-  - type: FlavorProfile
-    flavors:
-      - mushroom
-      - jelly
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly

@@ -9,7 +9,6 @@
   - type: Sprite
     netsync: false
     sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi
-    snapCardinals: false
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -99,10 +98,6 @@
   suffix: Docking
   description: An incomplete structure necessary for connecting two space craft together.
   components:
-  - type: Transform
-    anchored: true
-    noRot: false
-  - type: Rotatable
   - type: Sprite
     netsync: false
     sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi

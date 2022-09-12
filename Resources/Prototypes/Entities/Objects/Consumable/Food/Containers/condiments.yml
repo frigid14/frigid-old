@@ -5,9 +5,8 @@
 # Since this one is closed, the only way to insert liquid is with a syringe.
 - type: entity
   parent: BaseItem
-  id: BaseFoodCondimentPacket
+  id: FoodCondimentPacket
   name: condiment packet
-  abstract: true
   description: A small plastic pack with condiments to put on your food.
   components:
   - type: Drink
@@ -41,15 +40,7 @@
     solution: food
 
 - type: entity
-  parent: BaseFoodCondimentPacket
-  id: FoodCondimentPacket
-  components:
-  - type: Tag
-    tags:
-    - Trash
-
-- type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketAstrotame
   name: Astrotame
   description: The sweetness of a thousand sugars but none of the calories.
@@ -75,7 +66,7 @@
     fillBaseName: packet-trans-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketBbq
   name: BBQ sauce
   description: Hand wipes not included.
@@ -101,7 +92,7 @@
     fillBaseName: packet-trans-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketCornoil
   name: corn oil
   description: Corn oil. A delicious oil used in cooking. Made from corn.
@@ -127,7 +118,7 @@
     fillBaseName: packet-trans-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketFrostoil
   name: coldsauce
   description: Coldsauce. Leaves the tongue numb in its passage.
@@ -153,7 +144,7 @@
     fillBaseName: packet-trans-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketHorseradish
   name: horseradish sauce
   description: A packet of smelly horseradish sauce.
@@ -179,7 +170,7 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketHotsauce
   name: hotsauce
   description: You can almost TASTE the stomach ulcers now!
@@ -205,7 +196,7 @@
     fillBaseName: packet-trans-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketKetchup
   name: ketchup
   description: You feel more American already.
@@ -230,7 +221,7 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketPepper
   name: black pepper
   description: Often used to flavor food or make people sneeze.
@@ -255,7 +246,7 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketSalt
   name: salt
   description: Salt. From space oceans, presumably.
@@ -282,7 +273,7 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketSoy
   name: soy sauce
   description: A salty soy-based flavoring.
@@ -307,7 +298,7 @@
     fillBaseName: packet-solid-
 
 - type: entity
-  parent: BaseFoodCondimentPacket
+  parent: FoodCondimentPacket
   id: FoodCondimentPacketSugar
   name: sugar
   description: Tasty spacey sugar!
@@ -335,8 +326,7 @@
 
 - type: entity
   parent: BaseItem
-  id: BaseFoodCondimentBottle
-  abstract: true
+  id: FoodCondimentBottle
   name: condiment bottle
   description: A thin glass bottle used to store condiments.
   components:
@@ -368,15 +358,7 @@
     solution: food
 
 - type: entity
-  parent: BaseFoodCondimentBottle
-  id: FoodCondimentBottle
-  components:
-  - type: Tag
-    tags:
-    - Trash
-
-- type: entity
-  parent: BaseFoodCondimentBottle
+  parent: FoodCondimentBottle
   id: FoodCondimentBottleColdsauce
   name: coldsauce bottle
   description: Leaves the tongue numb in its passage.
@@ -399,7 +381,7 @@
     state: bottle-coldsauce
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: FoodCondimentBottle
   id: FoodCondimentBottleEnzyme
   name: universal enzyme
   description: Used in cooking various dishes.
@@ -422,7 +404,7 @@
     state: bottle-enzyme
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: FoodCondimentBottle
   id: FoodCondimentBottleHotsauce
   name: hotsauce
   description: You can almost TASTE the stomach ulcers now!
@@ -445,7 +427,7 @@
     state: bottle-hotsauce
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: FoodCondimentBottle
   id: FoodCondimentBottleKetchup
   name: ketchup
   description: You feel more American already.
@@ -468,7 +450,7 @@
     state: bottle-ketchup
 
 - type: entity
-  parent: BaseFoodCondimentBottle
+  parent: FoodCondimentBottle
   id: FoodCondimentBottleBBQ
   name: BBQ sauce
   description: Hand wipes not included.
@@ -495,8 +477,7 @@
 
 - type: entity
   parent: BaseItem
-  id: BaseFoodCondimentBottleSmall
-  abstract: true
+  id: FoodCondimentBottleSmall
   name: condiment bottle
   description: A smaller glass bottle used to store condiments.
   components:
@@ -526,15 +507,7 @@
     solution: food
 
 - type: entity
-  parent: BaseFoodCondimentBottleSmall
-  id: FoodCondimentBottleSmall
-  components:
-  - type: Tag
-    tags:
-    - Trash
-
-- type: entity
-  parent: BaseFoodCondimentBottleSmall
+  parent: FoodCondimentBottleSmall
   id: FoodCondimentBottleSmallColdsauce
   name: coldsauce bottle
   description: Leaves the tongue numb in its passage.
@@ -557,7 +530,7 @@
     state: bottle-s-coldsauce
 
 - type: entity
-  parent: BaseFoodCondimentBottleSmall
+  parent: FoodCondimentBottleSmall
   id: FoodCondimentBottleSmallHotsauce
   name: hotsauce
   description: You can almost TASTE the stomach ulcers now!
@@ -580,7 +553,7 @@
     state: bottle-s-hotsauce
 
 - type: entity
-  parent: BaseFoodCondimentBottleSmall
+  parent: FoodCondimentBottleSmall
   id: FoodCondimentBottleSmallKetchup
   name: ketchup
   description: You feel more American already.
@@ -603,7 +576,7 @@
     state: bottle-s-ketchup
 
 - type: entity
-  parent: BaseFoodCondimentBottleSmall
+  parent: FoodCondimentBottleSmall
   id: FoodCondimentBottleSmallVinegar
   name: vinegar
   description: Used in cooking to enhance flavor.
