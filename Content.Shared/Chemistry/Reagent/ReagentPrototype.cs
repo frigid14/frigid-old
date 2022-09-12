@@ -50,9 +50,6 @@ namespace Content.Shared.Chemistry.Reagent
         [ViewVariables(VVAccess.ReadOnly)]
         public string LocalizedPhysicalDescription => Loc.GetString(PhysicalDescription);
 
-        [DataField("flavor")]
-        public string Flavor { get; } = default!;
-
         [DataField("color")]
         public Color SubstanceColor { get; } = Color.White;
 

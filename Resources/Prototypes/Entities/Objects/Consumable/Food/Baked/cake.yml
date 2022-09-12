@@ -5,9 +5,6 @@
   id: FoodCakeBase
   abstract: true
   components:
-  - type: FlavorProfile
-    flavors:
-      - sweet
   - type: Food
     trash: FoodPlate
   - type: Sprite
@@ -29,9 +26,6 @@
   abstract: true
   description: Just a slice of cake, it is enough for everyone.
   components:
-  - type: FlavorProfile
-    flavors:
-      - sweet
   - type: Food
     trash: FoodPlateSmall
   - type: SolutionContainerManager

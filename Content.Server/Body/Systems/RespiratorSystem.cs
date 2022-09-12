@@ -109,7 +109,8 @@ namespace Content.Server.Body.Systems
                 return;
             }
 
-            var actualGas = ev.Gas.RemoveVolume(Atmospherics.BreathVolume);
+            var ratio = (Atmospherics.BreathVolume / ev.Gas.Volume);
+            var actualGas = ev.Gas.RemoveRatio(ratio);
 
             var lungRatio = 1.0f / organs.Count;
             var gas = organs.Count == 1 ? actualGas : actualGas.RemoveRatio(lungRatio);

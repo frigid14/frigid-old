@@ -2,6 +2,7 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Mind.Components;
 using Content.Server.Store.Components;
+using Content.Server.UserInterface;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
@@ -23,7 +24,6 @@ public sealed partial class StoreSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     private void InitializeUi()
     {
@@ -42,10 +42,10 @@ public sealed partial class StoreSystem : EntitySystem
         if (!TryComp<ActorComponent>(user, out var actor))
             return;
 
-        if (!_ui.TryToggleUi(component.Owner, StoreUiKey.Key, actor.PlayerSession))
-            return;
+        var ui = component.Owner.GetUIOrNull(StoreUiKey.Key);
+        ui?.Toggle(actor.PlayerSession);
 
-        UpdateUserInterface(user, component);
+        UpdateUserInterface(user, component, ui);
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ public sealed partial class StoreSystem : EntitySystem
     {
         if (ui == null)
         {
-            ui = _ui.GetUiOrNull(component.Owner, StoreUiKey.Key);
+            ui = component.Owner.GetUIOrNull(StoreUiKey.Key);
             if (ui == null)
                 return;
         }
@@ -92,7 +92,7 @@ public sealed partial class StoreSystem : EntitySystem
         }
 
         var state = new StoreUpdateState(buyer, component.LastAvailableListings, allCurrency);
-        _ui.SetUiState(ui, state);
+        ui.SetState(state);
     }
 
     /// <summary>
@@ -114,7 +114,10 @@ public sealed partial class StoreSystem : EntitySystem
         if (listing.Conditions != null)
         {
             var args = new ListingConditionArgs(msg.Buyer, component.Owner, listing, EntityManager);
-            var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
+            var conditionsMet = true;
+
+            foreach (var condition in listing.Conditions.Where(condition => !condition.Condition(args)))
+                conditionsMet = false;
 
             if (!conditionsMet)
                 return;
@@ -125,6 +128,7 @@ public sealed partial class StoreSystem : EntitySystem
         {
             if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
             {
+                _audio.Play(component.InsufficientFundsSound, Filter.SinglePlayer(msg.Session), uid);
                 return;
             }
         }
@@ -183,46 +187,35 @@ public sealed partial class StoreSystem : EntitySystem
             return;
 
         //we need an actually valid entity to spawn. This check has been done earlier, but just in case.
-        if (proto.Cash == null || !proto.CanWithdraw)
+        if (proto.EntityId == null || !proto.CanWithdraw)
             return;
 
-        FixedPoint2 amountRemaining = msg.Amount;
+        var entproto = _proto.Index<EntityPrototype>(proto.EntityId);
+
+        var amountRemaining = msg.Amount;
         var coordinates = Transform(msg.Buyer).Coordinates;
-
-        var sortedCashValues = proto.Cash.Keys.OrderByDescending(x => x).ToList();
-        foreach (var value in sortedCashValues)
+        if (entproto.HasComponent<StackComponent>())
         {
-            var cashId = proto.Cash[value];
-
-            if (!_proto.TryIndex<EntityPrototype>(cashId, out var cashProto))
-                continue;
-
-            //how many times this subdivision fits in the amount remaining
-            var amountToSpawn = (int) Math.Floor((double) (amountRemaining / value));
-            if (cashProto.HasComponent<StackComponent>())
+            while (amountRemaining > 0)
             {
-                var amountToRemove = amountToSpawn; //we don't want to modify amountToSpawn, as we use it for calculations
-                while (amountToRemove > 0)
-                {
-                    var ent = Spawn(cashId, coordinates);
-                    if (!TryComp<StackComponent>(ent, out var stack))
-                        return; //you really fucked up if you got here
+                var ent = Spawn(proto.EntityId, coordinates);
+                var stackComponent = Comp<StackComponent>(ent); //we already know it exists
 
-                    var maxAmount = Math.Min(amountToRemove, stack.MaxCount); //limit it based on max stack amount
-                    _stack.SetCount(ent, maxAmount, stack);
-                    _hands.TryPickupAnyHand(msg.Buyer, ent);
-                    amountToRemove -= maxAmount;
-                }
+                var amountPerStack = Math.Min(stackComponent.MaxCount, amountRemaining);
+
+                _stack.SetCount(ent, amountPerStack, stackComponent);
+                amountRemaining -= amountPerStack;
+                _hands.TryPickupAnyHand(msg.Buyer, ent);
             }
-            else //please for the love of christ give your currency stack component
+        }
+        else //please for the love of christ give your currency stack component
+        {
+            while (amountRemaining > 0)
             {
-                for (var i = 0; i < amountToSpawn; i++)
-                {
-                    var ent = Spawn(cashId, coordinates);
-                    _hands.TryPickupAnyHand(msg.Buyer, ent);
-                }
+                var ent = Spawn(proto.EntityId, coordinates);
+                _hands.TryPickupAnyHand(msg.Buyer, ent);
+                amountRemaining--;
             }
-            amountRemaining -= value * amountToSpawn;
         }
 
         component.Balance[msg.Currency] -= msg.Amount;

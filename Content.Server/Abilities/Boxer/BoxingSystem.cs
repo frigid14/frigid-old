@@ -20,7 +20,7 @@ namespace Content.Server.Abilities.Boxer
         {
             base.Initialize();
             SubscribeLocalEvent<BoxerComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<BoxerComponent, ItemMeleeDamageEvent>(GetDamageModifiers);
+            SubscribeLocalEvent<BoxerComponent, MeleeHitEvent>(ApplyBoxerModifiers);
             SubscribeLocalEvent<BoxingGlovesComponent, StaminaMeleeHitEvent>(OnStamHit);
         }
 
@@ -29,7 +29,7 @@ namespace Content.Server.Abilities.Boxer
             if (TryComp<MeleeWeaponComponent>(uid, out var meleeComp))
                 meleeComp.Range *= boxer.RangeBonus;
         }
-        private void GetDamageModifiers(EntityUid uid, BoxerComponent component, ItemMeleeDamageEvent args)
+        private void ApplyBoxerModifiers(EntityUid uid, BoxerComponent component, MeleeHitEvent args)
         {
             if (component.UnarmedModifiers == default!)
             {

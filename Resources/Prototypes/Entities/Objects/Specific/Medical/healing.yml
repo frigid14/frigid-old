@@ -222,7 +222,7 @@
 # Syringes
 - type: entity
   name: ephedrine syringe
-  parent: BaseSyringe
+  parent: Syringe
   id: SyringeEphedrine
   components:
   - type: SolutionContainerManager
@@ -235,7 +235,7 @@
 
 - type: entity
   name: inaprovaline syringe
-  parent: BaseSyringe
+  parent: Syringe
   id: SyringeInaprovaline
   components:
   - type: SolutionContainerManager
@@ -248,7 +248,7 @@
 
 - type: entity
   name: tranexamic acid syringe
-  parent: BaseSyringe
+  parent: Syringe
   id: SyringeTranexamicAcid
   components:
   - type: SolutionContainerManager
@@ -261,7 +261,7 @@
 
 - type: entity
   name: antibiotics syringe
-  parent: BaseSyringe
+  parent: Syringe
   id: SyringeSpaceacillin
   components:
   - type: SolutionContainerManager
@@ -274,7 +274,7 @@
 
 - type: entity
   name: ipecac syringe
-  parent: BaseSyringe
+  parent: Syringe
   id: SyringeIpecac
   components:
   - type: SolutionContainerManager
@@ -288,7 +288,7 @@
 #this is where all the syringes are so i didn't know where to put it
 - type: entity
   name: corpium syringe
-  parent: BaseSyringe
+  parent: Syringe
   id: SyringeCorpium
   components:
   - type: SolutionContainerManager

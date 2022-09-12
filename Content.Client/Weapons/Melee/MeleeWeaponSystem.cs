@@ -1,6 +1,5 @@
 using System;
 using Content.Client.Weapons.Melee.Components;
-using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;

@@ -19,8 +19,6 @@
       canToggleStartOnStick: true
     - type: TriggerOnSignal
     - type: SignalReceiver
-      inputs:
-        Trigger: []
     - type: Sticky
       stickDelay: 5
       unstickDelay: 5

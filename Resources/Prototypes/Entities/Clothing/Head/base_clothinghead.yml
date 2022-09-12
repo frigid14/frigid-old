@@ -38,8 +38,6 @@
       visible: false
       map: [ "light" ]
   - type: Clothing
-    equippedPrefix: off
-  - type: Item
     heldPrefix: off
   - type: ToggleableLightVisuals
   - type: PointLight

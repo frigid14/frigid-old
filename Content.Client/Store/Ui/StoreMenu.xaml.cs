@@ -43,14 +43,16 @@ public sealed partial class StoreMenu : DefaultWindow
     {
         Balance = balance;
 
-        var currency = balance.ToDictionary(type =>
-            (type.Key, type.Value), type => _prototypeManager.Index<CurrencyPrototype>(type.Key));
+        var currency = new Dictionary<(string, FixedPoint2), CurrencyPrototype>();
+        foreach (var type in balance)
+        {
+            currency.Add((type.Key, type.Value), _prototypeManager.Index<CurrencyPrototype>(type.Key));
+        }
 
         var balanceStr = string.Empty;
-        foreach (var ((type, amount),proto) in currency)
+        foreach (var type in currency)
         {
-            balanceStr += Loc.GetString("store-ui-balance-display", ("amount", amount),
-                ("currency", Loc.GetString(proto.DisplayName, ("amount", 1))));
+            balanceStr += $"{Loc.GetString(type.Value.BalanceDisplay, ("amount", type.Key.Item2))}\n";
         }
 
         BalanceInfo.SetMarkup(balanceStr.TrimEnd());
@@ -58,7 +60,7 @@ public sealed partial class StoreMenu : DefaultWindow
         var disabled = true;
         foreach (var type in currency)
         {
-            if (type.Value.CanWithdraw && type.Value.Cash != null && type.Key.Item2 > 0)
+            if (type.Value.CanWithdraw && type.Value.EntityId != null && type.Key.Item2 > 0)
                 disabled = false;
         }
 
@@ -153,17 +155,14 @@ public sealed partial class StoreMenu : DefaultWindow
     {
         var text = string.Empty;
 
+        foreach (var type in listing.Cost)
+        {
+            var currency = _prototypeManager.Index<CurrencyPrototype>(type.Key);
+            text += $"{Loc.GetString(currency.PriceDisplay, ("amount", type.Value))}\n";
+        }
+
         if (listing.Cost.Count < 1)
             text = Loc.GetString("store-currency-free");
-        else
-        {
-            foreach (var (type, amount) in listing.Cost)
-            {
-                var currency = _prototypeManager.Index<CurrencyPrototype>(type);
-                text += Loc.GetString("store-ui-price-display", ("amount", amount),
-                    ("currency", Loc.GetString(currency.DisplayName, ("amount", amount))));
-            }
-        }
 
         return text.TrimEnd();
     }

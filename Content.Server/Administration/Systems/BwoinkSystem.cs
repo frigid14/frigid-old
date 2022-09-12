@@ -7,7 +7,6 @@ using System.Text.Json.Serialization;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using JetBrains.Annotations;
@@ -31,27 +30,20 @@ namespace Content.Server.Administration.Systems
         private ISawmill _sawmill = default!;
         private readonly HttpClient _httpClient = new();
         private string _webhookUrl = string.Empty;
-        private string _footerIconUrl = string.Empty;
-        private string _avatarUrl = string.Empty;
         private string _serverName = string.Empty;
-        private readonly Dictionary<NetUserId, (string id, string username, string messages, string? characterName)> _relayMessages = new();
+        private readonly Dictionary<NetUserId, (string id, string username, string content)> _relayMessages = new();
         private readonly Dictionary<NetUserId, Queue<string>> _messageQueues = new();
         private readonly HashSet<NetUserId> _processingChannels = new();
-
-        // Max embed description length is 4096, according to https://discord.com/developers/docs/resources/channel#embed-object-embed-limits
-        // Keep small margin, just to be safe
-        private const ushort DescriptionMax = 4000;
+        private const ushort MessageMax = 2000;
         private int _maxAdditionalChars;
 
         public override void Initialize()
         {
             base.Initialize();
             _config.OnValueChanged(CCVars.DiscordAHelpWebhook, OnWebhookChanged, true);
-            _config.OnValueChanged(CCVars.DiscordAHelpFooterIcon, OnFooterIconChanged, true);
-            _config.OnValueChanged(CCVars.DiscordAHelpAvatar, OnAvatarChanged, true);
             _config.OnValueChanged(CVars.GameHostName, OnServerNameChanged, true);
             _sawmill = IoCManager.Resolve<ILogManager>().GetSawmill("AHELP");
-            _maxAdditionalChars = GenerateAHelpMessage("", "", true).Length;
+            _maxAdditionalChars = GenerateAHelpMessage("", "", true, true).Length + Header("").Length;
 
             SubscribeLocalEvent<RoundStartingEvent>(RoundStarting);
         }
@@ -70,7 +62,6 @@ namespace Content.Server.Administration.Systems
         {
             base.Shutdown();
             _config.UnsubValueChanged(CCVars.DiscordAHelpWebhook, OnWebhookChanged);
-            _config.UnsubValueChanged(CCVars.DiscordAHelpFooterIcon, OnFooterIconChanged);
             _config.UnsubValueChanged(CVars.GameHostName, OnServerNameChanged);
         }
 
@@ -79,19 +70,11 @@ namespace Content.Server.Administration.Systems
             _webhookUrl = obj;
         }
 
-        private void OnFooterIconChanged(string url)
-        {
-            _footerIconUrl = url;
-        }
-
-        private void OnAvatarChanged(string url)
-        {
-            _avatarUrl = url;
-        }
+        private string Header(string serverName) => $"Server: {serverName}";
 
         private async void ProcessQueue(NetUserId channelId, Queue<string> messages)
         {
-            if (!_relayMessages.TryGetValue(channelId, out var oldMessage) || messages.Sum(x => x.Length + 2) + oldMessage.messages.Length > DescriptionMax)
+            if (!_relayMessages.TryGetValue(channelId, out var oldMessage) || messages.Sum(x => x.Length+2) + oldMessage.content.Length > MessageMax)
             {
                 var lookup = await _playerLocator.LookupIdAsync(channelId);
 
@@ -102,17 +85,19 @@ namespace Content.Server.Administration.Systems
                     return;
                 }
 
-                var characterName = _playerManager.GetPlayerData(channelId).ContentData()?.Mind?.CharacterName;
-
-                oldMessage = (string.Empty, lookup.Username, string.Empty, characterName);
+                oldMessage = (string.Empty, lookup.Username, Header(_serverName));
             }
 
             while (messages.TryDequeue(out var message))
             {
-                oldMessage.messages += $"\n{message}";
+                oldMessage.content += $"\n{message}";
             }
 
-            var payload = GeneratePayload(oldMessage.messages, oldMessage.username, oldMessage.characterName);
+            var payload = new WebhookPayload()
+            {
+                Username = $"R:{_gameTicker.RoundId}|N:{oldMessage.username}",
+                Content = oldMessage.content
+            };
 
             if (oldMessage.id == string.Empty)
             {
@@ -122,7 +107,7 @@ namespace Content.Server.Administration.Systems
                 var content = await request.Content.ReadAsStringAsync();
                 if (!request.IsSuccessStatusCode)
                 {
-                    _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
+                    _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when posting message: {request.StatusCode}\nResponse: {content}");
                     _relayMessages.Remove(channelId);
                     return;
                 }
@@ -145,7 +130,7 @@ namespace Content.Server.Administration.Systems
                 if (!request.IsSuccessStatusCode)
                 {
                     var content = await request.Content.ReadAsStringAsync();
-                    _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when patching message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
+                    _sawmill.Log(LogLevel.Error, $"Discord returned bad status code when patching message: {request.StatusCode}\nResponse: {content}");
                     _relayMessages.Remove(channelId);
                     return;
                 }
@@ -156,55 +141,17 @@ namespace Content.Server.Administration.Systems
             _processingChannels.Remove(channelId);
         }
 
-        private WebhookPayload GeneratePayload(string messages, string username, string? characterName = null)
-        {
-            // Add character name
-            if (characterName != null)
-                username += $" ({characterName})";
-
-            // If no admins are online, set embed color to red. Otherwise green
-            var color = GetTargetAdmins().Count > 0 ? 0x41F097 : 0xFF0000;
-
-            // Limit server name to 1500 characters, in case someone tries to be a little funny
-            var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
-
-            // If the round ID is 0, it most likely means we are in the lobby
-            var round = _gameTicker.RoundId == 0 ? "lobby" : $"round {_gameTicker.RoundId}";
-
-            return new WebhookPayload
-            {
-                Username = username,
-                AvatarUrl = _avatarUrl,
-                Embeds = new List<Embed>
-                {
-                    new Embed
-                    {
-                        Description = messages,
-                        Color = color,
-                        Footer = new EmbedFooter
-                        {
-                            Text = $"{serverName} ({round})",
-                            IconUrl = _footerIconUrl,
-                        },
-                    },
-                },
-            };
-        }
-
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
 
             foreach (var channelId in _messageQueues.Keys.ToArray())
             {
-                if (_processingChannels.Contains(channelId))
-                    continue;
+                if(_processingChannels.Contains(channelId)) continue;
 
                 var queue = _messageQueues[channelId];
                 _messageQueues.Remove(channelId);
-                if (queue.Count == 0)
-                    continue;
-
+                if (queue.Count == 0) continue;
                 _processingChannels.Add(channelId);
 
                 ProcessQueue(channelId, queue);
@@ -243,20 +190,20 @@ namespace Content.Server.Administration.Systems
 
             LogBwoink(msg);
 
-            var admins = GetTargetAdmins();
+            // Admins w/ AHelp access
+            var targets = _adminManager.ActiveAdmins
+                .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false)
+                .Select(p => p.ConnectedClient).ToList();
 
-            // Notify all admins
-            foreach (var channel in admins)
-            {
-                RaiseNetworkEvent(msg, channel);
-            }
-
-            // Notify player
+            // And involved player
             if (_playerManager.TryGetSessionById(message.ChannelId, out var session))
-            {
-                if (!admins.Contains(session.ConnectedClient))
-                    RaiseNetworkEvent(msg, session.ConnectedClient);
-            }
+                if (!targets.Contains(session.ConnectedClient))
+                    targets.Add(session.ConnectedClient);
+
+            foreach (var channel in targets)
+                RaiseNetworkEvent(msg, channel);
+
+            var noReceivers = targets.Count == 1;
 
             var sendsWebhook = _webhookUrl != string.Empty;
             if (sendsWebhook)
@@ -267,100 +214,52 @@ namespace Content.Server.Administration.Systems
                 var str = message.Text;
                 var unameLength = senderSession.Name.Length;
 
-                if (unameLength + str.Length + _maxAdditionalChars > DescriptionMax)
+                if (unameLength+str.Length+_maxAdditionalChars > MessageMax)
                 {
-                    str = str[..(DescriptionMax - _maxAdditionalChars - unameLength)];
+                    str = str[..(MessageMax - _maxAdditionalChars - unameLength)];
                 }
-                _messageQueues[msg.ChannelId].Enqueue(GenerateAHelpMessage(senderSession.Name, str, !personalChannel, admins.Count == 0));
+                _messageQueues[msg.ChannelId].Enqueue(GenerateAHelpMessage(senderSession.Name, str, !personalChannel, noReceivers));
             }
 
-            if (admins.Count != 0)
-                return;
-
-            // No admin online, let the player know
-            var systemText = sendsWebhook ?
-                Loc.GetString("bwoink-system-starmute-message-no-other-users-webhook") :
-                Loc.GetString("bwoink-system-starmute-message-no-other-users");
-            var starMuteMsg = new BwoinkTextMessage(message.ChannelId, SystemUserId, systemText);
-            RaiseNetworkEvent(starMuteMsg, senderSession.ConnectedClient);
+            if (noReceivers)
+            {
+                var systemText = sendsWebhook ?
+                    Loc.GetString("bwoink-system-starmute-message-no-other-users-webhook") :
+                    Loc.GetString("bwoink-system-starmute-message-no-other-users");
+                var starMuteMsg = new BwoinkTextMessage(message.ChannelId, SystemUserId, systemText);
+                RaiseNetworkEvent(starMuteMsg, senderSession.ConnectedClient);
+            }
         }
 
-        // Returns all online admins with AHelp access
-        private IList<INetChannel> GetTargetAdmins()
-        {
-            return _adminManager.ActiveAdmins
-               .Where(p => _adminManager.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false)
-               .Select(p => p.ConnectedClient)
-               .ToList();
-        }
-
-        private static string GenerateAHelpMessage(string username, string message, bool admin, bool noReceivers = false)
+        private string GenerateAHelpMessage(string username, string message, bool admin, bool noReceiver)
         {
             var stringbuilder = new StringBuilder();
-
-            if (admin)
-                stringbuilder.Append(":outbox_tray:");
-            else if (noReceivers)
+            if (noReceiver)
                 stringbuilder.Append(":sos:");
-            else
-                stringbuilder.Append(":inbox_tray:");
-
-            stringbuilder.Append($" **{username}:** ");
+            stringbuilder.Append(admin ? ":outbox_tray:" : ":inbox_tray:");
+            stringbuilder.Append(' ');
+            stringbuilder.Append(username);
+            stringbuilder.Append(": ");
             stringbuilder.Append(message);
             return stringbuilder.ToString();
         }
 
-        // https://discord.com/developers/docs/resources/channel#message-object-message-structure
         private struct WebhookPayload
         {
             [JsonPropertyName("username")]
             public string Username { get; set; } = "";
 
-            [JsonPropertyName("avatar_url")]
-            public string AvatarUrl { get; set; } = "";
-
-            [JsonPropertyName("embeds")]
-            public List<Embed>? Embeds { get; set; } = null;
+            [JsonPropertyName("content")]
+            public string Content { get; set; } = "";
 
             [JsonPropertyName("allowed_mentions")]
             public Dictionary<string, string[]> AllowedMentions { get; set; } =
                 new()
                 {
-                    { "parse", Array.Empty<string>() },
+                    { "parse", Array.Empty<string>() }
                 };
 
-            public WebhookPayload() { }
-        }
-
-        // https://discord.com/developers/docs/resources/channel#embed-object-embed-structure
-        private struct Embed
-        {
-            [JsonPropertyName("description")]
-            public string Description { get; set; } = "";
-
-            [JsonPropertyName("color")]
-            public int Color { get; set; } = 0;
-
-            [JsonPropertyName("footer")]
-            public EmbedFooter? Footer { get; set; } = null;
-
-            public Embed()
-            {
-            }
-        }
-
-        // https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure
-        private struct EmbedFooter
-        {
-            [JsonPropertyName("text")]
-            public string Text { get; set; } = "";
-
-            [JsonPropertyName("icon_url")]
-            public string IconUrl { get; set; } = "";
-
-            public EmbedFooter()
-            {
-            }
+            public WebhookPayload() {}
         }
     }
 }

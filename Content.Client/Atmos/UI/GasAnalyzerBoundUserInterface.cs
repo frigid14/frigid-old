@@ -1,4 +1,5 @@
 ﻿using Robust.Client.GameObjects;
+using Robust.Shared.GameObjects;
 using static Content.Shared.Atmos.Components.SharedGasAnalyzerComponent;
 
 namespace Content.Client.Atmos.UI
@@ -9,41 +10,34 @@ namespace Content.Client.Atmos.UI
         {
         }
 
-        private GasAnalyzerWindow? _window;
+        private GasAnalyzerWindow? _menu;
 
         protected override void Open()
         {
             base.Open();
 
-            _window = new GasAnalyzerWindow(this);
-            _window.OnClose += OnClose;
-            _window.OpenCentered();
+            _menu = new GasAnalyzerWindow(this);
+            _menu.OnClose += Close;
+            _menu.OpenCentered();
         }
 
-        protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+        protected override void UpdateState(BoundUserInterfaceState state)
         {
-            if (_window == null)
-                return;
-            if (message is not GasAnalyzerUserMessage cast)
-                return;
-            _window.Populate(cast);
+            base.UpdateState(state);
+
+            _menu?.Populate((GasAnalyzerBoundUserInterfaceState) state);
         }
 
-        /// <summary>
-        /// Closes UI and tells the server to disable the analyzer
-        /// </summary>
-        private void OnClose()
+        public void Refresh()
         {
-            SendMessage(new GasAnalyzerDisableMessage());
-            Close();
+            SendMessage(new GasAnalyzerRefreshMessage());
         }
 
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
 
-            if (disposing)
-                _window?.Dispose();
+            if (disposing) _menu?.Dispose();
         }
     }
 }
