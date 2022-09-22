@@ -3,7 +3,3 @@
   name: ballistic turret
   suffix: Military
   parent: WeaponTurretSyndicate
-  components:
-    - type: AiFactionTag
-      factions:
-        - Nanotrasen

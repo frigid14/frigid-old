@@ -6,7 +6,7 @@
     - type: CombatMode
       canDisarm: true
     - type: Loadout
-      prototype: PassengerGear
+      prototypes: [PassengerGear,PassengerGear,PassengerGear,PassengerGear,PassengerGear,PassengerGear,MedicalInternGear,MedicalInternGear,MechanicGear,ElectricalEngineerGear]
     - type: InputMover
     - type: MobMover
     - type: HTN
@@ -18,9 +18,9 @@
     - type: Tag
       tags:
         - CannotSuicide
-    - type: AiFactionTag
+    - type: Faction
       factions:
-        - SimpleHostile
+        - Zombie
     - type: ZombifyOnInit
       randomAppearance: true
     - type: GhostTakeoverAvailable

@@ -1,27 +1,13 @@
 ﻿- type: entity
   parent: MobHuman
   id: MobMilitarySoldier
-  name: Military Private
+  name: Military Grunt
   description: A miserable pile of secrets
   components:
     - type: RandomHumanoidAppearance
     - type: Loadout
-      prototype: SoldierGear
+      prototypes: [SoldierGear]
     - type: GhostTakeoverAvailable
       makeSentient: false
-      name: Military Private
-      description: A highly trained private of the United States military.
-
-- type: entity
-  parent: MobHuman
-  id: MobMilitarySoldierSarge
-  name: Military Sergeant
-  description: A miserable pile of secrets
-  components:
-    - type: RandomHumanoidAppearance
-    - type: Loadout
-      prototype: SoldierGear
-    - type: GhostTakeoverAvailable
-      makeSentient: false
-      name: Military Private
-      description: A highly trained sergeant of the United States military.
+      name: Military Grunt
+      description: A grunt of the United States military.
