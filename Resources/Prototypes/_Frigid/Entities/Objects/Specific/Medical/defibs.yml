@@ -18,6 +18,5 @@
       damage:
         groups:
           Brute: -40
-          Genetic: 5
         types:
           Shock: -55
