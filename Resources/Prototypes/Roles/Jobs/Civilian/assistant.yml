@@ -8,9 +8,99 @@
 - type: startingGear
   id: PassengerGear
   equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorWhite
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear1
+  equipment:
     jumpsuit: ClothingUniformJumpsuitColorGrey
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
   innerclothingskirt: ClothingUniformJumpskirtColorGrey
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear2
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorRed
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear3
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorOrange
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorOrange
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear4
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorYellow
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorYellow
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear5
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGreen
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorGreen
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear6
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorDarkBlue
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear7
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorBlue
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear8
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorTeal
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorTeal
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+- type: startingGear
+  id: PassengerGear9
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorPurple
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpskirtColorPurple
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
