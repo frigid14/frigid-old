@@ -5,7 +5,7 @@ namespace Content.Client.Sun;
 
 public sealed class SunSystem : EntitySystem
 {
-    [Dependency] ILightManager _lightManager = default!;
+    [Dependency] private readonly ILightManager _lightManager = default!;
 
     public override void Initialize()
     {
