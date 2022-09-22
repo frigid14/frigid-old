@@ -1,6 +1,6 @@
 ﻿- type: tile
   id: Plating
-  name: plating
+  name: tiles-plating
   sprite: /Textures/Tiles/plating.png
   baseTurfs:
   - FloorDirt
@@ -15,7 +15,7 @@
 
 - type: tile
   id: Lattice
-  name: lattice
+  name: tiles-lattice
   sprite: /Textures/Tiles/lattice.png
   baseTurfs:
   - Space
@@ -31,7 +31,7 @@
 
 - type: tile
   id: FloorSnow
-  name: snow
+  name: tile-snow
   sprite: /Textures/Tiles/snow.png
   baseTurfs:
     - FloorDirt

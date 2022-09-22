@@ -12,13 +12,11 @@
 - type: startingGear
   id: MedicalInternGear
   equipment:
-    head: ClothingHeadNurseHat
     jumpsuit: ClothingUniformJumpsuitColorWhite
     back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
     id: MedicalInternIDCard
     belt: ClothingBeltMedicalFilled
-    pocket2: SpaceCash10
   innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled
