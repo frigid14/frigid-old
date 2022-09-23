@@ -14,7 +14,8 @@
     - /Audio/Voice/Human/femalescream_1.ogg
     - /Audio/Voice/Human/femalescream_2.ogg
     - /Audio/Voice/Human/femalescream_3.ogg
-    - /Audio/Voice/Human/femalescream_4.ogg
+#    ugly fucking scream
+#    - /Audio/Voice/Human/femalescream_4.ogg
     - /Audio/Voice/Human/femalescream_5.ogg
 
 - type: soundCollection
