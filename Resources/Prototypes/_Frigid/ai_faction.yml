@@ -1,0 +1,9 @@
+﻿- type: faction
+  id: Zombie
+  hostile:
+    - SimpleNeutral
+    - SimpleHostile
+    - NanoTrasen
+    - Syndicate
+    - Dragon
+    - Xeno

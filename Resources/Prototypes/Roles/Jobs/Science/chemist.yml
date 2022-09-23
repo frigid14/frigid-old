@@ -3,7 +3,6 @@
   name: job-name-chemist
   playTimeTracker: JobChemist
   startingGear: ChemistGear
-  setPreference: false
   icon: "Chemist"
   supervisors: job-supervisors-cmo
   access:

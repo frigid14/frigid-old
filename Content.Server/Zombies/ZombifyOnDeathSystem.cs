@@ -59,6 +59,7 @@ namespace Content.Server.Zombies
         [Dependency] private readonly IChatManager _chatMan = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidAppearance = default!;
+        [Dependency] private readonly FactionSystem _factionSystem = default!;
 
         public override void Initialize()
         {
@@ -129,9 +130,8 @@ namespace Content.Server.Zombies
             RemComp<CombatModeComponent>(target);
             AddComp<CombatModeComponent>(target);
 
-            //Switch the infected's AI faction
-            var aiFactionComponent = EnsureComp<AiFactionTagComponent>(target);
-            aiFactionComponent.Factions = Faction.SimpleHostile;
+            //Switch the infected entity's AI faction
+            _factionSystem.AddFaction(target, "Zombie");
 
             var vocal = EnsureComp<VocalComponent>(target);
             var scream = new SoundCollectionSpecifier ("ZombieScreams");

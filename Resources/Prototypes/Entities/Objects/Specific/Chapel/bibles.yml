@@ -18,7 +18,6 @@
   #       Burn: 30
   # - type: Summonable
   #   specialItem: SpawnPointGhostRemilia
-  - type: ItemCooldown
   - type: Sprite
     netsync: false
     sprite: Objects/Specific/Chapel/bible.rsi

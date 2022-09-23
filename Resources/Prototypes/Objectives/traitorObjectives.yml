@@ -146,7 +146,7 @@
         - DieCondition
   conditions:
     - !type:StealCondition
-      prototype: SupplyComputerCircuitboard
+      prototype: CargoRequestComputerCircuitboard
       owner: job-name-qm
 
 - type: objective

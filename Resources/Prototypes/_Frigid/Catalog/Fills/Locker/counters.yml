@@ -9,7 +9,11 @@
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
-          ents: [ ]
+          ents: []
+    - type: UserInterface
+      interfaces:
+        - key: enum.StorageUiKey.Key
+          type: StorageBoundUserInterface
     - type: StorageFill
       contents:
         # For the record, the percentages are divided by 10.
