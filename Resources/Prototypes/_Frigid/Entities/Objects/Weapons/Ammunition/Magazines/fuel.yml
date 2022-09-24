@@ -8,6 +8,9 @@
       tags:
         - WeldingFuel
         - MagazineFlame
+    - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
     - type: BallisticAmmoProvider
       capacity: 200
       proto: CartridgeFlameFuel
