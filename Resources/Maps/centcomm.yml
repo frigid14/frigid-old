@@ -450,7 +450,7 @@ entities:
   - name: Central Command
     type: MetaData
   - pos: -1.5406153,-0.3539288
-    parent: 2517
+    parent: null
     type: Transform
   - index: 0
     type: MapGrid
@@ -6496,8 +6496,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -21530,10 +21530,6 @@ entities:
   - pos: -2.4586978,21.709734
     parent: 55
     type: Transform
-- uid: 2517
-  components:
-  - index: 10
-    type: Map
 - uid: 2518
   type: FloraTreeLarge05
   components:
