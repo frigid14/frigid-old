@@ -14,22 +14,22 @@
       selectedMode: FullAuto
       availableModes:
         - FullAuto
+      soundGunshot:
+        path: /Audio/Magic/fireball.ogg
     - type: Clothing
-      sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+      sprite: _Frigid/Objects/Weapons/Guns/Flame/flamethrower.rsi
       quickEquip: false
       slots:
         - Back
         - suitStorage
-      soundGunshot:
-        path: /Audio/Magic/fireball.ogg
     - type: ChamberMagazineAmmoProvider
     - type: ItemSlots
       slots:
         gun_magazine:
           name: Magazine
-          startingItem: FrigidWeldingFuel
-          insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-          ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+          startingItem: FrigidFuelCan
+          insertSound: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
           priority: 2
           whitelist:
             tags:
@@ -50,10 +50,10 @@
   name: flamethrower
   parent: BaseWeaponFlame
   id: WeaponFlameFlamethrower
-  description: Recreate hell in hell.
+  description: Murr hurr mphuphurrur, hurr mph phrr.
   components:
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+      sprite: _Frigid/Objects/Weapons/Guns/Flame/flamethrower.rsi
       netsync: false
       layers:
         - state: base
@@ -61,7 +61,7 @@
         - state: mag-0
           map: [ "enum.GunVisualLayers.Mag" ]
     - type: Clothing
-      sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+      sprite: _Frigid/Objects/Weapons/Guns/Flame/flamethrower.rsi
       quickEquip: false
       slots:
         - Back

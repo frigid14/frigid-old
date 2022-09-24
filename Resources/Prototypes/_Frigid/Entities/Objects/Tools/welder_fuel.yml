@@ -11,10 +11,6 @@
     - type: Tag
       tags:
         - WeldingFuel
-        - MagazineFlame
-    - type: BallisticAmmoProvider
-      capacity: 200
-      proto: CartridgeFlameFuel
     - type: Item
       sprite: _Frigid/Objects/Tools/welder_fuel.rsi
     - type: SolutionContainerManager

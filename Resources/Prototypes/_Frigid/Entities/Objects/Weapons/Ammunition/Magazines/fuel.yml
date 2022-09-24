@@ -1,0 +1,13 @@
+﻿- type: entity
+  parent: FrigidWeldingFuel
+  id: FrigidFuelCan
+  name: portable fuel can
+  description: A portable fuel can, used in the creation of flamethrowers and such.
+  components:
+    - type: Tag
+      tags:
+        - WeldingFuel
+        - MagazineFlame
+    - type: BallisticAmmoProvider
+      capacity: 200
+      proto: CartridgeFlameFuel
