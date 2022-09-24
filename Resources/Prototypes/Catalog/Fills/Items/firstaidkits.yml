@@ -6,8 +6,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: HandheldHealthAnalyzer
-        amount: 1
       - id: Brutepack
         amount: 2
       - id: Gauze
@@ -93,8 +91,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: HandheldHealthAnalyzer
-        amount: 1
       - id: Brutepack
         amount: 3 # TO DO: Advanced fills
       - id: SyringeTranexamicAcid
@@ -111,8 +107,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: HandheldHealthAnalyzer
-        amount: 1
       - id: SyringeEphedrine
         amount: 1 # TO DO: More combat meds
       - id: SyringeTranexamicAcid
