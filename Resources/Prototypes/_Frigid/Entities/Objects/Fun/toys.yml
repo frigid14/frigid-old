@@ -9,11 +9,11 @@
       state: plushie_rain
 
 - type: entity
-   parent: BasePlushie
-   id: PlushieRainMaid
-   name: rain plushie
-   description: An adorable stuffed toy that resembles Rain Caldwell, a fictional character in a space story wearing a maid outfit. Do not think about it.
-   components:
-     - type: Sprite
-       sprite: _Frigid/Objects/Fun/toys.rsi
-       state: plushie_rain_maid
+  parent: BasePlushie
+  id: PlushieRainMaid
+  name: rain plushie
+  description: An adorable stuffed toy that resembles Rain Caldwell, a fictional character in a space story wearing a maid outfit. Do not think about it.
+  components:
+    - type: Sprite
+      sprite: _Frigid/Objects/Fun/toys.rsi
+      state: plushie_rain_maid
