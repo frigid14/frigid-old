@@ -363,7 +363,6 @@
     idleState: icon
     runningState: icon
     dynamicRecipes:
-      - HandheldHealthAnalyzer
       - ClothingHandsGlovesLatex
       - ClothingHandsGlovesNitrile
       - ClothingMaskSterile
