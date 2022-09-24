@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Sprited by Hyenh#6078 (313846233099927552) on Discord as per request",
+    "copyright": "plushie_rain.png sprited by Hyenh#6078 (313846233099927552) on Discord as per request, plushie_rain_maid.png sprited by Hyenh and edited by eclips_e#0001 (728101795427254312)",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "plushie_rain"
+        },
+        {
+            "name": "plushie_rain_maid"
         }
     ]
 }
