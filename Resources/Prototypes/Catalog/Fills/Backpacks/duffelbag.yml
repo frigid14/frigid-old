@@ -21,8 +21,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxShotgunFlare
-        amount: 2
+      - id: WeaponFlameFlamethrower
+        amount: 1
+      - id: FrigidFuelCan
+        amount: 1
       - id: GrenadeFlashBang
         amount: 2
       - id: PillRomerol
