@@ -9,7 +9,7 @@
         - WeldingFuel
         - MagazineFlame
     - type: ContainerContainer
-    containers:
+      containers:
       ballistic-ammo: !type:Container
     - type: BallisticAmmoProvider
       capacity: 200
