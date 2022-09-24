@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: CartridgeFlameFuel
+  name: cartridge (.30 fuel)
+  parent: BaseCartridgeLightRifle
+  components:
+    - type: CartridgeAmmo
+      proto: PelletFlamethrowerFuel
+      count: 10
+      spread: 55
+    - type: Tag
+      tags:
+        - Cartridge
+        - CartridgeFlame

@@ -76,6 +76,9 @@
   id: CartridgeCaselessRifle
 
 - type: Tag
+  id: CartridgeFlame
+
+- type: Tag
   id: CartridgeHeavyRifle
 
 - type: Tag
@@ -276,6 +279,9 @@
   id: MagazineCaselessRifle
 
 - type: Tag
+  id: MagazineFlame
+
+- type: Tag
   id: MagazineHeavyRifle
 
 - type: Tag
@@ -434,7 +440,7 @@
 
 - type: Tag
   id: Smokable
-  
+
 - type: Tag
   id: Soap
 

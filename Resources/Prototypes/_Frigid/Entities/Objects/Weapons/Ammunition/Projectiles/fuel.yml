@@ -1,0 +1,24 @@
+﻿- type: entity
+  id: PelletFlamethrowerFuel
+  name: fire (.50 fuel)
+  noSpawn: true
+  parent: BaseBullet
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      layers:
+        - state: fireball
+    # Short lifespan
+    - type: TimedDespawn
+      lifetime: 0.25
+    - type: Projectile
+      damage:
+        groups:
+          Burn: 12
+    - type: PointLight
+      enabled: true
+      color: "#ff4300"
+      radius: 2.0
+      energy: 7.0
+    - type: IgniteOnCollide
+      fireStacks: 1

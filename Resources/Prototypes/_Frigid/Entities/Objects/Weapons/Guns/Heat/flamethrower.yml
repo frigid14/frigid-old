@@ -1,0 +1,69 @@
+﻿- type: entity
+  name: BaseWeaponFlame
+  parent: BaseItem
+  id: BaseWeaponFlame
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+    - type: Sprite
+      netsync: false
+    - type: Item
+      size: 60
+    - type: Gun
+      fireRate: 5
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+      quickEquip: false
+      slots:
+        - Back
+        - suitStorage
+      soundGunshot:
+        path: /Audio/Magic/fireball.ogg
+    - type: ChamberMagazineAmmoProvider
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          startingItem: FrigidWeldingFuel
+          insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MagazineFlame
+        gun_chamber:
+          name: Chamber
+          startingItem: CartridgeFlameFuel
+          priority: 1
+          whitelist:
+            tags:
+              - CartridgeFlame
+    - type: ContainerContainer
+      containers:
+        gun_magazine: !type:ContainerSlot
+        gun_chamber: !type:ContainerSlot
+
+- type: entity
+  name: flamethrower
+  parent: BaseWeaponFlame
+  id: WeaponFlameFlamethrower
+  description: Recreate hell in hell.
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+      netsync: false
+      layers:
+        - state: base
+          map: [ "enum.GunVisualLayers.Base" ]
+        - state: mag-0
+          map: [ "enum.GunVisualLayers.Mag" ]
+    - type: Clothing
+      sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+      quickEquip: false
+      slots:
+        - Back
+        - suitStorage
+    - type: BallisticAmmoProvider
