@@ -24,7 +24,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPolice
   description: A blue jumpsuit littered with donut crumbs all over it.
-  name: military uniform
+  name: police uniform
   components:
     - type: Sprite
       sprite: _Frigid/Clothing/Uniforms/Jumpsuit/police.rsi
