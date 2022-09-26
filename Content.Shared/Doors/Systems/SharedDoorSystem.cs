@@ -10,12 +10,14 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Shared.Doors.Systems;
 
@@ -29,6 +31,7 @@ public abstract class SharedDoorSystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly SharedPopupSystem _popupSystem = default!;
 
     /// <summary>
     ///     A body must have an intersection percentage larger than this in order to be considered as colliding with a
@@ -203,6 +206,8 @@ public abstract class SharedDoorSystem : EntitySystem
             return;
 
         SetState(uid, DoorState.Denying, door);
+
+        _popupSystem.PopupEntity(Loc.GetString("airlock-component-access-denied"), uid, Filter.Pvs(uid), PopupType.Small);
 
         if (door.DenySound != null)
             PlaySound(uid, door.DenySound, AudioParams.Default.WithVolume(-3), user, predicted);
