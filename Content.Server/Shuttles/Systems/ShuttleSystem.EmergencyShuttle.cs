@@ -10,6 +10,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.Parallax;
 using Content.Shared.Shuttles.Events;
 using Robust.Server.Maps;
 using Robust.Server.Player;
@@ -399,6 +400,10 @@ public sealed partial class ShuttleSystem
 
        CentComMap = _mapManager.CreateMap();
        _mapManager.SetMapPaused(CentComMap.Value, true);
+
+       var parallax = EnsureComp<ParallaxComponent>(      _mapManager.GetMapEntityId(CentComMap.Value));
+       parallax.Parallax = "snow";
+       Dirty(parallax);
 
        // Load CentCom
        var centComPath = _configManager.GetCVar(CCVars.CentcommMap);
