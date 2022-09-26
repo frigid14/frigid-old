@@ -1,4 +1,8 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/taurium.ogg
+    - /Audio/Lobby/space_asshole.ogg
+    - /Audio/Lobby/thunderdome.ogg
+    - /Audio/Lobby/marhaba.ogg
+    - /Audio/Lobby/flip-flap.ogg
+    - /Audio/Lobby/title3.ogg
