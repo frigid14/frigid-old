@@ -3341,7 +3341,6 @@ entities:
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
-    enabled: True
     type: Gravity
   - chunkCollection: {}
     type: DecalGrid
@@ -4110,6 +4109,8 @@ entities:
       - 0
       - 0
     type: GridAtmosphere
+  - id: centcomm
+    type: BecomesStation
 - uid: 513
   type: WallRiveted
   components:
