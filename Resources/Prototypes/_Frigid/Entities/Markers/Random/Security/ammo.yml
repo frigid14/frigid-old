@@ -9,7 +9,7 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Consumable/Drinks/beerglass.rsi/icon.png
+        - texture: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi/base.png
     - type: RandomSpawner
       # common
       prototypes:
@@ -18,7 +18,7 @@
       rarePrototypes:
         - MagazinePistol
       chance: 1
-      offset: 0.0
+      offset: 0.25
 
 - type: entity
   id: RandomAmmoArmoryHeavy
@@ -31,17 +31,16 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Consumable/Drinks/beerglass.rsi/icon.png
+        - texture: Objects/Weapons/Guns/Ammunition/Magazine/Magnum/magnum_smg_mag.rsi/base.png
     - type: RandomSpawner
       # common
       prototypes:
         - BoxBeanbag
         - BoxMagazineMagnumSubMachineGunRubber
       chance: 0.75
-      offset: 0.0
+      offset: 0.25
       # rare
       rarePrototypes:
         - BoxLethalshot
-        - BoxShotgunIncendiary
         - BoxMagazineMagnumSubMachineGun
-      rareChance: 0.15
+      rareChance: 0.45

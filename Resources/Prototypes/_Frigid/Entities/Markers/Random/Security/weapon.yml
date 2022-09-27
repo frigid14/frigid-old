@@ -9,13 +9,13 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Consumable/Drinks/beerglass.rsi/icon.png
+        - texture: Objects/Weapons/Guns/Pistols/mk58.rsi/icon.png
     - type: RandomSpawner
       # common
       prototypes:
         - WeaponPistolMk58
       chance: 0.8
-      offset: 0.0
+      offset: 0.25
 
 - type: entity
   id: RandomWeaponArmoryHeavy
@@ -28,14 +28,14 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Consumable/Drinks/beerglass.rsi/icon.png
+        - texture: Objects/Weapons/Guns/Shotguns/pump.rsi/icon.png
     - type: RandomSpawner
       # common
       prototypes:
         - WeaponShotgunKammerer
         - WeaponSubMachineGunVectorRubber
       chance: 0.65
-      offset: 0.0
+      offset: 0.25
       # rare
       rarePrototypes:
         - WeaponSubMachineGunVector
