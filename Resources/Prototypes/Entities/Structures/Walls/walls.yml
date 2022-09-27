@@ -769,7 +769,7 @@
   - type: Icon
     sprite: Structures/Walls/wood.rsi
   - type: Construction
-    graph: Girder
+    graph: Barricade
     node: woodWall
   - type: Destructible
     thresholds:
@@ -787,7 +787,7 @@
         sound:
           path: /Audio/Effects/metalbreak.ogg
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: barricadewooden
       - !type:DoActsBehavior
         acts: ["Destruction"]
     destroySound:
