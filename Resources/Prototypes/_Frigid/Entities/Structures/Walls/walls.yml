@@ -1,0 +1,35 @@
+- type: entity
+  parent: BaseWall
+  id: WallStore
+  name: store wall
+  components:
+  - type: Sprite
+    sprite: _Frigid/Structures/Walls/store.rsi
+  - type: Icon
+    sprite: _Frigid/Structures/Walls/store.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: walls
+    base: store
+    
+- type: entity
+  parent: WallStore
+  id: WallSuperstore
+  name: store wall
+  components:
+  - type: Sprite
+    sprite: _Frigid/Structures/Walls/superstore.rsi
+  - type: Icon
+    sprite: _Frigid/Structures/Walls/superstore.rsi
