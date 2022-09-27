@@ -1,0 +1,50 @@
+﻿- type: entity
+  id: RandomAmmoArmoryLight
+  name: random ammo spawner
+  suffix: Armory, Light
+  parent: MarkerBase
+  placement:
+    mode: AlignTileAny
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - texture: Objects/Consumable/Drinks/beerglass.rsi/icon.png
+    - type: RandomSpawner
+      # common
+      prototypes:
+        - BoxBeanbag
+        - BoxMagazineMagnumSubMachineGunRubber
+      # rare
+      rarePrototypes:
+        - BoxLethalshot
+        - BoxShotgunIncendiary
+        - BoxMagazineMagnumSubMachineGun
+      chance: 0.8
+      offset: 0.0
+
+- type: entity
+  id: RandomAmmoArmoryHeavy
+  name: random ammo spawner
+  suffix: Armory, Heavy
+  parent: MarkerBase
+  placement:
+    mode: AlignTileAny
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - texture: Objects/Consumable/Drinks/beerglass.rsi/icon.png
+    - type: RandomSpawner
+      # common
+      prototypes:
+        - BoxBeanbag
+        - BoxMagazineMagnumSubMachineGunRubber
+      chance: 0.8
+      offset: 0.0
+      # rare
+      rarePrototypes:
+        - BoxLethalshot
+        - BoxShotgunIncendiary
+        - BoxMagazineMagnumSubMachineGun
+      rareChance: 0.1
