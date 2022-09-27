@@ -25,6 +25,7 @@
           steps:
             - tool: Prying
               doAfter: 5
+        # wood
         - to: woodWall
           completed:
             - !type:SnapToGrid
@@ -33,8 +34,8 @@
             - !type:EntityAnchored {}
           steps:
             - material: WoodPlank
-              amount: 1
-              doAfter: 5
+              amount: 3
+              doAfter: 3
     - node: woodWall
       entity: WallWood
       edges:
@@ -42,7 +43,7 @@
           completed:
             - !type:GivePrototype
               prototype: MaterialWoodPlank1
-              amount: 2
+              amount: 3
           steps:
             - tool: Prying
-              doAfter: 10
+              doAfter: 5
