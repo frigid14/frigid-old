@@ -13,14 +13,11 @@
     - type: RandomSpawner
       # common
       prototypes:
-        - BoxBeanbag
-        - BoxMagazineMagnumSubMachineGunRubber
+        - MagazinePistolRubber
       # rare
       rarePrototypes:
-        - BoxLethalshot
-        - BoxShotgunIncendiary
-        - BoxMagazineMagnumSubMachineGun
-      chance: 0.8
+        - MagazinePistol
+      chance: 1
       offset: 0.0
 
 - type: entity
@@ -40,11 +37,11 @@
       prototypes:
         - BoxBeanbag
         - BoxMagazineMagnumSubMachineGunRubber
-      chance: 0.8
+      chance: 0.75
       offset: 0.0
       # rare
       rarePrototypes:
         - BoxLethalshot
         - BoxShotgunIncendiary
         - BoxMagazineMagnumSubMachineGun
-      rareChance: 0.1
+      rareChance: 0.15
