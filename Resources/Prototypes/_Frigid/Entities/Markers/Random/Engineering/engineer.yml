@@ -1,0 +1,34 @@
+﻿- type: entity
+  id: RandomItemEngineer
+  name: random item spawner
+  suffix: General Engineering
+  parent: MarkerBase
+  placement:
+    mode: AlignTileAny
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - texture: Objects/Weapons/Guns/Shotguns/pump.rsi/icon.png
+    - type: RandomSpawner
+      # common
+      prototypes:
+        - ToolboxMechanicalFilled
+        - FrigidWeldingFuel
+        - Welder
+        - Wrench
+        - Screwdriver
+        - Crowbar
+        - Wirecutter
+        - Lighter
+        - CigCartonRed
+        - CigCartonBlue
+        - CigCartonGreen
+      chance: 0.65
+      offset: 0.25
+      # rare
+      rarePrototypes:
+        - VehicleKeyATV
+        - CigPackBlack
+        - SheetSteel
+      rareChance: 0.1
