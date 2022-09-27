@@ -25,7 +25,7 @@
     base: store
     
 - type: entity
-  parent: N14WallStore
+  parent: WallStore
   id: WallSuperstore
   name: store wall
   components:
