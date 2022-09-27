@@ -73,11 +73,11 @@
 - type: construction
   name: wood wall
   id: WoodWall
-  graph: Girder
+  graph: Barricade
   startNode: start
   targetNode: woodWall
   category: construction-category-structures
-  description: Keeps the air in and the greytide out.
+  description: Keeps you in and the zombies out.
   icon:
     sprite: Structures/Walls/wood.rsi
     state: full
