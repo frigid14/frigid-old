@@ -108,6 +108,14 @@
         Piercing: 5 # I guess you can stab it into them?
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
+  - type: Tool
+    qualities:
+      - Digging
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: TilePrying
+    qualityNeeded: "Digging"
+    delay: 3
 
 - type: entity
   name: plant bag

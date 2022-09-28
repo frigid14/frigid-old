@@ -72,7 +72,10 @@ public sealed partial class ToolSystem
 
         var tileDef = (ContentTileDefinition)_tileDefinitionManager[tile.Tile.TypeId];
 
-        if (!tileDef.CanCrowbar && !tileDef.CanShovel)
+        if (!tileDef.CanCrowbar && component.QualityNeeded == "Prying")
+            return false;
+
+        if (!tileDef.CanShovel && component.QualityNeeded == "Digging")
             return false;
 
         var token = new CancellationTokenSource();
@@ -88,6 +91,7 @@ public sealed partial class ToolSystem
             new TilePryingCompleteEvent
             {
                 Coordinates = clickLocation,
+                Dig = tileDef.CanShovel && component.QualityNeeded == "Digging"
             },
             new TilePryingCancelledEvent(),
             toolComponent: tool,
@@ -103,6 +107,7 @@ public sealed partial class ToolSystem
     private sealed class TilePryingCompleteEvent : EntityEventArgs
     {
         public EntityCoordinates Coordinates { get; init; }
+        public bool Dig { get; init; }
     }
 
     private sealed class TilePryingCancelledEvent : EntityEventArgs

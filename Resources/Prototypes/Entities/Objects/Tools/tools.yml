@@ -306,7 +306,7 @@
       path: /Audio/Items/crowbar.ogg
   - type: TilePrying
     qualityNeeded: "Digging"
-    delay: 5
+    delay: 3
 
 - type: entity
   name: omnitool
