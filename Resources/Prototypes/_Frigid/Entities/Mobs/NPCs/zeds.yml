@@ -4,13 +4,21 @@
   parent: MobHuman
   components:
     - type: CombatMode
-      canDisarm: true
+      disarm: null
     - type: Loadout
       prototypes: [PassengerGear,PassengerGear1,PassengerGear2,PassengerGear3,PassengerGear4,PassengerGear5, PassengerGear6, PassengerGear7, PassengerGear8, PassengerGear9,MedicalInternGear,MedicalInternGear,MechanicGear]
     - type: InputMover
     - type: MobMover
+#    - type: HTN
+#      rootTask: ZombieCompound
     - type: HTN
       rootTask: ZombieCompound
+      blackboard:
+        NavPry: !type:Bool
+          false
+        NavSmash: !type:Bool
+          true
+    - type: NPCMeleeCombat
     - type: Temperature
       heatDamageThreshold: 360
       coldDamageThreshold: -150
