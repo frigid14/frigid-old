@@ -9,9 +9,13 @@
             - material: WoodPlank
               amount: 5
               doAfter: 3
-              
     - node: barricadewooden
       entity: Barricade
+      actions:
+        - !type:SpriteChange
+          specifier:
+            sprite: Textures/Structures/Walls/barricades.rsi
+            state: barricadewooden
       edges:
         - to: start
           completed:
