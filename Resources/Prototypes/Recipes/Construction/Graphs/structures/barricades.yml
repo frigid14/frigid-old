@@ -14,7 +14,7 @@
       actions:
         - !type:SpriteChange
           specifier:
-            sprite: Textures/Structures/Walls/barricades.rsi
+            sprite: Structures/Walls/barricades.rsi
             state: barricadewooden
       edges:
         - to: start
