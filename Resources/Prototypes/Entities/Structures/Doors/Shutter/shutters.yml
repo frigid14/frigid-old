@@ -17,7 +17,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.39,-0.39,0.39,0.39" # don't want this colliding with walls or they won't close
-      mass: 100
+      density: 100
       mask:
       - FullTileMask
       layer:
@@ -203,7 +203,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.45,-0.45,0.45,0.45"
-      mass: 50
+      density: 50
       mask:
       - Impassable
       - HighImpassable
