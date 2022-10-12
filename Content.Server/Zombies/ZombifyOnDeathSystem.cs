@@ -36,6 +36,7 @@ using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Content.Server.Administration.Components;
 using Content.Server.CharacterAppearance.Components;
+using Content.Shared.Weapons.Melee;
 
 namespace Content.Server.Zombies
 {

@@ -16,8 +16,8 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
-        bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
-      density: 100
+        bounds: "-0.39,-0.39,0.39,0.39" # don't want this colliding with walls or they won't close
+      mass: 100
       mask:
       - FullTileMask
       layer:
@@ -51,8 +51,6 @@
       type: WiresBoundUserInterface
   - type: Airtight
     fixVacuum: true
-  - type: RadiationBlocker
-    resistance: 2
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -103,8 +101,6 @@
     enabled: false
   - type: Airtight
     airBlocked: false
-  - type: RadiationBlocker
-    enabled: false
   - type: Construction
     graph: Shutters
     node: Shutters
@@ -142,8 +138,6 @@
     canCollide: false
   - type: Airtight
     airBlocked: false
-  - type: RadiationBlocker
-    enabled: false
 
 - type: entity
   id: ShuttersWindow
@@ -175,8 +169,6 @@
     canCollide: false
   - type: Airtight
     airBlocked: false
-  - type: RadiationBlocker
-    enabled: false
 
 # Frame for construction
 - type: entity
@@ -211,7 +203,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.45,-0.45,0.45,0.45"
-      density: 55
+      mass: 50
       mask:
       - Impassable
       - HighImpassable
