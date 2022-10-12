@@ -128,7 +128,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.39,-0.39,0.39,-0.36"
-      mass: 50
+      density: 50
       mask:
       - FullTileMask
       layer:
