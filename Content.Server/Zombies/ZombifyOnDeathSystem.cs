@@ -16,7 +16,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Hands.Components;
 using Content.Server.Mind.Commands;
 using Content.Server.Temperature.Components;
-using Content.Server.Weapon.Melee.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.MobState;
 using Robust.Shared.Prototypes;
@@ -33,6 +32,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Preferences;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Content.Server.Administration.Components;
 using Content.Server.CharacterAppearance.Components;
@@ -125,7 +125,8 @@ namespace Content.Server.Zombies
             //This is needed for stupid entities that fuck up combat mode component
             //in an attempt to make an entity not attack. This is the easiest way to do it.
             RemComp<CombatModeComponent>(target);
-            AddComp<CombatModeComponent>(target);
+            var combat = AddComp<CombatModeComponent>(target);
+            combat.IsInCombatMode = true;
 
             //Switch the infected entity's AI faction
             _factionSystem.AddFaction(target, "Zombie");
@@ -138,13 +139,8 @@ namespace Content.Server.Zombies
             //This is the actual damage of the zombie. We assign the visual appearance
             //and range here because of stuff we'll find out later
             var melee = EnsureComp<MeleeWeaponComponent>(target);
-            melee.Arc = zombiecomp.AttackArc;
-            melee.ClickArc = zombiecomp.AttackArc;
-            melee.Range = 1.25f;
-
-            // Make them disarm prone
-            // Don't do this actually
-            // EnsureComp<DisarmProneComponent>(target);
+            melee.Animation = zombiecomp.AttackAnimation;
+            melee.Range = 1.05f;
 
             //We have specific stuff for humanoid zombies because they matter more
             if (TryComp<HumanoidComponent>(target, out var huApComp)) //huapcomp
@@ -161,8 +157,8 @@ namespace Content.Server.Zombies
                 //This is done here because non-humanoids shouldn't get baller damage
                 //lord forgive me for the hardcoded damage
                 DamageSpecifier dspec = new();
-                dspec.DamageDict.Add("Slash", 2);
-                dspec.DamageDict.Add("Piercing", 1);
+                dspec.DamageDict.Add("Slash", 5);
+                dspec.DamageDict.Add("Piercing", 3);
                 dspec.DamageDict.Add("Structural", 10);
                 melee.Damage = dspec;
             }
