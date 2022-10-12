@@ -32,6 +32,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Preferences;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Content.Server.Administration.Components;
 using Content.Server.CharacterAppearance.Components;
@@ -140,7 +141,7 @@ namespace Content.Server.Zombies
             //and range here because of stuff we'll find out later
             var melee = EnsureComp<MeleeWeaponComponent>(target);
             melee.Animation = zombiecomp.AttackAnimation;
-            melee.Range = 1.25f;
+            melee.Range = 1.05f;
 
             //We have specific stuff for humanoid zombies because they matter more
             if (TryComp<HumanoidComponent>(target, out var huApComp)) //huapcomp
@@ -157,8 +158,8 @@ namespace Content.Server.Zombies
                 //This is done here because non-humanoids shouldn't get baller damage
                 //lord forgive me for the hardcoded damage
                 DamageSpecifier dspec = new();
-                dspec.DamageDict.Add("Slash", 2);
-                dspec.DamageDict.Add("Piercing", 1);
+                dspec.DamageDict.Add("Slash", 5);
+                dspec.DamageDict.Add("Piercing", 3);
                 dspec.DamageDict.Add("Structural", 10);
                 melee.Damage = dspec;
             }
