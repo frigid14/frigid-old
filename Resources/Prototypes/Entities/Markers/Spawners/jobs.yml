@@ -298,7 +298,7 @@
   name: atmospherics
   components:
     - type: SpawnPoint
-      job_id: AtmosphericTechnician
+      job_id: Civilian
     - type: Sprite
       layers:
         - state: green
