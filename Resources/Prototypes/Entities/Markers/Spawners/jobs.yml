@@ -493,8 +493,3 @@
     layers:
       - state: green
       - state: reporter
-
-  - type: Sprite
-    layers:
-      - state: green
-      - state: psychologist
