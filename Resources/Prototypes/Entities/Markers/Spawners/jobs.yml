@@ -43,7 +43,7 @@
   name: quartermaster
   components:
   - type: SpawnPoint
-    job_id: Quartermaster
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -56,7 +56,7 @@
   name: cargotechnician
   components:
   - type: SpawnPoint
-    job_id: CargoTechnician
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -68,7 +68,7 @@
   name: salvagespecialist
   components:
   - type: SpawnPoint
-    job_id: SalvageSpecialist
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -94,7 +94,7 @@
   name: technical assistant
   components:
   - type: SpawnPoint
-    job_id: TechnicalAssistant
+    job_id: Civilian
 
 - type: entity
   id: SpawnPointMedicalIntern
@@ -162,7 +162,7 @@
   name: clown
   components:
   - type: SpawnPoint
-    job_id: Clown
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -174,7 +174,7 @@
   name: mime
   components:
   - type: SpawnPoint
-    job_id: Mime
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -198,7 +198,7 @@
   name: librarian
   components:
   - type: SpawnPoint
-    job_id: Librarian
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -210,7 +210,7 @@
   name: lawyer
   components:
   - type: SpawnPoint
-    job_id: Lawyer
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -222,7 +222,7 @@
   name: janitor
   components:
   - type: SpawnPoint
-    job_id: Janitor
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -234,7 +234,7 @@
   name: musician
   components:
     - type: SpawnPoint
-      job_id: Musician
+      job_id: Civilian
     - type: Sprite
       layers:
         - state: green
@@ -312,7 +312,7 @@
   name: chiefmedicalofficer
   components:
   - type: SpawnPoint
-    job_id: ChiefMedicalOfficer
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -350,7 +350,7 @@
   name: researchdirector
   components:
   - type: SpawnPoint
-    job_id: ResearchDirector
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -494,13 +494,6 @@
       - state: green
       - state: reporter
 
-- type: entity
-  id: SpawnPointPsychologist
-  parent: SpawnPointJobBase
-  name: psychologist
-  components:
-  - type: SpawnPoint
-    job_id: Psychologist
   - type: Sprite
     layers:
       - state: green
