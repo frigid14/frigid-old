@@ -248,7 +248,7 @@
   name: captain
   components:
   - type: SpawnPoint
-    job_id: Captain
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -260,7 +260,7 @@
   name: headofpersonnel
   components:
   - type: SpawnPoint
-    job_id: HeadOfPersonnel
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
@@ -274,7 +274,7 @@
   name: chiefengineer
   components:
   - type: SpawnPoint
-    job_id: ChiefEngineer
+    job_id: Civilian
   - type: Sprite
     layers:
       - state: green
