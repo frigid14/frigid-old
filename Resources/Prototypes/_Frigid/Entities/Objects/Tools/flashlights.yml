@@ -4,8 +4,10 @@
   id: FlashlightHandLite
   description: A handlite branded flashlight commonly used by the survivors of the vanish.
   components:
-    - type: PowerCellSlot
-      cellSlot:
+    - type: ItemSlots
+      slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
     - type: HandheldLight
       addPrefix: false
@@ -29,4 +31,4 @@
       sprite: Objects/Tools/seclite.rsi
     - type: PointLight
       enabled: false
-      radius: 6
+      radius: 8
