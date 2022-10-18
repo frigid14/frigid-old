@@ -1,221 +1,209 @@
-using System.Linq;
 using System.Threading.Tasks;
-using Content.Shared.Damage;
-using Content.Shared.DoAfter;
-using Content.Shared.MobState;
-using JetBrains.Annotations;
-using Robust.Shared.GameStates;
+using Content.Server.Hands.Components;
+using Content.Shared.Stunnable;
+using Robust.Shared.Map;
+using Robust.Shared.Timing;
 
 namespace Content.Server.DoAfter
 {
-    [UsedImplicitly]
-    public sealed class DoAfterSystem : EntitySystem
+    public sealed class DoAfter
     {
-        // We cache these lists as to not allocate them every update tick...
-        private readonly Queue<DoAfter> _cancelled = new();
-        private readonly Queue<DoAfter> _finished = new();
+        public Task<DoAfterStatus> AsTask { get; }
 
-        public override void Initialize()
+        private TaskCompletionSource<DoAfterStatus> Tcs { get; }
+
+        public readonly DoAfterEventArgs EventArgs;
+
+        public TimeSpan StartTime { get; }
+
+        public float Elapsed { get; set; }
+
+        public EntityCoordinates UserGrid { get; }
+
+        public EntityCoordinates TargetGrid { get; }
+
+#pragma warning disable RA0004
+        public DoAfterStatus Status => AsTask.IsCompletedSuccessfully ? AsTask.Result : DoAfterStatus.Running;
+#pragma warning restore RA0004
+
+        // NeedHand
+        private readonly string? _activeHand;
+        private readonly EntityUid? _activeItem;
+
+        public DoAfter(DoAfterEventArgs eventArgs, IEntityManager entityManager)
         {
-            base.Initialize();
-            SubscribeLocalEvent<DoAfterComponent, DamageChangedEvent>(OnDamage);
-            SubscribeLocalEvent<DoAfterComponent, MobStateChangedEvent>(OnStateChanged);
-            SubscribeLocalEvent<DoAfterComponent, ComponentGetState>(OnDoAfterGetState);
-        }
+            EventArgs = eventArgs;
+            StartTime = IoCManager.Resolve<IGameTiming>().CurTime;
 
-        public void Add(DoAfterComponent component, DoAfter doAfter)
-        {
-            component.DoAfters.Add(doAfter, component.RunningIndex);
-            EnsureComp<ActiveDoAfterComponent>(component.Owner);
-            component.RunningIndex++;
-            Dirty(component);
-        }
-
-        public void Cancelled(DoAfterComponent component, DoAfter doAfter)
-        {
-            if (!component.DoAfters.TryGetValue(doAfter, out var index))
-                return;
-
-            component.DoAfters.Remove(doAfter);
-
-            if (component.DoAfters.Count == 0)
+            if (eventArgs.BreakOnUserMove)
             {
-                RemComp<ActiveDoAfterComponent>(component.Owner);
+                UserGrid = entityManager.GetComponent<TransformComponent>(eventArgs.User).Coordinates;
             }
 
-            RaiseNetworkEvent(new CancelledDoAfterMessage(component.Owner, index));
-        }
-
-        /// <summary>
-        ///     Call when the particular DoAfter is finished.
-        ///     Client should be tracking this independently.
-        /// </summary>
-        public void Finished(DoAfterComponent component, DoAfter doAfter)
-        {
-            if (!component.DoAfters.ContainsKey(doAfter))
-                return;
-
-            component.DoAfters.Remove(doAfter);
-
-            if (component.DoAfters.Count == 0)
+            if (eventArgs.Target != null && eventArgs.BreakOnTargetMove)
             {
-                RemComp<ActiveDoAfterComponent>(component.Owner);
-            }
-        }
-
-        private void OnDoAfterGetState(EntityUid uid, DoAfterComponent component, ref ComponentGetState args)
-        {
-            var toAdd = new List<ClientDoAfter>(component.DoAfters.Count);
-
-            foreach (var (doAfter, _) in component.DoAfters)
-            {
-                // THE ALMIGHTY PYRAMID
-                var clientDoAfter = new ClientDoAfter(
-                    component.DoAfters[doAfter],
-                    doAfter.UserGrid,
-                    doAfter.TargetGrid,
-                    doAfter.StartTime,
-                    doAfter.EventArgs.Delay,
-                    doAfter.EventArgs.BreakOnUserMove,
-                    doAfter.EventArgs.BreakOnTargetMove,
-                    doAfter.EventArgs.MovementThreshold,
-                    doAfter.EventArgs.DamageThreshold,
-                    doAfter.EventArgs.Target);
-
-                toAdd.Add(clientDoAfter);
+                // Target should never be null if the bool is set.
+                TargetGrid = entityManager.GetComponent<TransformComponent>(eventArgs.Target!.Value).Coordinates;
             }
 
-            args.State = new DoAfterComponentState(toAdd);
-        }
-
-        private void OnStateChanged(EntityUid uid, DoAfterComponent component, MobStateChangedEvent args)
-        {
-            if (!args.CurrentMobState.IsIncapacitated() || !args.CurrentMobState.IsSoftCrit())
-                return;
-
-            foreach (var (doAfter, _) in component.DoAfters)
+            // For this we need to stay on the same hand slot and need the same item in that hand slot
+            // (or if there is no item there we need to keep it free).
+            if (eventArgs.NeedHand && entityManager.TryGetComponent(eventArgs.User, out HandsComponent? handsComponent))
             {
-                doAfter.Cancel();
+                _activeHand = handsComponent.ActiveHand?.Name;
+                _activeItem = handsComponent.ActiveHandEntity;
             }
+
+            Tcs = new TaskCompletionSource<DoAfterStatus>();
+            AsTask = Tcs.Task;
         }
 
-        /// <summary>
-        /// Cancels DoAfter if it breaks on damage and it meets the threshold
-        /// </summary>
-        /// <param name="_">
-        /// The EntityUID of the user
-        /// </param>
-        /// <param name="component"></param>
-        /// <param name="args"></param>
-        public void OnDamage(EntityUid _, DoAfterComponent component, DamageChangedEvent args)
+        public void Cancel()
         {
-            if (!args.InterruptsDoAfters || !args.DamageIncreased || args.DamageDelta == null)
-                return;
+            if (Status == DoAfterStatus.Running)
+                Tcs.SetResult(DoAfterStatus.Cancelled);
+        }
 
-            foreach (var (doAfter, _) in component.DoAfters)
+        public void Run(float frameTime, IEntityManager entityManager)
+        {
+            switch (Status)
             {
-                if (doAfter.EventArgs.BreakOnDamage && args.DamageDelta?.Total.Float() > doAfter.EventArgs.DamageThreshold)
+                case DoAfterStatus.Running:
+                    break;
+                case DoAfterStatus.Cancelled:
+                case DoAfterStatus.Finished:
+                    return;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            Elapsed += frameTime;
+
+            if (IsFinished())
+            {
+                // Do the final checks here
+                if (!TryPostCheck())
                 {
-                    doAfter.Cancel();
+                    Tcs.SetResult(DoAfterStatus.Cancelled);
                 }
+                else
+                {
+                    Tcs.SetResult(DoAfterStatus.Finished);
+                }
+
+                return;
+            }
+
+            if (IsCancelled(entityManager))
+            {
+                Tcs.SetResult(DoAfterStatus.Cancelled);
             }
         }
 
-        public override void Update(float frameTime)
+        private bool IsCancelled(IEntityManager entityManager)
         {
-            base.Update(frameTime);
-
-            foreach (var (_, comp) in EntityManager.EntityQuery<ActiveDoAfterComponent, DoAfterComponent>())
+            if (!entityManager.EntityExists(EventArgs.User) || EventArgs.Target is { } target && !entityManager.EntityExists(target))
             {
-                foreach (var (doAfter, _) in comp.DoAfters.ToArray())
-                {
-                    doAfter.Run(frameTime, EntityManager);
+                return true;
+            }
 
-                    switch (doAfter.Status)
+            //https://github.com/tgstation/tgstation/blob/1aa293ea337283a0191140a878eeba319221e5df/code/__HELPERS/mobs.dm
+            if (EventArgs.CancelToken.IsCancellationRequested)
+            {
+                return true;
+            }
+
+            // TODO :Handle inertia in space.
+            if (EventArgs.BreakOnUserMove && !entityManager.GetComponent<TransformComponent>(EventArgs.User).Coordinates.InRange(
+                entityManager, UserGrid, EventArgs.MovementThreshold))
+            {
+                return true;
+            }
+
+            if (EventArgs.Target != null &&
+                EventArgs.BreakOnTargetMove &&
+                !entityManager.GetComponent<TransformComponent>(EventArgs.Target!.Value).Coordinates.InRange(entityManager, TargetGrid, EventArgs.MovementThreshold))
+            {
+                return true;
+            }
+
+            if (EventArgs.ExtraCheck != null && !EventArgs.ExtraCheck.Invoke())
+            {
+                return true;
+            }
+
+            if (EventArgs.BreakOnStun &&
+                entityManager.HasComponent<StunnedComponent>(EventArgs.User))
+            {
+                return true;
+            }
+
+            if (EventArgs.NeedHand)
+            {
+                if (!entityManager.TryGetComponent(EventArgs.User, out HandsComponent? handsComponent))
+                {
+                    // If we had a hand but no longer have it that's still a paddlin'
+                    if (_activeHand != null)
                     {
-                        case DoAfterStatus.Running:
-                            break;
-                        case DoAfterStatus.Cancelled:
-                            _cancelled.Enqueue(doAfter);
-                            break;
-                        case DoAfterStatus.Finished:
-                            _finished.Enqueue(doAfter);
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
+                        return true;
                     }
                 }
-
-                while (_cancelled.TryDequeue(out var doAfter))
+                else
                 {
-                    Cancelled(comp, doAfter);
+                    var currentActiveHand = handsComponent.ActiveHand?.Name;
+                    if (_activeHand != currentActiveHand)
+                    {
+                        return true;
+                    }
 
-                    if (EntityManager.EntityExists(doAfter.EventArgs.User) && doAfter.EventArgs.UserCancelledEvent != null)
-                        RaiseLocalEvent(doAfter.EventArgs.User, doAfter.EventArgs.UserCancelledEvent, false);
-
-                    if (doAfter.EventArgs.Target is { } target && EntityManager.EntityExists(target) && doAfter.EventArgs.TargetCancelledEvent != null)
-                        RaiseLocalEvent(target, doAfter.EventArgs.TargetCancelledEvent, false);
-
-                    if (doAfter.EventArgs.BroadcastCancelledEvent != null)
-                        RaiseLocalEvent(doAfter.EventArgs.BroadcastCancelledEvent);
-                }
-
-                while (_finished.TryDequeue(out var doAfter))
-                {
-                    Finished(comp, doAfter);
-
-                    if (EntityManager.EntityExists(doAfter.EventArgs.User) && doAfter.EventArgs.UserFinishedEvent != null)
-                        RaiseLocalEvent(doAfter.EventArgs.User, doAfter.EventArgs.UserFinishedEvent, false);
-
-                    if (doAfter.EventArgs.Target is { } target && EntityManager.EntityExists(target) && doAfter.EventArgs.TargetFinishedEvent != null)
-                        RaiseLocalEvent(target, doAfter.EventArgs.TargetFinishedEvent, false);
-
-                    if (doAfter.EventArgs.BroadcastFinishedEvent != null)
-                        RaiseLocalEvent(doAfter.EventArgs.BroadcastFinishedEvent);
+                    var currentItem = handsComponent.ActiveHandEntity;
+                    if (_activeItem != currentItem)
+                    {
+                        return true;
+                    }
                 }
             }
+
+            if (EventArgs.DistanceThreshold != null)
+            {
+                var xformQuery = entityManager.GetEntityQuery<TransformComponent>();
+                TransformComponent? userXform = null;
+
+                // Check user distance to target AND used entities.
+                if (EventArgs.Target != null && !EventArgs.User.Equals(EventArgs.Target))
+                {
+                    //recalculate Target location in case Target has also moved
+                    var targetCoordinates = xformQuery.GetComponent(EventArgs.Target.Value).Coordinates;
+                    userXform ??= xformQuery.GetComponent(EventArgs.User);
+                    if (!userXform.Coordinates.InRange(entityManager, targetCoordinates, EventArgs.DistanceThreshold.Value))
+                        return true;
+                }
+
+                if (EventArgs.Used != null)
+                {
+                    var targetCoordinates = xformQuery.GetComponent(EventArgs.Used.Value).Coordinates;
+                    userXform ??= xformQuery.GetComponent(EventArgs.User);
+                    if (!userXform.Coordinates.InRange(entityManager, targetCoordinates, EventArgs.DistanceThreshold.Value))
+                        return true;
+                }
+            }
+
+            return false;
         }
 
-        /// <summary>
-        ///     Tasks that are delayed until the specified time has passed
-        ///     These can be potentially cancelled by the user moving or when other things happen.
-        /// </summary>
-        /// <param name="eventArgs"></param>
-        /// <returns></returns>
-        public async Task<DoAfterStatus> WaitDoAfter(DoAfterEventArgs eventArgs)
+        private bool TryPostCheck()
         {
-            var doAfter = CreateDoAfter(eventArgs);
-
-            await doAfter.AsTask;
-
-            return doAfter.Status;
+            return EventArgs.PostCheck?.Invoke() != false;
         }
 
-        /// <summary>
-        ///     Creates a DoAfter without waiting for it to finish. You can use events with this.
-        ///     These can be potentially cancelled by the user moving or when other things happen.
-        /// </summary>
-        /// <param name="eventArgs"></param>
-        public void DoAfter(DoAfterEventArgs eventArgs)
+        private bool IsFinished()
         {
-            CreateDoAfter(eventArgs);
-        }
+            if (Elapsed <= EventArgs.Delay)
+            {
+                return false;
+            }
 
-        private DoAfter CreateDoAfter(DoAfterEventArgs eventArgs)
-        {
-            // Setup
-            var doAfter = new DoAfter(eventArgs, EntityManager);
-            // Caller's gonna be responsible for this I guess
-            var doAfterComponent = Comp<DoAfterComponent>(eventArgs.User);
-            Add(doAfterComponent, doAfter);
-            return doAfter;
+            return true;
         }
-    }
-
-    public enum DoAfterStatus : byte
-    {
-        Running,
-        Cancelled,
-        Finished,
     }
 }
