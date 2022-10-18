@@ -197,7 +197,7 @@ namespace Content.Server.Buckle.Components
                 return false;
             }
 
-            if(EntMan.TryGetComponent<AppearanceComponent>(Owner, out var appearance))
+            if (EntMan.TryGetComponent<AppearanceComponent>(Owner, out var appearance))
                 appearance.SetData(BuckleVisuals.Buckled, true);
 
             ReAttach(strap);
@@ -288,11 +288,11 @@ namespace Content.Server.Buckle.Components
                     xform.Coordinates = oldBuckledXform.Coordinates.Offset(oldBuckledTo.UnbuckleOffset);
             }
 
-            if(EntMan.TryGetComponent<AppearanceComponent>(Owner, out var appearance))
+            if (EntMan.TryGetComponent<AppearanceComponent>(Owner, out var appearance))
                 appearance.SetData(BuckleVisuals.Buckled, false);
 
             if (EntMan.HasComponent<KnockedDownComponent>(Owner)
-                | (EntMan.TryGetComponent<MobStateComponent>(Owner, out var mobState) && mobState.IsIncapacitated()))
+                | (EntMan.TryGetComponent<MobStateComponent>(Owner, out var mobState) && (mobState.IsIncapacitated() || mobState.IsSoftCrit())))
             {
                 EntitySystem.Get<StandingStateSystem>().Down(Owner);
             }
