@@ -64,7 +64,8 @@ tilemap:
   57: Lattice
   58: Plating
 grids:
-- settings:
+- uid: 126
+  settings:
     chunksize: 16
     tilesize: 1
   chunks:
@@ -1331,8 +1332,9 @@ entities:
   - pos: 0.5895564,0.48329467
     parent: 127
     type: Transform
-  - index: 0
-    type: MapGrid
+  - type: MapGrid
+  - type: EntityLookup
+  - type: Broadphase
   - angularDamping: 0.05
     linearDamping: 0.05
     fixedRotation: False
@@ -57535,8 +57537,8 @@ entities:
     - volume: 2500
       temperature: 253.13
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -57550,8 +57552,8 @@ entities:
     - volume: 2500
       temperature: 253.13
       moles:
-      - 20.619795
-      - 77.56971
+      - 20.04244
+      - 75.39776
       - 0
       - 0
       - 0
@@ -57580,12 +57582,17 @@ entities:
     type: GridAtmosphere
   - id: Frigid
     type: BecomesStation
+  - type: OccluderTree
+  - type: Shuttle
+  - type: GridPathfinding
+  - type: RadiationGridResistance
 - uid: 127
   components:
   - desc: You shouldn't be able to see this...
     name: Frigid Map
     type: MetaData
-  - index: 18
+  - type: Transform
+  - index: 10
     type: Map
   - space: False
     mixture:
@@ -57605,6 +57612,10 @@ entities:
       - 0
       - 0
     type: MapAtmosphere
+  - type: EntityLookup
+  - type: Broadphase
+  - type: PhysicsMap
+  - type: OccluderTree
 - uid: 128
   type: GrilleBorder
   components:
@@ -72641,6 +72652,8 @@ entities:
   - pos: 21.5,84.5
     parent: 126
     type: Transform
+  - job_id: Civilian
+    type: SpawnPoint
 - uid: 2580
   type: SpawnMobZed
   components:
@@ -90707,7 +90720,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -90740,7 +90752,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -90773,7 +90784,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -90806,7 +90816,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -91057,6 +91066,30 @@ entities:
   type: FloraTreeSnow01
   components:
   - pos: -152.48544,114.761566
+    parent: 126
+    type: Transform
+- uid: 5575
+  type: SpawnPointBotanist
+  components:
+  - pos: -129.5,137.5
+    parent: 126
+    type: Transform
+- uid: 5576
+  type: SpawnPointBotanist
+  components:
+  - pos: -129.5,136.5
+    parent: 126
+    type: Transform
+- uid: 5577
+  type: SpawnPointBotanist
+  components:
+  - pos: -128.5,136.5
+    parent: 126
+    type: Transform
+- uid: 5578
+  type: SpawnPointBotanist
+  components:
+  - pos: -128.5,137.5
     parent: 126
     type: Transform
 ...

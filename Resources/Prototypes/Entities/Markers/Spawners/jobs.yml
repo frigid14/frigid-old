@@ -126,7 +126,7 @@
   name: bartender
   components:
   - type: SpawnPoint
-    job_id: Civilian
+    job_id: Bartender
   - type: Sprite
     layers:
       - state: green
