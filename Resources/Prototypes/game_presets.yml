@@ -1,4 +1,14 @@
 - type: gamePreset
+  id: Survival
+  alias:
+    - survival
+  name: survival-title
+  showInVote: false # secret
+  description: survival-description
+  rules:
+    - RampingStationEventScheduler
+
+- type: gamePreset
   id: Extended
   alias:
     - extended
@@ -6,6 +16,9 @@
   name: extended-title
   showInVote: true
   description: extended-description
+  rules:
+    # TODO: ZombieEventScheduler?
+    - BasicStationEventScheduler
 
 - type: gamePreset
   id: Secret
