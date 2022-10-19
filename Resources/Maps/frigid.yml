@@ -70809,12 +70809,9 @@ entities:
     parent: 126
     type: Transform
 - uid: 2279
-  type: SuperSynthesizerInstrument
+  type: SpawnPointBotanist
   components:
-  - desc: Now with the brand new smidge of blood on the keys!
-    name: cursed synthesizer
-    type: MetaData
-  - pos: -0.4512214,74.43182
+  - pos: -129.5,137.5
     parent: 126
     type: Transform
 - uid: 2280
@@ -91071,22 +91068,16 @@ entities:
 - uid: 5575
   type: SpawnPointBotanist
   components:
-  - pos: -129.5,137.5
+  - pos: -129.5,136.5
     parent: 126
     type: Transform
 - uid: 5576
   type: SpawnPointBotanist
   components:
-  - pos: -129.5,136.5
-    parent: 126
-    type: Transform
-- uid: 5577
-  type: SpawnPointBotanist
-  components:
   - pos: -128.5,136.5
     parent: 126
     type: Transform
-- uid: 5578
+- uid: 5577
   type: SpawnPointBotanist
   components:
   - pos: -128.5,137.5
