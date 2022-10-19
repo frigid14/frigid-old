@@ -190,7 +190,7 @@ public sealed partial class RevenantSystem
         if (!TryComp<MobStateComponent>(args.Target, out var mobstate))
             return;
 
-        if (_mobState.IsAlive(args.Target) || _mobState.IsCritical(args.Target))
+        if (_mobState.IsAlive(args.Target) || _mobState.IsCritical(args.Target) || _mobState.IsSoftCrit(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("revenant-max-essence-increased"), uid, Filter.Entities(uid));
             component.EssenceRegenCap += component.MaxEssenceUpgradeAmount;

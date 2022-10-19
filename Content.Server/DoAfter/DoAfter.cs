@@ -102,7 +102,7 @@ namespace Content.Server.DoAfter
 
         private bool IsCancelled(IEntityManager entityManager)
         {
-            if (!entityManager.EntityExists(EventArgs.User) || EventArgs.Target is {} target && !entityManager.EntityExists(target))
+            if (!entityManager.EntityExists(EventArgs.User) || EventArgs.Target is { } target && !entityManager.EntityExists(target))
             {
                 return true;
             }

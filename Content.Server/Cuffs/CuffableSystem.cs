@@ -67,7 +67,7 @@ namespace Content.Server.Cuffs
             if (component.Cuffing)
                 return;
 
-            if (args.Target is not {Valid: true} target ||
+            if (args.Target is not { Valid: true } target ||
                     !EntityManager.TryGetComponent<CuffableComponent>(args.Target.Value, out var cuffed))
             {
                 return;
@@ -83,13 +83,13 @@ namespace Content.Server.Cuffs
 
             if (!EntityManager.TryGetComponent<HandsComponent?>(target, out var hands))
             {
-                _popup.PopupEntity(Loc.GetString("handcuff-component-target-has-no-hands-error",("targetName", args.Target)), args.User, Filter.Entities(args.User));
+                _popup.PopupEntity(Loc.GetString("handcuff-component-target-has-no-hands-error", ("targetName", args.Target)), args.User, Filter.Entities(args.User));
                 return;
             }
 
             if (cuffed.CuffedHandCount >= hands.Count)
             {
-                _popup.PopupEntity(Loc.GetString("handcuff-component-target-has-no-free-hands-error",("targetName", args.Target)), args.User, Filter.Entities(args.User));
+                _popup.PopupEntity(Loc.GetString("handcuff-component-target-has-no-free-hands-error", ("targetName", args.Target)), args.User, Filter.Entities(args.User));
                 return;
             }
 
@@ -132,7 +132,7 @@ namespace Content.Server.Cuffs
             if (args.User == args.Target)
             {
                 // This UncuffAttemptEvent check should probably be In MobStateSystem, not here?
-                if (_mobState.IsIncapacitated(args.User))
+                if (_mobState.IsIncapacitated(args.User) || _mobState.IsSoftCrit(args.User))
                 {
                     args.Cancel();
                 }
