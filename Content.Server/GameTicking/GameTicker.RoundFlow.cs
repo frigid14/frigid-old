@@ -18,8 +18,13 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Robust.Shared.Asynchronous;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.GameTicking
 {
@@ -34,6 +39,10 @@ namespace Content.Server.GameTicking
         private static readonly Gauge RoundLengthMetric = Metrics.CreateGauge(
             "ss14_round_length",
             "Round length in seconds.");
+
+        private readonly HttpClient _httpClient = new();
+        private string _webhookUrl = String.Empty;
+        private string _roleId = String.Empty;
 
 #if EXCEPTION_TOLERANCE
         [ViewVariables]
@@ -139,6 +148,30 @@ namespace Content.Server.GameTicking
             // If this game ticker is a dummy or the round is already being started, do nothing!
             if (DummyTicker || _startingRound)
                 return;
+
+            // Tell the Discord that the game is starting
+            _webhookUrl = _configurationManager.GetCVar(CCVars.DiscordNewRoundWebhook);
+            _roleId = _configurationManager.GetCVar(CCVars.DiscordNewRoundRoleId);
+            var sendsWebhook = (_webhookUrl != string.Empty && _roleId != string.Empty);
+
+            if (sendsWebhook)
+            {
+                async void SendWebhook()
+                {
+                    var payload = GeneratePayload($"<@&{_roleId}> Round #{RoundId.ToString()} on `{_configurationManager.GetCVar(CCVars.GameHostName)}` starting.", "Round Notifier");
+
+                    var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
+                        new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+                    if (!request.IsSuccessStatusCode)
+                    {
+                        var content = await request.Content.ReadAsStringAsync();
+                        _sawmill.Log(LogLevel.Error, $"Discord returned bad status code: {request.StatusCode}\nResponse: {content}");
+                    }
+                }
+
+                SendWebhook();
+            }
 
             _startingRound = true;
 
@@ -260,6 +293,27 @@ namespace Content.Server.GameTicking
 
             DebugTools.Assert(RunLevel == GameRunLevel.InRound);
             _sawmill.Info("Ending round!");
+
+            var sendsWebhook = (_webhookUrl != string.Empty && _roleId != string.Empty);
+
+            if (sendsWebhook)
+            {
+                async void SendWebhook()
+                {
+                    var payload = GeneratePayload($"<@&{_roleId}> Round #{RoundId.ToString()} on `{_configurationManager.GetCVar(CCVars.GameHostName)}` has ended.", "Round Notifier");
+
+                    var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
+                        new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+                    if (!request.IsSuccessStatusCode)
+                    {
+                        var content = await request.Content.ReadAsStringAsync();
+                        _sawmill.Log(LogLevel.Error, $"Discord returned bad status code: {request.StatusCode}\nResponse: {content}");
+                    }
+                }
+
+                SendWebhook();
+            }
 
             RunLevel = GameRunLevel.PostRound;
 
@@ -498,6 +552,37 @@ namespace Content.Server.GameTicking
 
                 // Only play one because A
                 break;
+            }
+        }
+
+        // Discord webhook stuff
+        private WebhookPayload GeneratePayload(string message, string username)
+        {
+            return new WebhookPayload
+            {
+                Username = username,
+                Message = message
+            };
+        }
+
+        // https://discord.com/developers/docs/resources/channel#message-object-message-structure
+        private struct WebhookPayload
+        {
+            [JsonPropertyName("username")]
+            public string Username { get; set; } = "";
+
+            [JsonPropertyName("content")]
+            public string Message { get; set; } = "";
+
+            [JsonPropertyName("allowed_mentions")]
+            public Dictionary<string, string[]> AllowedMentions { get; set; } =
+                new()
+                {
+                    { "parse", Array.Empty<string>() },
+                };
+
+            public WebhookPayload()
+            {
             }
         }
     }
