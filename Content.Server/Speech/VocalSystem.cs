@@ -1,4 +1,5 @@
 using Content.Server.Humanoid;
+using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -23,6 +24,7 @@ public sealed class VocalSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -66,6 +68,9 @@ public sealed class VocalSystem : EntitySystem
 
         if (!_blocker.CanSpeak(uid))
             return false;
+
+        _popup.PopupEntity(Loc.GetString("chat-manager-entity-scream-message",
+            ("entityName", Name(uid))), uid, Filter.Pvs(uid, entityManager: EntityManager));
 
         var sex = CompOrNull<HumanoidComponent>(uid)?.Sex ?? Sex.Unsexed;
 
