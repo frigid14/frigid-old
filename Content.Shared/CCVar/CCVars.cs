@@ -278,6 +278,18 @@ namespace Content.Shared.CCVar
             CVarDef.Create("discord.ahelp_webhook", string.Empty, CVar.SERVERONLY);
 
         /// <summary>
+        /// URL of the Discord webhook which notify of a new round.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordNewRoundWebhook =
+            CVarDef.Create("discord.new_round_webhook", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Role ID that will be mentioned.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordNewRoundRoleId =
+            CVarDef.Create("discord.new_round_role_id", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
         /// The server icon to use in the Discord ahelp embed footer.
         /// Valid values are specified at https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure.
         /// </summary>
