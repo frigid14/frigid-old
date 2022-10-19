@@ -58,6 +58,13 @@ public sealed partial class ChatSystem : SharedChatSystem
     private const int WhisperRange = 2; // how far whisper goes in world units
     private const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
 
+    private readonly Dictionary<string,string> _toneSuffixes = new Dictionary<string, string>() {
+        {@"\?$", "chat-manager-entity-ask-wrap-message"},
+        {@"\!\!\!$", "chat-manager-entity-yell-wrap-message"},
+        {@"\!\!$", "chat-manager-entity-yell-wrap-message"},
+        {@"\!$", "chat-manager-entity-exclaim-wrap-message"}
+    };
+
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled = false;
     private readonly bool _adminLoocEnabled = true;
@@ -267,7 +274,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (message.Length == 0)
             return;
 
-        var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
+        var wrappedMessage = Loc.GetString(GetToneBySuffix(FormattedMessage.EscapeText(message)),
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, hideChat);
@@ -416,6 +423,23 @@ public sealed partial class ChatSystem : SharedChatSystem
         var sessions = new List<ICommonSession>();
         ClientDistanceToList(source, VoiceRange, sessions);
         _chatManager.ChatMessageToMany(channel, message, wrappedMessage, source, hideChat, sessions.Select(s => s.ConnectedClient).ToList());
+    }
+
+    /// <summary>
+    ///     Input a string, outputs the correct tone that you can get with Loc.GetString
+    /// </summary>
+    private string GetToneBySuffix(string s)
+    {
+        var LOCtone = "chat-manager-entity-say-wrap-message";
+
+        foreach(var tone in _toneSuffixes) {
+            if (Regex.IsMatch(s, tone.Key)) {
+                LOCtone = tone.Value;
+                break;
+            }
+        }
+
+        return LOCtone;
     }
 
     /// <summary>
