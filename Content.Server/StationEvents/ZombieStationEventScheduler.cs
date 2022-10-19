@@ -67,8 +67,8 @@ namespace Content.Server.StationEvents
         /// </summary>
         private void ResetTimer()
         {
-            // 3 - 10 minutes.
-            _timeUntilNextEvent = _random.Next(180, 600);
+            // 5 - 15 minutes.
+            _timeUntilNextEvent = _random.Next(300, 900);
         }
     }
 }
