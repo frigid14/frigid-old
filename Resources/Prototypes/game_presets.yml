@@ -17,8 +17,7 @@
   showInVote: true
   description: extended-description
   rules:
-    # TODO: ZombieEventScheduler?
-    - BasicStationEventScheduler
+    - ZombieStationEventScheduler
 
 - type: gamePreset
   id: Secret

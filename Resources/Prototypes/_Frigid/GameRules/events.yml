@@ -1,0 +1,6 @@
+- type: gameRule
+  id: Incursion
+  config:
+    !type:StationEventRuleConfiguration
+    id: Incursion
+    endAfter: 60

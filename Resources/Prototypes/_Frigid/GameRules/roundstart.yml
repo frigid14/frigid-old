@@ -1,0 +1,5 @@
+- type: gameRule
+  id: ZombieStationEventScheduler
+  config:
+    !type:GenericGameRuleConfiguration
+    id: ZombieStationEventSchedulerSystem
