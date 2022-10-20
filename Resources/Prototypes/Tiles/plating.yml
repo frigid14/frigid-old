@@ -38,6 +38,7 @@
   isSubfloor: false
   canCrowbar: false
   canShovel: true
+  isSpace: true
   footstepSounds:
     collection: FootstepSnow
   friction: 0.4
