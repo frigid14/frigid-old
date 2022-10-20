@@ -25,7 +25,8 @@ namespace Content.Server.StationEvents
         [Dependency] private readonly EventManagerSystem _event = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-        private const float MinimumTimeUntilFirstEvent = 300;
+        private const float MinimumTimeUntilFirstEvent = 10f;
+        private readonly string[] _choosableEvents = {"Incursion", "LootRegen", "RadioFluff"};
 
         /// <summary>
         /// How long until the next check for an event runs
@@ -54,11 +55,15 @@ namespace Content.Server.StationEvents
                 return;
             }
 
-            _prototype.TryIndex<GameRulePrototype>("Incursion", out var proto);
+
+            _prototype.TryIndex<GameRulePrototype>(_random.Pick(_choosableEvents), out var proto);
 
             DebugTools.AssertNotNull(proto);
             if (proto != null)
+            {
                 _event.GameTicker.AddGameRule(proto);
+            }
+
             ResetTimer();
         }
 

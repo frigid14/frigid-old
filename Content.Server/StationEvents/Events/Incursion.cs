@@ -49,7 +49,7 @@ public sealed class Incursion : StationEventSystem
 
         // Alert the players
         ChatSystem.DispatchGlobalAnnouncement(Loc.GetString("event-incursion-announcement-message", ("influx", Math.Round(mod)), ("estimate",
-            Math.Round((mod * 3) * spawnerCount))), sender: "Z.M.S", playSound: false, colorOverride: Color.PaleVioletRed);
+            Math.Round((mod * 3) * spawnerCount))), sender: "Survival Radio", playSound: false, colorOverride: Color.PaleVioletRed);
         SoundSystem.Play("/Audio/Misc/siren.ogg", Filter.Broadcast());
     }
 }

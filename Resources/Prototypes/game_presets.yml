@@ -18,6 +18,7 @@
   description: extended-description
   rules:
     - ZombieStationEventScheduler
+    - ZombieTimeout
 
 - type: gamePreset
   id: Secret

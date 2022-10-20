@@ -2,4 +2,11 @@
   id: ZombieStationEventScheduler
   config:
     !type:GenericGameRuleConfiguration
-    id: ZombieStationEventSchedulerSystem
+    id: ZombieStationEventScheduler
+
+- type: gameRule
+  id: ZombieTimeout
+  config:
+    !type:InactivityGameRuleConfiguration
+    inactivityMaxTime: 10800
+    roundEndDelay: 60
