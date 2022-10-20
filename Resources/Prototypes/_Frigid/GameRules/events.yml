@@ -3,4 +3,19 @@
   config:
     !type:StationEventRuleConfiguration
     id: Incursion
-    endAfter: 60
+    endAfter: 1
+
+- type: gameRule
+  id: LootRegen
+  config:
+    !type:StationEventRuleConfiguration
+    id: LootRegen
+    endAfter: 1
+
+- type: gameRule
+  id: RadioFluff
+  config:
+    !type:StationEventRuleConfiguration
+    id: RadioFluff
+    maxOccurrences: 10
+    endAfter: 1
