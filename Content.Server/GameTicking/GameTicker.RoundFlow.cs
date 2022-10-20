@@ -158,7 +158,7 @@ namespace Content.Server.GameTicking
             {
                 async void SendWebhook()
                 {
-                    var payload = GeneratePayload($"<@&{_roleId}> Round #{RoundId.ToString()} on `{_configurationManager.GetCVar(CCVars.GameHostName)}` starting.", "Round Notifier");
+                    var payload = GeneratePayload($"<@&{_roleId}> Round #{RoundId.ToString()} on `{_configurationManager.GetCVar(CCVars.GameHostName)}` starting.", "Round Notifier", new []{"roles"});
 
                     var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
                         new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
@@ -300,7 +300,7 @@ namespace Content.Server.GameTicking
             {
                 async void SendWebhook()
                 {
-                    var payload = GeneratePayload($"<@&{_roleId}> Round #{RoundId.ToString()} on `{_configurationManager.GetCVar(CCVars.GameHostName)}` has ended.", "Round Notifier");
+                    var payload = GeneratePayload($"<@&{_roleId}> Round #{RoundId.ToString()} on `{_configurationManager.GetCVar(CCVars.GameHostName)}` has ended.", "Round Notifier", new []{"roles"});
 
                     var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
                         new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
@@ -404,6 +404,27 @@ namespace Content.Server.GameTicking
                 return;
 
             _sawmill.Info("Restarting round!");
+
+            var sendsWebhook = (_webhookUrl != string.Empty && _roleId != string.Empty);
+
+            if (sendsWebhook)
+            {
+                async void SendWebhook()
+                {
+                    var payload = GeneratePayload($"`{_configurationManager.GetCVar(CCVars.GameHostName)}` now entering game lobby.", "Round Notifier", new string[]{});
+
+                    var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
+                        new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+                    if (!request.IsSuccessStatusCode)
+                    {
+                        var content = await request.Content.ReadAsStringAsync();
+                        _sawmill.Log(LogLevel.Error, $"Discord returned bad status code: {request.StatusCode}\nResponse: {content}");
+                    }
+                }
+
+                SendWebhook();
+            }
 
             SendServerMessage(Loc.GetString("game-ticker-restart-round"));
 
@@ -556,12 +577,16 @@ namespace Content.Server.GameTicking
         }
 
         // Discord webhook stuff
-        private WebhookPayload GeneratePayload(string message, string username)
+        private WebhookPayload GeneratePayload(string message, string username, string[] allowedMentions)
         {
             return new WebhookPayload
             {
                 Username = username,
-                Message = message
+                Message = message,
+                AllowedMentions = new()
+                {
+                    { "parse", allowedMentions },
+                }
             };
         }
 
