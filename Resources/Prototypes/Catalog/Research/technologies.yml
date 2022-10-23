@@ -65,6 +65,7 @@
     - Shovel
     - ButchCleaver
     - MicrowaveMachineCircuitboard
+    - SeedExtractorMachineCircuitboard
 
 - type: technology
   name: technologies-advanced-surgery
