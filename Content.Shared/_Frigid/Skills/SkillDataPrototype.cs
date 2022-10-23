@@ -5,7 +5,8 @@ namespace Content.Shared._Frigid.Skills;
 [Prototype("skill")]
 public sealed class SkillDataPrototype : IPrototype
 {
-    [ViewVariables] [IdDataField]
+    [ViewVariables]
+    [IdDataField]
     public string ID { get; } = default!;
 
     /// <summary>
