@@ -1,0 +1,23 @@
+- type: skill
+  id: FirstAid
+  name: Medical
+
+- type: skill
+  id: Combat
+  name: Combat
+
+- type: skill
+  id: Crafting
+  name: Crafting
+
+- type: skill
+  id: Mechanics
+  name: Mechanics
+
+- type: skill
+  id: Electronics
+  name: Electronics
+
+- type: skill
+  id: Construction
+  name: Construction
