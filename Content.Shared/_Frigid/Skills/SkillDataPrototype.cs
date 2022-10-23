@@ -16,15 +16,32 @@ public sealed class SkillDataPrototype : IPrototype
     public string Name { get; } = default!;
 
     /// <summary>
-    /// The maximum this skill can reach.
+    /// The maximum level this skill can reach.
     /// </summary>
     [ViewVariables]
-    [DataField("maxValue")]
-    public ushort MaxValue { get; } = 10;
+    [DataField("maxLevel")]
+    public ushort MaxLevel { get; } = 10;
 
+    /// <summary>
+    /// Default skill level.
+    /// </summary>
     [ViewVariables]
-    [DataField("defaultValue")]
-    public ushort DefaultValue { get; } = 0;
+    [DataField("defaultLevel")]
+    public ushort DefaultLevel { get; } = 0;
+
+    /// <summary>
+    /// Default XP.
+    /// </summary>
+    [ViewVariables]
+    [DataField("defaultExp")]
+    public ushort DefaultXP { get; } = 0;
+
+    /// <summary>
+    /// The limit to reach in order to level up.
+    /// </summary>
+    [ViewVariables]
+    [DataField("maxXp")]
+    public ushort MaxExperience { get; } = 100;
 
     /// <summary>
     /// Whether this skill is to be displayed in the client's skills menu.

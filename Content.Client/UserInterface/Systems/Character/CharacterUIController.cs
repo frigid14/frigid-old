@@ -105,9 +105,13 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
         _window.SubText.Text = job;
         _window.Objectives.RemoveAllChildren();
+        _window.Skills.RemoveAllChildren();
 
         foreach (var skill in skills)
         {
+            if (!skill.DisplayInMenu)
+                continue;
+
             var skillControl = new CharacterObjectiveControl
             {
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
@@ -122,9 +126,17 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
             skillControl.AddChild(new Label
             {
-                Text = $"LVL: {skill.Value.ToString()}",
+                Text = $"LVL: {skill.Level} / {skill.MaxLevel}",
                 Modulate = Color.Green
             });
+
+            skillControl.AddChild(new Label
+            {
+                Text = $"EXP: {skill.Experience} / {skill.MaxExperience}",
+                Modulate = Color.Yellow
+            });
+
+            skillControl.AddChild(new Control {MinHeight = 10});
 
             var briefingControl = new ObjectiveBriefingControl();
             briefingControl.Label.Text = briefing;

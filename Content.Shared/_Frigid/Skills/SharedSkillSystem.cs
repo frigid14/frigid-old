@@ -36,7 +36,7 @@ public abstract class SharedSkillSystem : EntitySystem
             if (prototype == null)
                 continue;
 
-            var skillData = new SkillStruct(skillIdentifier, prototype.DefaultValue);
+            var skillData = new SkillStruct(skillIdentifier, prototype.DefaultLevel, prototype.MaxLevel, prototype.DefaultXP, prototype.MaxExperience, prototype.DisplayInSkills);
             component.Skills.Add(skillData);
         }
     }
@@ -83,12 +83,20 @@ public abstract class SharedSkillSystem : EntitySystem
     public struct SkillStruct
     {
         public string Name { get; set; }
-        public ushort Value { get; set; }
+        public bool DisplayInMenu { get; set; }
+        public ushort Level { get; set; }
+        public ushort MaxLevel { get; set; }
+        public ushort Experience { get; set; }
+        public ushort MaxExperience { get; set; }
 
-        public SkillStruct(string name, ushort value)
+        public SkillStruct(string name, ushort level, ushort maxLevel, ushort exp, ushort maxExp, bool display)
         {
             Name = name;
-            Value = value;
+            Level = level;
+            Experience = exp;
+            MaxExperience = maxExp;
+            MaxLevel = maxLevel;
+            DisplayInMenu = display;
         }
     }
 }

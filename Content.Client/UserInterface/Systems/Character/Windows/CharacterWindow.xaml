@@ -14,8 +14,10 @@
                     <Label Name="SubText" VerticalAlignment="Top" StyleClasses="LabelSubText" Access="Public"/>
                 </BoxContainer>
             </BoxContainer>
+
             <Label Text="{Loc 'character-info-skills-label'}" HorizontalAlignment="Center"/>
             <BoxContainer Orientation="Vertical" Name="Skills" Access="Public"/>
+
             <!-- Reason why this is Visible="False" instead of completely removed is to avoid conflicts/runtime errors -->
             <cc:Placeholder Visible="False" PlaceholderText="{Loc 'character-info-roles-antagonist-text'}"/>
             <Label Visible="False" Text="{Loc 'character-info-objectives-label'}" HorizontalAlignment="Center"/>
