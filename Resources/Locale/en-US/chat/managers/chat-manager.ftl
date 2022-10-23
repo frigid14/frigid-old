@@ -17,18 +17,18 @@ chat-manager-server-wrap-message = SERVER: {$message}
 chat-manager-sender-announcement-wrap-message = {$sender} Announcement:
                                                 {$message}
 
-// Chat entity wrap message
-// Tones
+### Chat entity wrap message
+#### Tones
 chat-manager-entity-say-wrap-message = {$entityName} says, "{$message}"
 chat-manager-entity-ask-wrap-message = {$entityName} asks, "{$message}"
 chat-manager-entity-exclaim-wrap-message = {$entityName} exclaims, "{$message}"
-chat-manager-entity-yell-wrap-message = {$entityName} yells, "[b]{$message}[/b]"
+chat-manager-entity-yell-wrap-message = {$entityName} yells, "{$message}"
 
-// Everything else
+#### Everything else
 chat-manager-entity-whisper-wrap-message = {$entityName} whispers, "{$message}"
 chat-manager-entity-me-wrap-message = {$entityName} {$message}
 
-// Entity emotes
+#### Entity emotes
 chat-manager-entity-scream-wrap-message = {$entityName} screams!
 chat-manager-entity-deathgasp-wrap-message = {$entityName}'s body seizes up and falls limp, {POSS-ADJ($entityName)} eyes dead and lifeless...
 

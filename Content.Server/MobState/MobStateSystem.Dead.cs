@@ -18,7 +18,7 @@ public sealed partial class MobStateSystem
 
         if (transformComponent != null)
         {
-            _popup.PopupEntity(Loc.GetString("chat-manager-entity-death-message",
+            _popup.PopupEntity(Loc.GetString("chat-manager-entity-deathgasp-wrap-message",
                 ("entityName", uid)), uid, Filter.Empty().AddPlayersByPvs(transformComponent.Coordinates));
         }
 
