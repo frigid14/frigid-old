@@ -55,6 +55,6 @@ public sealed class CharacterInfoSystem : EntitySystem
         string Briefing,
         ISpriteComponent? Sprite,
         string EntityName,
-        List<SharedSkillSystem.SkillStruct> Skills
+        List<SharedSkillSystem.Skill> Skills
     );
 }

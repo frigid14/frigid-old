@@ -22,9 +22,9 @@ public sealed class CharacterInfoEvent : EntityEventArgs
     public readonly string JobTitle;
     public readonly Dictionary<string, List<ConditionInfo>> Objectives;
     public readonly string Briefing;
-    public readonly List<SharedSkillSystem.SkillStruct> Skills;
+    public readonly List<SharedSkillSystem.Skill> Skills;
 
-    public CharacterInfoEvent(EntityUid entityUid, string jobTitle, Dictionary<string, List<ConditionInfo>> objectives, string briefing, List<SharedSkillSystem.SkillStruct> skills)
+    public CharacterInfoEvent(EntityUid entityUid, string jobTitle, Dictionary<string, List<ConditionInfo>> objectives, string briefing, List<SharedSkillSystem.Skill> skills)
     {
         EntityUid = entityUid;
         JobTitle = jobTitle;

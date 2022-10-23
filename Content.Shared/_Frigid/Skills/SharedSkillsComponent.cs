@@ -4,5 +4,5 @@ namespace Content.Shared._Frigid.Skills;
 public sealed class SharedSkillsComponent : Component
 {
     [ViewVariables]
-    public List<SharedSkillSystem.SkillStruct> Skills { get; set; } = new();
+    public List<SharedSkillSystem.Skill> Skills { get; set; } = new();
 }

@@ -4,15 +4,17 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Frigid.Skills;
 
+/// <summary>
+/// The shared system for handling skills, levels and EXP.
+/// </summary>
 public abstract class SharedSkillSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private readonly Dictionary<string, SkillDataPrototype> _skillToPrototype = new();
-
+    private readonly Dictionary<string, SkillDataPrototype> _skillData = new();
     private readonly List<string> _publicSkills = new();
-
     private ISawmill _sawmill = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -36,7 +38,7 @@ public abstract class SharedSkillSystem : EntitySystem
             if (prototype == null)
                 continue;
 
-            var skillData = new SkillStruct(skillIdentifier, prototype.DefaultLevel, prototype.MaxLevel, prototype.DefaultXP, prototype.MaxExperience, prototype.DisplayInSkills);
+            var skillData = new Skill(skillIdentifier, prototype.DefaultLevel, prototype.MaxLevel, prototype.DefaultXP, prototype.MaxExperience, prototype.DisplayInSkills);
             component.Skills.Add(skillData);
         }
     }
@@ -46,9 +48,15 @@ public abstract class SharedSkillSystem : EntitySystem
         LoadPrototypes();
     }
 
+    /// <summary>
+    /// Retrieves a SkillDataPrototype by it's identifier.
+    /// </summary>
+    /// <param name="identifier">string</param>
+    /// <param name="skill">SkillDataPrototype</param>
+    /// <returns>bool</returns>
     public bool RetrieveSkillDataPrototype(string identifier, [NotNullWhen(true)] out SkillDataPrototype? skill)
     {
-        if(_skillToPrototype.TryGetValue(identifier, out var skillOrNot))
+        if(_skillData.TryGetValue(identifier, out var skillOrNot))
         {
             skill = skillOrNot;
             return true;
@@ -59,11 +67,11 @@ public abstract class SharedSkillSystem : EntitySystem
 
     private protected void LoadPrototypes()
     {
-        _skillToPrototype.Clear();
+        _skillData.Clear();
         _publicSkills.Clear();
         foreach(var skill in _prototypeManager.EnumeratePrototypes<SkillDataPrototype>())
         {
-            if(_skillToPrototype.ContainsKey(skill.Name))
+            if(_skillData.ContainsKey(skill.Name))
             {
                 Logger.ErrorS("skills",
                     "Found skill with duplicate SkillDataPrototype Name {0} - all skills must have" +
@@ -72,15 +80,18 @@ public abstract class SharedSkillSystem : EntitySystem
             else
             {
                 _sawmill.Log(LogLevel.Info, "Added skill prototype with {0} name", skill.Name);
-                _skillToPrototype.Add(skill.Name, skill);
+                _skillData.Add(skill.Name, skill);
                 if (skill.DisplayInSkills)
                     _publicSkills.Add(skill.Name);
             }
         }
     }
 
+    /// <summary>
+    /// A struct for defining skills.
+    /// </summary>
     [Serializable, NetSerializable]
-    public struct SkillStruct
+    public struct Skill
     {
         public string Name { get; set; }
         public bool DisplayInMenu { get; set; }
@@ -89,7 +100,7 @@ public abstract class SharedSkillSystem : EntitySystem
         public ushort Experience { get; set; }
         public ushort MaxExperience { get; set; }
 
-        public SkillStruct(string name, ushort level, ushort maxLevel, ushort exp, ushort maxExp, bool display)
+        public Skill(string name, ushort level, ushort maxLevel, ushort exp, ushort maxExp, bool display)
         {
             Name = name;
             Level = level;
