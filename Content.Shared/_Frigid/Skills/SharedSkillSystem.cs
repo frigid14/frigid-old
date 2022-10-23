@@ -7,7 +7,7 @@ public abstract class SharedSkillSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    private readonly Dictionary<string, SkillPrototype> _skillToPrototype = new();
+    private readonly Dictionary<string, SkillDataPrototype> _skillToPrototype = new();
 
     private readonly List<string> _publicSkills = new();
 
@@ -31,7 +31,7 @@ public abstract class SharedSkillSystem : EntitySystem
         component.Skills.Clear();
         foreach(var skillIdentifier in _publicSkills)
         {
-            RetrieveSkillPrototype(skillIdentifier, out var prototype);
+            RetrieveSkillDataPrototype(skillIdentifier, out var prototype);
             if (prototype == null)
                 continue;
 
@@ -45,7 +45,7 @@ public abstract class SharedSkillSystem : EntitySystem
         LoadPrototypes();
     }
 
-    public bool RetrieveSkillPrototype(string identifier, [NotNullWhen(true)] out SkillPrototype? skill)
+    public bool RetrieveSkillDataPrototype(string identifier, [NotNullWhen(true)] out SkillDataPrototype? skill)
     {
         if(_skillToPrototype.TryGetValue(identifier, out var skillOrNot))
         {
@@ -60,7 +60,7 @@ public abstract class SharedSkillSystem : EntitySystem
     {
         _skillToPrototype.Clear();
         _publicSkills.Clear();
-        foreach(var skill in _prototypeManager.EnumeratePrototypes<SkillPrototype>())
+        foreach(var skill in _prototypeManager.EnumeratePrototypes<SkillDataPrototype>())
         {
             if(_skillToPrototype.ContainsKey(skill.Name))
             {
