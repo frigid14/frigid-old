@@ -1,4 +1,5 @@
-﻿using Content.Shared.CharacterInfo;
+﻿using Content.Shared._Frigid.Skills;
+using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
@@ -43,7 +44,7 @@ public sealed class CharacterInfoSystem : EntitySystem
     private void OnCharacterInfoEvent(CharacterInfoEvent msg, EntitySessionEventArgs args)
     {
         var sprite = CompOrNull<ISpriteComponent>(msg.EntityUid);
-        var data = new CharacterData(msg.JobTitle, msg.Objectives, msg.Briefing, sprite, Name(msg.EntityUid));
+        var data = new CharacterData(msg.JobTitle, msg.Objectives, msg.Briefing, sprite, Name(msg.EntityUid), msg.Skills);
 
         OnCharacterUpdate?.Invoke(data);
     }
@@ -53,6 +54,7 @@ public sealed class CharacterInfoSystem : EntitySystem
         Dictionary<string, List<ConditionInfo>> Objectives,
         string Briefing,
         ISpriteComponent? Sprite,
-        string EntityName
+        string EntityName,
+        List<SharedSkillSystem.SkillStruct> Skills
     );
 }

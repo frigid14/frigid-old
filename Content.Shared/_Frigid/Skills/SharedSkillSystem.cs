@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Frigid.Skills;
 
@@ -78,6 +79,7 @@ public abstract class SharedSkillSystem : EntitySystem
         }
     }
 
+    [Serializable, NetSerializable]
     public struct SkillStruct
     {
         public string Name { get; set; }

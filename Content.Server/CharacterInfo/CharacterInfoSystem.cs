@@ -1,5 +1,6 @@
 ﻿using Content.Server.Mind.Components;
 using Content.Server.Roles;
+using Content.Shared._Frigid.Skills;
 using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Robust.Shared.Player;
@@ -26,6 +27,11 @@ public sealed class CharacterInfoSystem : EntitySystem
         var conditions = new Dictionary<string, List<ConditionInfo>>();
         var jobTitle = "No Profession";
         var briefing = "!!ERROR: No Briefing!!"; //should never show on the UI unless there's a bug
+        EntityManager.TryGetComponent(entity, out SharedSkillsComponent? skills);
+
+        if (skills == null)
+            return;
+
         if (EntityManager.TryGetComponent(entity, out MindComponent? mindComponent) && mindComponent.Mind != null)
         {
             var mind = mindComponent.Mind;
@@ -45,7 +51,8 @@ public sealed class CharacterInfoSystem : EntitySystem
             // Get job title
             foreach (var role in mind.AllRoles)
             {
-                if (role.GetType() != typeof(Job)) continue;
+                if (role.GetType() != typeof(Job))
+                    continue;
 
                 jobTitle = role.Name;
                 break;
@@ -55,7 +62,7 @@ public sealed class CharacterInfoSystem : EntitySystem
             briefing = mind.Briefing;
         }
 
-        RaiseNetworkEvent(new CharacterInfoEvent(entity, jobTitle, conditions, briefing),
+        RaiseNetworkEvent(new CharacterInfoEvent(entity, jobTitle, conditions, briefing, skills.Skills),
             Filter.SinglePlayer(args.SenderSession));
     }
 }

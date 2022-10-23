@@ -101,10 +101,37 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             return;
         }
 
-        var (job, objectives, briefing, sprite, entityName) = data;
+        var (job, objectives, briefing, sprite, entityName, skills) = data;
 
         _window.SubText.Text = job;
         _window.Objectives.RemoveAllChildren();
+
+        foreach (var skill in skills)
+        {
+            var skillControl = new CharacterObjectiveControl
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                Modulate = Color.DarkGray
+            };
+
+            skillControl.AddChild(new Label
+            {
+                Text = $"{skill.Name}:",
+                Modulate = Color.White,
+            });
+
+            skillControl.AddChild(new Label
+            {
+                Text = $"LVL: {skill.Value.ToString()}",
+                Modulate = Color.Green
+            });
+
+            var briefingControl = new ObjectiveBriefingControl();
+            briefingControl.Label.Text = briefing;
+
+            skillControl.AddChild(briefingControl);
+            _window.Skills.AddChild(skillControl);
+        }
 
         foreach (var (groupId, conditions) in objectives)
         {
