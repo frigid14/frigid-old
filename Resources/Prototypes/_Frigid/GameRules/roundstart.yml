@@ -7,6 +7,6 @@
 - type: gameRule
   id: ZombieTimeout
   config:
-    !type:InactivityGameRuleConfiguration
-    inactivityMaxTime: 10800
+    !type:MaxTimeRestartRuleConfiguration
+    roundMaxTime: 10800
     roundEndDelay: 60
