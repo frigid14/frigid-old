@@ -88,7 +88,7 @@ public abstract class SharedSkillSystem : EntitySystem
     }
 
     /// <summary>
-    /// A struct for defining skills.
+    /// A struct for defining skills, use this instead of SkillsDataPrototype if you wish to store current levels/experience.
     /// </summary>
     [Serializable, NetSerializable]
     public struct Skill
