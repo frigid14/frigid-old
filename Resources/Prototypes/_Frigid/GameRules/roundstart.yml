@@ -9,4 +9,4 @@
   config:
     !type:MaxTimeRestartRuleConfiguration
     roundMaxTime: 10800
-    roundEndDelay: 60
+    roundEndDelay: 10
