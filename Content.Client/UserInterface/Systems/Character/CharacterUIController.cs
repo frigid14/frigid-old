@@ -109,6 +109,8 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
         foreach (var skill in skills)
         {
+            Logger.Info(skill.Level.ToString());
+
             if (!skill.DisplayInMenu)
                 continue;
 

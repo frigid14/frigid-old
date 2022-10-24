@@ -4,6 +4,8 @@
   playTimeTracker: JobStationEngineer
   startingGear: ElectricalEngineerGear
   icon: "ElectricalEngineer"
+  startingSkills:
+    electronics: 5
   access:
   - Engineering
 

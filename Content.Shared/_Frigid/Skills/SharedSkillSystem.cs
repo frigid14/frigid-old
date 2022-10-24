@@ -39,7 +39,7 @@ public abstract class SharedSkillSystem : EntitySystem
                 continue;
 
             var skillData = new Skill(
-                skillIdentifier,
+                prototype.Name,
                 prototype.DefaultLevel,
                 prototype.MaxLevel,
                 prototype.DefaultXP,
@@ -47,6 +47,7 @@ public abstract class SharedSkillSystem : EntitySystem
                 prototype.DisplayInSkills,
                 prototype.ID
             );
+
             component.Skills.Add(skillData);
         }
     }
@@ -79,18 +80,18 @@ public abstract class SharedSkillSystem : EntitySystem
         _publicSkills.Clear();
         foreach(var skill in _prototypeManager.EnumeratePrototypes<SkillDataPrototype>())
         {
-            if(_skillData.ContainsKey(skill.Name))
+            if(_skillData.ContainsKey(skill.ID))
             {
                 Logger.ErrorS("skills",
-                    "Found skill with duplicate SkillDataPrototype Name {0} - all skills must have" +
-                    " a unique prototype, this one will be skipped", skill.Name);
+                    "Found skill with duplicate SkillDataPrototype ID {0} - all skills must have" +
+                    " a unique prototype, this one will be skipped", skill.ID);
             }
             else
             {
-                _sawmill.Log(LogLevel.Info, "Added skill prototype with {0} name", skill.Name);
-                _skillData.Add(skill.Name, skill);
+                _sawmill.Log(LogLevel.Info, "Added skill prototype with {0} name", skill.ID);
+                _skillData.Add(skill.ID, skill);
                 if (skill.DisplayInSkills)
-                    _publicSkills.Add(skill.Name);
+                    _publicSkills.Add(skill.ID);
             }
         }
     }

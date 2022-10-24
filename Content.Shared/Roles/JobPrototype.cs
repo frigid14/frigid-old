@@ -1,7 +1,9 @@
+using Content.Shared._Frigid.Skills;
 using Content.Shared.Access;
 using Content.Shared.Players.PlayTimeTracking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Roles
@@ -62,6 +64,9 @@ namespace Content.Shared.Roles
 
         [DataField("startingGear", customTypeSerializer: typeof(PrototypeIdSerializer<StartingGearPrototype>))]
         public string? StartingGear { get; private set; }
+
+        [DataField("startingSkills", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<ushort, SkillDataPrototype>))]
+        public Dictionary<string,ushort>? StartingSkills;
 
         /// <summary>
         /// Use this to spawn in as a non-humanoid (borg, test subject, etc.)

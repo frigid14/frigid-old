@@ -20,6 +20,10 @@ namespace Content.Server.Roles
         public string? StartingGear => Prototype.StartingGear;
 
         [ViewVariables]
+        public Dictionary<string,ushort>? StartingSkills => Prototype.StartingSkills;
+
+
+        [ViewVariables]
         public string? JobEntity => Prototype.JobEntity;
 
         [ViewVariables]

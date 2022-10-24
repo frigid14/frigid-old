@@ -1,4 +1,5 @@
-﻿using Content.Server.Access.Systems;
+﻿using Content.Server._Frigid.Skills;
+using Content.Server.Access.Systems;
 using Content.Server.DetailExaminable;
 using Content.Server.Hands.Components;
 using Content.Server.Hands.Systems;
@@ -8,6 +9,7 @@ using Content.Server.PDA;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Server.Mind.Commands;
+using Content.Shared._Frigid.Skills;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid.Prototypes;
@@ -40,6 +42,7 @@ public sealed class StationSpawningSystem : EntitySystem
     [Dependency] private readonly PDASystem _pdaSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly SkillSystem _skillSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -115,6 +118,28 @@ public sealed class StationSpawningSystem : EntitySystem
             EquipStartingGear(entity, startingGear, profile);
             if (profile != null)
                 EquipIdCard(entity, profile.Name, job.Prototype, station);
+        }
+
+        Logger.Info("Checking");
+
+        if (job?.StartingSkills != null)
+        {
+            EntityManager.TryGetComponent<SharedSkillsComponent>(entity, out var skills);
+
+            if (skills != null)
+            {
+                foreach (var (skill, value) in job.StartingSkills)
+                {
+                    _skillSystem.RetrieveSkillDataPrototype(skill, out var skillData);
+                    if (skillData == null)
+                    {
+                        continue;
+                    }
+
+                    var skillFound = skills.Skills.Find(index => index.ID == skillData.ID);
+                    skillFound.Level = value;
+                }
+            }
         }
 
         if (profile != null)
