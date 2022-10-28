@@ -4,6 +4,7 @@
     - NanoTrasen
     - Syndicate
     - Xeno
+    - Zombie
 
 - type: faction
   id: NanoTrasen
@@ -11,12 +12,14 @@
   - SimpleHostile
   - Syndicate
   - Xeno
+  - Zombie
 
 - type: faction
   id: SimpleHostile
   hostile:
   - NanoTrasen
   - Syndicate
+  - Zombie
 
 - type: faction
   id: SimpleNeutral
@@ -27,9 +30,11 @@
   - NanoTrasen
   - SimpleHostile
   - Xeno
+  - Zombie
 
 - type: faction
   id: Xeno
   hostile:
   - NanoTrasen
   - Syndicate
+  - Zombie
