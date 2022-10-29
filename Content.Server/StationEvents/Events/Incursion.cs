@@ -10,6 +10,8 @@ namespace Content.Server.StationEvents.Events;
 
 public sealed class Incursion : StationEventSystem
 {
+    public static List<string> SpawnedPrototypeChoices = new List<string>()
+        {"MobGiantSpiderAngry", "MobZed", "MobMimic", "MobSkeletonBoxer"};
     public override string Prototype => "Incursion";
 
     public override void Started()
@@ -17,7 +19,6 @@ public sealed class Incursion : StationEventSystem
         base.Started();
 
         // Spawn the zombers
-        var spawnChoice = "MobZed";
         var spawnLocations = EntityManager.EntityQuery<TimedSpawnerComponent, TransformComponent>().ToList();
         RobustRandom.Shuffle(spawnLocations);
 
@@ -28,6 +29,11 @@ public sealed class Incursion : StationEventSystem
         {
             if (!spawner.Prototypes.Contains("MobZed"))
                 continue;
+
+            if (RobustRandom.Prob(50))
+                continue;
+
+            var spawnChoice = RobustRandom.Pick(SpawnedPrototypeChoices);
 
             var spawnAmount = (int) (RobustRandom.Next(1, 3) * mod);
             Sawmill.Info($"Spawning {spawnAmount} of {spawnChoice}");
