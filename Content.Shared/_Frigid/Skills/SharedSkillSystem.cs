@@ -116,17 +116,17 @@ public abstract class SharedSkillSystem : EntitySystem
     [Serializable, NetSerializable]
     public struct Skill
     {
-        public string Name { get; set; }
+        [ViewVariables] public string Name { get; set; }
 
-        public string ID { get; }
+        [ViewVariables] public string ID { get; }
 
-        public ushort Level { get; set; }
-        public ushort Experience { get; set; }
+        [ViewVariables] public ushort Level { get; set; }
+        [ViewVariables] public ushort Experience { get; set; }
 
-        public bool DisplayInMenu { get; }
+        [ViewVariables] public bool DisplayInMenu { get; }
 
-        public ushort MaxLevel { get; }
-        public ushort MaxExperience { get; }
+        [ViewVariables] public ushort MaxLevel { get; }
+        [ViewVariables] public ushort MaxExperience { get; }
 
         public Skill(string name, ushort level, ushort maxLevel, ushort exp, ushort maxExp, bool display, string id)
         {
