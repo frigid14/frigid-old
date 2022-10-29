@@ -120,8 +120,6 @@ public sealed class StationSpawningSystem : EntitySystem
                 EquipIdCard(entity, profile.Name, job.Prototype, station);
         }
 
-        Logger.Info("Checking");
-
         if (job?.StartingSkills != null)
         {
             EntityManager.TryGetComponent<SharedSkillsComponent>(entity, out var skills);
@@ -132,12 +130,9 @@ public sealed class StationSpawningSystem : EntitySystem
                 {
                     _skillSystem.RetrieveSkillDataPrototype(skill, out var skillData);
                     if (skillData == null)
-                    {
                         continue;
-                    }
 
-                    var skillFound = skills.Skills.Find(index => index.ID == skillData.ID);
-                    skillFound.Level = value;
+                    _skillSystem.SetLevel(skills, skillData.ID, value);
                 }
             }
         }

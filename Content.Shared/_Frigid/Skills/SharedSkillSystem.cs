@@ -32,7 +32,7 @@ public abstract class SharedSkillSystem : EntitySystem
     {
         base.Initialize();
         component.Skills.Clear();
-        foreach(var skillIdentifier in _publicSkills)
+        foreach (var skillIdentifier in _publicSkills)
         {
             RetrieveSkillDataPrototype(skillIdentifier, out var prototype);
             if (prototype == null)
@@ -65,13 +65,27 @@ public abstract class SharedSkillSystem : EntitySystem
     /// <returns>bool</returns>
     public bool RetrieveSkillDataPrototype(string identifier, [NotNullWhen(true)] out SkillDataPrototype? skill)
     {
-        if(_skillData.TryGetValue(identifier, out var skillOrNot))
+        if (_skillData.TryGetValue(identifier, out var skillOrNot))
         {
             skill = skillOrNot;
             return true;
         }
+
         skill = null;
         return false;
+    }
+
+    public ushort GetLevel(SharedSkillsComponent comp, string id)
+    {
+        return comp.Skills.Find(i => i.ID == id).Level;
+    }
+
+    public void SetLevel(SharedSkillsComponent comp, string id, ushort level)
+    {
+        var skill = comp.Skills.Find(i => i.ID == id);
+        skill.Level = level;
+
+        Dirty(comp);
     }
 
     private protected void LoadPrototypes()
