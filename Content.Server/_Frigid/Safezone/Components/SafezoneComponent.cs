@@ -12,7 +12,7 @@ public sealed class SafezoneComponent : Component
     public SoundSpecifier StartTeleportSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/chime.ogg");
 
     [DataField("endTeleportSound")]
-    public SoundSpecifier EndTeleportSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/gib3.ogg");
+    public SoundSpecifier EndTeleportSound { get; set; } = new SoundPathSpecifier("/Audio/Magic/disintegrate,igg");
 
     /// <summary>
     /// Whether the current user is entering the safezone, used to stop spamming the doafter.

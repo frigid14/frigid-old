@@ -4,11 +4,11 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Database;
-using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._Frigid.Safezone;
 
@@ -20,6 +20,9 @@ public sealed class SafezoneSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _actionsSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    private EntityUid _safezoneTeleportEntity;
+    private readonly List<EntityUid> _zoneEntities = new();
 
     public override void Initialize()
     {
@@ -27,6 +30,15 @@ public sealed class SafezoneSystem : EntitySystem
 
         SubscribeLocalEvent<SafezoneComponent, SafezoneTeleportActionEvent>(OnActionPerform);
         SubscribeLocalEvent<SafezoneComponent, ComponentInit>(OnComponentInit);
+        foreach (var identifier in EntityQuery<SafezoneIdentifierComponent>())
+        {
+            if (identifier.Safezone)
+            {
+                _safezoneTeleportEntity = identifier.Owner;
+                continue;
+            }
+            _zoneEntities.Add(identifier.Owner);
+        }
     }
 
     private void OnComponentInit(EntityUid uid, SafezoneComponent component, ComponentInit args)
@@ -54,6 +66,15 @@ public sealed class SafezoneSystem : EntitySystem
         if (comp.EnteringSafezone)
             return;
 
+        if (comp.InSafezone)
+        {
+            SoundSystem.Play(comp.EndTeleportSound.GetSound(), Filter.Pvs(user), user);
+            _popupSystem.PopupEntity(Loc.GetString("safezone-teleport-success-message", ("targetName", user)), user, Filter.Pvs(user), PopupType.Medium);
+            _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{_entities.ToPrettyString(user):player} has teleported out of safezone");
+            TeleportToSafezone(user, comp);
+            return;
+        }
+
         var cuffTime = 10f;
 
         var doAfterEventArgs = new DoAfterEventArgs(user, cuffTime, default)
@@ -78,6 +99,7 @@ public sealed class SafezoneSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("safezone-teleport-success-message", ("targetName", user)), user, Filter.Pvs(user), PopupType.Medium);
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{_entities.ToPrettyString(user):player} has teleported to safezone");
+            TeleportToSafezone(user, comp);
         }
         else
         {
@@ -85,8 +107,26 @@ public sealed class SafezoneSystem : EntitySystem
         }
     }
 
-    public void TeleportToSafezone(EntityUid entity)
+    public void TeleportToSafezone(EntityUid entity, SafezoneComponent comp)
     {
-        // TODO: Proper teleportation to Safezone and etc. In StationSpawningSystem.cs you may also want to make the players spawn in the Safezone
+        // Teleport
+        var entityTransform = Transform(entity);
+
+        if (comp.InSafezone)
+        {
+            var safezoneTransform = Transform(_safezoneTeleportEntity);
+
+            entityTransform.WorldPosition = safezoneTransform.WorldPosition;
+        }
+        else
+        {
+            var zoneEntity = _robustRandom.Pick(_zoneEntities);
+            var zoneTransform = Transform(zoneEntity);
+
+            entityTransform.WorldPosition = zoneTransform.WorldPosition;
+        }
+        entityTransform.AttachToGridOrMap();
+        comp.InSafezone = !comp.InSafezone;
     }
 }
+
