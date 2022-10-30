@@ -3,8 +3,10 @@ using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Server.RoundEnd;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -29,12 +31,10 @@ public sealed class SafezoneSystem : EntitySystem
     {
         base.Initialize();
 
-        _safezoneEntities.Clear();
-        _zoneEntities.Clear();
-
         SubscribeLocalEvent<SafezoneComponent, SafezoneTeleportActionEvent>(OnActionPerform);
         SubscribeLocalEvent<SafezoneComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<SafezoneIdentifierComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RoundEndSystemChangedEvent>(OnRoundEnd);
     }
 
     private void OnMapInit(EntityUid uid, SafezoneIdentifierComponent component, MapInitEvent args)
@@ -47,6 +47,12 @@ public sealed class SafezoneSystem : EntitySystem
         {
             _zoneEntities.Add(uid);
         }
+    }
+
+    private void OnRoundEnd(RoundEndSystemChangedEvent args)
+    {
+        _safezoneEntities.Clear();
+        _zoneEntities.Clear();
     }
 
     private void OnComponentInit(EntityUid uid, SafezoneComponent component, ComponentInit args)
