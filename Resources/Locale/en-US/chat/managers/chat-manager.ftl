@@ -29,8 +29,8 @@ chat-manager-entity-whisper-wrap-message = {$entityName} whispers, "{$message}"
 chat-manager-entity-me-wrap-message = {$entityName} {$message}
 
 // Entity emotes
-chat-manager-entity-scream-wrap-message = {$entityName} screams!
-chat-manager-entity-deathgasp-wrap-message = {$entityName}'s body seizes up and falls limp, {POSS-ADJ($entityName)} eyes dead and lifeless...
+chat-manager-entity-scream-message = {$entityName} screams!
+chat-manager-entity-death-message = {$entityName}'s body seizes up and falls limp, {POSS-ADJ($entityName)} eyes dead and lifeless...
 
 chat-manager-entity-looc-wrap-message = LOOC: {$entityName}: {$message}
 chat-manager-send-ooc-wrap-message = OOC: {$playerName}: {$message}
