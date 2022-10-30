@@ -1,0 +1,43 @@
+﻿- type: entity
+  name: skeleton boxer
+  parent: MobSkeletonPerson
+  id: MobSkeletonBoxer
+  components:
+    - type: Loadout
+      prototypes: [BoxerGear]
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 0.5
+      baseSprintSpeed: 1.5
+    - type: RandomHumanoidAppearance
+    - type: DiseaseProtection
+      protection: 1
+    - type: CombatMode
+      disarm: null
+    - type: InputMover
+    - type: MobMover
+    - type: Faction
+      factions:
+        - SimpleHostile
+    - type: HTN
+      rootTask: XenoCompound
+      blackboard:
+        NavInteract: !type:Bool
+          true
+        NavSmash: !type:Bool
+          true
+    - type: Temperature
+      heatDamageThreshold: 360
+      coldDamageThreshold: -150
+      currentTemperature: 310.15
+    - type: Tag
+      tags:
+        - CannotSuicide
+        - DoorBumpOpener
+        - FootstepSound
+
+- type: startingGear
+  id: BoxerGear
+  equipment:
+    jumpsuit: UniformShortsRed
+    gloves: ClothingHandsGlovesBoxingRed
+  innerclothingskirt: UniformShortsRedWithTop
