@@ -1,4 +1,5 @@
-﻿using Content.Server.Actions;
+﻿using System.Linq;
+using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
@@ -21,23 +22,30 @@ public sealed class SafezoneSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    private EntityUid _safezoneTeleportEntity;
-    private readonly List<EntityUid> _zoneEntities = new();
+    [ViewVariables] private readonly List<EntityUid> _safezoneEntities = new();
+    [ViewVariables] private readonly List<EntityUid> _zoneEntities = new();
 
     public override void Initialize()
     {
         base.Initialize();
 
+        _safezoneEntities.Clear();
+        _zoneEntities.Clear();
+
         SubscribeLocalEvent<SafezoneComponent, SafezoneTeleportActionEvent>(OnActionPerform);
         SubscribeLocalEvent<SafezoneComponent, ComponentInit>(OnComponentInit);
-        foreach (var identifier in EntityQuery<SafezoneIdentifierComponent>())
+        SubscribeLocalEvent<SafezoneIdentifierComponent, MapInitEvent>(OnMapInit);
+    }
+
+    private void OnMapInit(EntityUid uid, SafezoneIdentifierComponent component, MapInitEvent args)
+    {
+        if (component.Safezone)
         {
-            if (identifier.Safezone)
-            {
-                _safezoneTeleportEntity = identifier.Owner;
-                continue;
-            }
-            _zoneEntities.Add(identifier.Owner);
+            _safezoneEntities.Add(uid);
+        }
+        else
+        {
+            _zoneEntities.Add(uid);
         }
     }
 
@@ -61,6 +69,11 @@ public sealed class SafezoneSystem : EntitySystem
         args.Handled = true;
     }
 
+    /// <summary>
+    /// TeleportToSafezone but with a doafter
+    /// </summary>
+    /// <param name="user"></param>
+    /// <param name="comp"></param>
     public async void TryTeleportToSafezone(EntityUid user, SafezoneComponent comp)
     {
         if (comp.EnteringSafezone)
@@ -107,26 +120,32 @@ public sealed class SafezoneSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Teleports an entity to the Safezone, and flips the component
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="comp"></param>
     public void TeleportToSafezone(EntityUid entity, SafezoneComponent comp)
     {
+        comp.InSafezone = !comp.InSafezone;
+
         // Teleport
         var entityTransform = Transform(entity);
+        var zoneEntity = EntityUid.Invalid;
 
         if (comp.InSafezone)
         {
-            var safezoneTransform = Transform(_safezoneTeleportEntity);
-
-            entityTransform.WorldPosition = safezoneTransform.WorldPosition;
+            zoneEntity = _robustRandom.Pick(_safezoneEntities);
         }
         else
         {
-            var zoneEntity = _robustRandom.Pick(_zoneEntities);
-            var zoneTransform = Transform(zoneEntity);
-
-            entityTransform.WorldPosition = zoneTransform.WorldPosition;
+            zoneEntity = _robustRandom.Pick(_zoneEntities);
         }
+
+        var transform = Transform(zoneEntity);
+        entityTransform.WorldPosition = transform.WorldPosition;
+
         entityTransform.AttachToGridOrMap();
-        comp.InSafezone = !comp.InSafezone;
     }
 }
 

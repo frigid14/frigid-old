@@ -6,5 +6,10 @@
 [RegisterComponent]
 public sealed class SafezoneIdentifierComponent : Component
 {
-    [DataField("safezone")] [ViewVariables] public bool Safezone { get; set; } = true;
+    /// <summary>
+    /// Whether this is a Safezone teleport or a regular Zone teleport
+    /// </summary>
+    [DataField("safezone")]
+    [ViewVariables]
+    public bool Safezone { get; set; } = true;
 }
