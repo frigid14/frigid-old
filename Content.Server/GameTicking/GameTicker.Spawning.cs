@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Linq;
+using Content.Server._Frigid.Safezone;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Server.Players;
@@ -172,21 +173,16 @@ namespace Content.Server.GameTicking
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
-            if (lateJoin)
-            {
-                // Preferably don't do this as we're on a civilian place, no sense, anyway.
-                // _chatSy stem.DispatchStationAnnouncement(station,
-                //     Loc.GetString(
-                //         "latejoin-arrival-announcement",
-                //     ("character", character.Name),
-                //     ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(job.Name))
-                //     ), Loc.GetString("latejoin-arrival-sender"),
-                //     playDefaultSound: false);
-            }
 
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character);
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
+
+            if (lateJoin)
+            {
+                var safezone = EnsureComp<SafezoneComponent>(mob);
+                safezone.InSafezone = true;
+            }
 
             newMind.TransferTo(mob);
 
