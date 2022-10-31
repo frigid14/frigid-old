@@ -97,6 +97,9 @@ namespace Content.Server.Zombies
             if (HasComp<ZombieComponent>(target))
                 return;
 
+            // Remove the mind
+            RemComp<MindComponent>(target);
+
             if (randomizeAppearance)
             {
                 // I would just EnsureComp a RandomHumanoidAppearance component however that just
@@ -188,11 +191,6 @@ namespace Content.Server.Zombies
             if (TryComp<DamageableComponent>(target, out var damageablecomp))
                 _damageable.SetAllDamage(damageablecomp, 0);
 
-            //gives it the funny "Zombie ___" name.
-            // if (TryComp<MetaDataComponent>(target, out var meta))
-            // meta.EntityName = Loc.GetString("zombie-name-prefix", ("target", meta.EntityName));
-            // _identity.QueueIdentityUpdate(target);
-
             //He's gotta have a mind
             //UNLESS they're an AI
             TryComp<HTNComponent>(target, out var utilityNpcComponent);
@@ -229,6 +227,7 @@ namespace Content.Server.Zombies
 
             //zombie gamemode stuff
             RaiseLocalEvent(new EntityZombifiedEvent(target));
+
             //zombies get slowdown once they convert
             _movementSpeedModifier.RefreshMovementSpeedModifiers(target);
         }

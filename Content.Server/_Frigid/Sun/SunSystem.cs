@@ -23,9 +23,6 @@ public sealed class SunSystem : SharedSunSystem
 
     private void PlayerStatusChanged(object? sender, SessionStatusEventArgs e)
     {
-        if (e.NewStatus != SessionStatus.Disconnected && e.NewStatus != SessionStatus.Zombie)
-            return;
-
         var user = e.Session;
         UpdateLighting(user);
     }

@@ -38,6 +38,17 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, MobStateChangedEvent>(OnMobState);
             SubscribeLocalEvent<ActiveZombieComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<ZombifyOnInitComponent, MapInitEvent>(HandleInit);
+            SubscribeLocalEvent<ZombieDamageComponent, TreatInfectionAttemptEvent>(OnTryTreatInfection);
+        }
+
+        private void OnTryTreatInfection(EntityUid uid, ZombieDamageComponent component, TreatInfectionAttemptEvent args)
+        {
+            if (component.InfectionDamage <= 0f)
+            {
+                component.InfectionDamage = 0f;
+                return;
+            }
+            component.InfectionDamage -= 0.1f;
         }
 
         private void HandleInit(EntityUid uid, ZombifyOnInitComponent component, MapInitEvent args)
@@ -59,12 +70,13 @@ namespace Content.Server.Zombies
                 DoGroan(uid, component);
         }
 
-        private float GetZombieInfectionChance(EntityUid uid, ZombieComponent component)
+        private bool GetZombieInfectionChance(EntityUid uid, ZombieComponent component)
         {
-            var baseChance = component.MaxZombieInfectionChance;
+            var damage = EnsureComp<ZombieDamageComponent>(uid);
+            var baseChance = damage.InfectionDamage;
 
             if (!TryComp<InventoryComponent>(uid, out var inventoryComponent))
-                return baseChance;
+                return baseChance > 1f;
 
             var enumerator =
                 new InventorySystem.ContainerSlotEnumerator(uid, inventoryComponent.TemplateId, _protoManager, _inv,
@@ -87,10 +99,8 @@ namespace Content.Server.Zombies
                     items++;
             }
 
-            var max = component.MaxZombieInfectionChance;
-            var min = component.MinZombieInfectionChance;
             //gets a value between the max and min based on how many items the entity is wearing
-            var chance = (max-min) * ((total - items)/total) + min;
+            var chance = ((total - items)/total) + baseChance >= 1f;
             return chance;
         }
 
@@ -104,14 +114,20 @@ namespace Content.Server.Zombies
 
             foreach (var entity in args.HitEntities)
             {
+                var damage = EnsureComp<ZombieDamageComponent>(entity);
+                damage.InfectionDamage += component.ZombieInfectionDamage;
+
                 if (args.User == entity)
                     continue;
 
                 if (!TryComp<MobStateComponent>(entity, out var mobState) || HasComp<DroneComponent>(entity))
                     continue;
 
-                if (HasComp<DiseaseCarrierComponent>(entity) && _robustRandom.Prob(GetZombieInfectionChance(entity, component)))
+                if (HasComp<DiseaseCarrierComponent>(entity) && GetZombieInfectionChance(entity, component))
+                {
                     _disease.TryAddDisease(entity, "ActiveZombieVirus");
+                    Logger.Debug("done");
+                }
 
                 if (HasComp<ZombieComponent>(entity))
                     args.BonusDamage = -args.BaseDamage * zombieComp.OtherZombieDamageCoefficient;
@@ -165,4 +181,12 @@ namespace Content.Server.Zombies
             }
         }
     }
+}
+
+/// <summary>
+/// This event is fired by chems that cure infection damage
+/// </summary>
+public sealed class TreatInfectionAttemptEvent : EntityEventArgs
+{
+
 }

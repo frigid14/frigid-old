@@ -507,6 +507,7 @@
     Medicine:
       effects:
         - !type:ChemCureDisease
+        - !type:ChemTreatInfection
 
 - type: reagent
   id: Stellibinin
