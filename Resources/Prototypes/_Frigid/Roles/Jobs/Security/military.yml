@@ -3,6 +3,7 @@
   name: job-name-soldier
   playTimeTracker: JobSoldier
   startingGear: SoldierGear
+  setPreference: false
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
