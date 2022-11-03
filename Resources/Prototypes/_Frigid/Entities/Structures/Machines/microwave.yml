@@ -1,0 +1,32 @@
+﻿- type: entity
+  id: KitchenOven
+  parent: KitchenMicrowave
+  name: macrowave
+  description: It's an oven and a microwave, a macrowave!
+  components:
+    - type: GenericVisualizer
+      visuals:
+        enum.PowerDeviceVisuals.VisualState:
+          enum.MicrowaveVisualizerLayers.Base:
+            Idle: { state: "oven_off" }
+            Broken: { state: "oven_off" }
+            Cooking: { state: "oven_on" }
+          enum.MicrowaveVisualizerLayers.BaseUnlit:
+            Idle: { state: "oven_off" }
+            Broken: { state: "oven_off" }
+            Cooking: { state: "oven_on" }
+        enum.PowerDeviceVisuals.Powered:
+          enum.MicrowaveVisualizerLayers.BaseUnlit:
+            True: { visible: true }
+            False: { visible: false }
+    - type: Sprite
+      netsync: false
+      sprite: _Frigid/Structures/kitchenmachines.rsi
+      drawdepth: FloorObjects
+      snapCardinals: true
+      layers:
+        - state: oven_on
+          map: ["enum.MicrowaveVisualizerLayers.Base"]
+        - state: oven_off
+          shader: unshaded
+          map: ["enum.MicrowaveVisualizerLayers.BaseUnlit"]

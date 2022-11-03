@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/blob/be9b6990b8b471a765dfad3b1295f8869ee8724c/icons/obj/machines/kitchenmachines.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "griddle1_off"
+    },
+    {
+      "name": "griddle1_on"
+    },
+    {
+      "name": "griddle2_off"
+    },
+    {
+      "name": "griddle2_on"
+    },
+    {
+      "name": "griddle3_off"
+    },
+    {
+      "name": "griddle3_on"
+    },
+    {
+      "name": "griddlestand_off"
+    },
+    {
+      "name": "griddlestand_on"
+    },
+    {
+      "name": "front_bar"
+    },
+    {
+      "name": "oven_lid_open"
+    },
+    {
+      "name": "oven_lid_closed"
+    },
+    {
+      "name": "oven_on"
+    },
+    {
+      "name": "oven_off"
+    },
+    {
+      "name": "oven_light_mask"
+    }
+  ]
+}
