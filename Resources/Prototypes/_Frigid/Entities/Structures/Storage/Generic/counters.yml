@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: CounterWoodHouseRandom
   suffix: Filled, House, Random
-  parent: [TableCounterWood,FrigidStorageBase]
+  parent: [FrigidStorageBase,TableCounterWood]
   components:
     - type: StorageFill
       contents:
@@ -138,7 +138,7 @@
 - type: entity
   id: CounterMetalEngineerRandom
   suffix: Filled, Engineer, Random
-  parent: [TableCounterMetal,FrigidStorageBase]
+  parent: [FrigidStorageBase,TableCounterMetal]
   components:
     - type: StorageFill
       contents:
