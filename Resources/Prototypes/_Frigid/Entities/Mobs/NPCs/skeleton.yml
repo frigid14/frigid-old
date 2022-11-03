@@ -1,13 +1,8 @@
 ﻿- type: entity
-  name: skeleton boxer
   parent: MobSkeletonPerson
-  id: MobSkeletonBoxer
+  id: MobSkeletonHostileAIBase
+  abstract: true
   components:
-    - type: Loadout
-      prototypes: [BoxerGear]
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 0.5
-      baseSprintSpeed: 1.5
     - type: RandomHumanoidAppearance
     - type: DiseaseProtection
       protection: 1
@@ -34,6 +29,17 @@
         - CannotSuicide
         - DoorBumpOpener
         - FootstepSound
+
+- type: entity
+  name: Skeleton Boxer
+  id: MobSkeletonBoxer
+  parent: MobSkeletonHostileAIBase
+  components:
+    - type: Loadout
+      prototypes: [ BoxerGear ]
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 0.5
+      baseSprintSpeed: 1.5
 
 - type: startingGear
   id: BoxerGear
