@@ -6,6 +6,8 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 1800
+    - !type:OverallPlaytimeRequirement
+      time: 4800
   startingGear: SecurityOfficerGear
   icon: "SecurityOfficer"
   supervisors: job-supervisors-hos

@@ -1,0 +1,15 @@
+﻿- type: entity
+  id: SinkHouseRandom
+  suffix: Filled, House, Random
+  parent: [FrigidStorageBase, Sink]
+  components:
+    - type: StorageFill
+      contents:
+        - id: PillAntibiotic
+          prob: 0.04
+        - id: Brutepack
+          prob: 0.12
+        - id: Ointment
+          prob: 0.12
+        - id: Gauze
+          prob: 0.12

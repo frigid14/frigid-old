@@ -5,6 +5,9 @@
   startingGear: ScientistGear
   icon: "Scientist"
   supervisors: job-supervisors-rd
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 4800
   access:
   - Research
 

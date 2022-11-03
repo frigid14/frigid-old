@@ -5,6 +5,9 @@
   startingGear: PsychologistGear
   icon: "Psychologist"
   supervisors: job-supervisors-cmo
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 4800
   access:
   - Medical
   - Maintenance

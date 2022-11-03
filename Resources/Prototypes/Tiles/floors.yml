@@ -1099,7 +1099,6 @@
   placementVariants: [0, 1, 2, 3, 4, 5, 6]
   baseTurfs:
   - Space
-  isSubfloor: true
   canCrowbar: false
   footstepSounds:
     collection: FootstepAsteroid
@@ -1115,7 +1114,6 @@
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7]
   baseTurfs:
   - Space
-  isSubfloor: true
   canCrowbar: false
   footstepSounds:
     collection: FootstepAsteroid

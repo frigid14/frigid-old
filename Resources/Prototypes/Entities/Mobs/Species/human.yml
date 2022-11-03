@@ -9,6 +9,7 @@
   - type: Thirst
   - type: Perishable
   - type: Safezone
+  - type: Staggerable
 
 - type: entity
   name: Urist McHands

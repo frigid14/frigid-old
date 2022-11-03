@@ -4,7 +4,9 @@
   playTimeTracker: JobMedicalIntern
   startingGear: MedicalInternGear
   icon: "Nurse"
-  canBeAntag: false
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 4800
   access:
   - Medical
   - Maintenance

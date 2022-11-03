@@ -26,11 +26,12 @@
   branches:
     # Keep hitting them if they're in LOS
     - tasks:
+        - id: MoveToCombatDistantTargetPrimitive
         - id: RangedAttackTargetPrimitive
 
     # Move to range and hit them
     - tasks:
-        - id: MoveToCombatTargetPrimitive
+        - id: MoveToCombatDistantTargetPrimitive
         - id: RangedAttackTargetPrimitive
 
 
@@ -107,3 +108,12 @@
     targetKey: CombatTargetCoordinates
     pathfindKey: CombatTargetPathfind
     rangeKey: MeleeRange
+
+- type: htnPrimitive
+  id: MoveToCombatDistantTargetPrimitive
+  operator: !type:MoveToOperator
+    pathfindInPlanning: true
+    removeKeyOnFinish: false
+    targetKey: CombatTargetCoordinates
+    pathfindKey: CombatTargetPathfind
+    rangeKey: 15

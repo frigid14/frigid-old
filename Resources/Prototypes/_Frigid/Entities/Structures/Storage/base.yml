@@ -1,0 +1,15 @@
+﻿- type: entity
+  id: FrigidStorageBase
+  parent: BaseStructure
+  abstract: true
+  components:
+    - type: Storage
+      capacity: 50
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          ents: [ ]
+    - type: UserInterface
+      interfaces:
+        - key: enum.StorageUiKey.Key
+          type: StorageBoundUserInterface

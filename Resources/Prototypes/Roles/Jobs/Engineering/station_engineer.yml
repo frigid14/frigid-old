@@ -4,6 +4,9 @@
   playTimeTracker: JobStationEngineer
   startingGear: ElectricalEngineerGear
   icon: "ElectricalEngineer"
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 4800
   access:
   - Engineering
 

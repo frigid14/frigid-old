@@ -290,6 +290,24 @@
             ]
         },
         {
+            "name": "direction_bank",
+            "directions": 4,
+            "delays": [
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ],
+                [
+                    1
+                ]
+            ]
+        },
+        {
             "name": "direction_janitor",
             "directions": 4,
             "delays": [
