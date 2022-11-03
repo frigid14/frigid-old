@@ -1,0 +1,201 @@
+﻿- type: entity
+  id: CounterWoodHouseRandom
+  suffix: Filled, House, Random
+  parent: [TableCounterWood,FrigidStorageBase]
+  components:
+    - type: StorageFill
+      contents:
+        # Drinks
+        - id: DrinkWaterBottleFull
+          prob: 0.08
+        - id: DrinkColaCan
+          prob: 0.06
+        - id: DrinkStarkistCan
+          prob: 0.06
+        - id: DrinkSpaceUpCan
+          prob: 0.06
+        - id: DrinkSpaceMountainWindCan
+          prob: 0.06
+        - id: DrinkSodaWaterCan
+          prob: 0.06
+        - id: DrinkRootBeerCan
+          prob: 0.06
+        - id: DrinkGrapeCan
+          prob: 0.06
+        - id: DrinkLemonLimeCan
+          prob: 0.06
+        - id: DrinkIcedTeaCan
+          prob: 0.06
+
+        # Tools
+        - id: HydroponicsToolClippers
+          prob: 0.04
+        - id: HydroponicsToolSpade
+          prob: 0.04
+        - id: Screwdriver
+          prob: 0.035
+        - id: Crowbar
+          prob: 0.035
+        - id: Wrench
+          prob: 0.035
+        - id: Wirecutter
+          prob: 0.035
+        - id: WelderMini
+          prob: 0.030
+        - id: FrigidWeldingFuel
+          prob: 0.030
+
+        # Medicine
+        - id: PillAntibiotic
+          prob: 0.04
+        - id: Brutepack
+          prob: 0.025
+        - id: Ointment
+          prob: 0.0225
+        - id: Gauze
+          prob: 0.02125
+
+        # Food
+        - id: FoodTinMRE
+          prob: 0.06
+        - id: FoodSnackBoritos
+          prob: 0.02
+        - id: FoodSnackCheesie
+          prob: 0.02
+        - id: FoodSnackChips
+          prob: 0.02
+        - id: FoodSnackChocolate
+          prob: 0.02
+        - id: FoodSnackEnergy
+          prob: 0.02
+        - id: FoodSnackChocolateBar
+          prob: 0.02
+        - id: FoodSnackPopcorn
+          prob: 0.02
+        - id: FoodSnackRaisins
+          prob: 0.02
+        - id: FoodSnackSus
+          prob: 0.02
+        - id: FoodSnackSyndi
+          prob: 0.02
+        - id: FoodSnackChowMein
+          prob: 0.02
+        - id: FoodSnackDanDanNoodles
+          prob: 0.02
+        - id: FoodSnackCookieFortune
+          prob: 0.02
+        - id: FoodSnackNutribrick
+          prob: 0.02
+        - id: FoodSnackMREBrownie
+          prob: 0.02
+
+        # Ammo
+        - id: ShellShotgun
+          prob: 0.02
+        - id: ShellShotgunBeanbag
+          prob: 0.02
+        - id: ShellShotgunFlare
+          prob: 0.02
+        - id: MagazineRifle
+          prob: 0.015
+
+        # Weapons
+        - id: WeaponFlareGun
+          prob: 0.01
+        - id: WeaponPistolMk58
+          prob: 0.07
+        - id: WeaponShotgunDoubleBarreled
+          prob: 0.03
+        - id: Soap
+          prob: 0.06
+        - id: Spoon
+          prob: 0.06
+        - id: Fork
+          prob: 0.06
+        - id: KitchenKnife
+          prob: 0.07
+        - id: SpoonPlastic
+          prob: 0.09
+        - id: ForkPlastic
+          prob: 0.09
+
+        # Clothing
+        - id: ClothingUniformJumpsuitMilitary
+          prob: 0.03
+        - id: ClothingHeadHatWelding
+          prob: 0.02
+        - id: ClothingOuterWinterCoat
+          prob: 0.05
+
+        # Junk
+        - id: SpaceCash100
+          prob: 0.05
+        - id: SpaceCash
+          prob: 0.04
+        - id: SpaceCash20
+          prob: 0.01
+
+- type: entity
+  id: CounterMetalEngineerRandom
+  suffix: Filled, Engineer, Random
+  parent: [TableCounterMetal,FrigidStorageBase]
+  components:
+    - type: StorageFill
+      contents:
+        - id: DrinkWaterBottleFull
+          prob: 0.08
+        - id: FoodTinMRE
+          prob: 0.06
+        - id: DrinkColaCan
+          prob: 0.06
+        - id: Soap
+          prob: 0.06
+        - id: ClothingOuterWinterCoat
+          prob: 0.05
+        - id: PillAntibiotic
+          prob: 0.04
+
+        # Engineering stuff
+        - id: Screwdriver
+          prob: 0.5
+        - id: Crowbar
+          prob: 0.5
+        - id: Wrench
+          prob: 0.5
+        - id: Wirecutter
+          prob: 0.5
+        - id: Welder
+          prob: 0.5
+        - id: ClothingHeadHatWelding
+          prob: 0.2
+
+        - id: FoodSnackBoritos
+          prob: 0.02
+        - id: FoodSnackCheesie
+          prob: 0.02
+        - id: FoodSnackChips
+          prob: 0.02
+        - id: FoodSnackChocolate
+          prob: 0.02
+        - id: FoodSnackEnergy
+          prob: 0.02
+        - id: FoodSnackChocolateBar
+          prob: 0.02
+        - id: FoodSnackPopcorn
+          prob: 0.02
+        - id: FoodSnackRaisins
+          prob: 0.02
+        - id: FoodSnackSus
+          prob: 0.02
+        - id: FoodSnackSyndi
+          prob: 0.02
+        - id: FoodSnackChowMein
+          prob: 0.02
+        - id: FoodSnackDanDanNoodles
+          prob: 0.02
+        - id: FoodSnackCookieFortune
+          prob: 0.02
+        - id: FoodSnackNutribrick
+          prob: 0.02
+        - id: FoodSnackMREBrownie
+          prob: 0.02
