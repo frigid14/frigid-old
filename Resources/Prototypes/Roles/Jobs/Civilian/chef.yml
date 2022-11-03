@@ -6,6 +6,8 @@
     - !type:DepartmentTimeRequirement
       department: Civilian
       time: 1800
+    - !type:OverallPlaytimeRequirement
+      time: 1800
   startingGear: ChefGear
   icon: "Chef"
   supervisors: job-supervisors-hop

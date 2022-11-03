@@ -4,6 +4,12 @@
   playTimeTracker: JobMedicalDoctor
   startingGear: DoctorGear
   icon: "MedicalDoctor"
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 4800
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 1800
   access:
   - Medical
   - Maintenance
