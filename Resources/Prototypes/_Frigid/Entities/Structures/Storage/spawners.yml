@@ -2,7 +2,7 @@
   name: Household Randomized Counter Spawner
   id: HouseRandomCounterSpawner
   parent: MarkerBase
-  nospawn: true
+  noSpawn: true
   components:
     - type: Sprite
       layers:
