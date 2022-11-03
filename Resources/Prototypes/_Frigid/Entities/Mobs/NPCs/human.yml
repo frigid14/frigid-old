@@ -11,3 +11,43 @@
       makeSentient: false
       name: Military Grunt
       description: A grunt of the United States military.
+
+- type: entity
+  id: MobMilitarySoldierAI
+  parent: MobMilitarySoldier
+  suffix: AI, ADMIN
+  components:
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 0.75
+      baseSprintSpeed: 3
+    - type: RandomHumanoidAppearance
+    - type: CombatMode
+      disarm: null
+    - type: InputMover
+    - type: MobMover
+    - type: Faction
+      factions:
+        - Syndicate
+    - type: Gun
+      fireRate: 6
+      selectedMode: Burst
+      availableModes:
+        - Burst
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+    - type: BallisticAmmoProvider
+      proto: CartridgeCaselessRifle
+      capacity: 90
+    - type: HTN
+      rootTask: MobileTurretCompound
+      blackboard:
+        SoundTargetInLOS: !type:SoundPathSpecifier
+          path: /Audio/Voice/Human/malescream_2.ogg
+    - type: Temperature
+      heatDamageThreshold: 360
+      coldDamageThreshold: -150
+      currentTemperature: 310.15
+    - type: Tag
+      tags:
+        - CannotSuicide
+        - DoorBumpOpener
+        - FootstepSound
