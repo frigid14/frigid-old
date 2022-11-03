@@ -1,7 +1,7 @@
 ﻿- type: entity
   id: SinkHouseRandom
   suffix: Filled, House, Random
-  parent: Sink
+  parent: [FrigidStorageBase, Sink]
   components:
     - type: StorageFill
       contents:
