@@ -7,7 +7,7 @@
   supervisors: job-supervisors-cmo
   access:
   - Chemistry
-  - Research
+  - Medical
 
 - type: startingGear
   id: ChemistGear
@@ -16,8 +16,7 @@
     back: ClothingBackpackChemistryFilled
     shoes: ClothingShoesColorWhite
     outerClothing: ClothingOuterCoatLabChem
-    id: ChemistryPDA
-    belt: ClothingBeltMedical
+    id: ChemistIDCard
     pocket1: SpaceCash30
     pocket2: RadioHandheld
     # the purple glasses?

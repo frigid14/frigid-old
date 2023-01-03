@@ -1,0 +1,65 @@
+﻿- type: entity
+  id: CrateMilitary
+  name: military crate
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponPistolViper
+        - id: MagazinePistol
+          amount: 3
+        - id: WeaponRifleLecter
+        - id: MagazineRifle
+          amount: 3
+        - id: ExGrenade
+          amount: 3
+        - id: BoxMRE
+
+- type: entity
+  id: CrateMilitaryRandom
+  name: military crate
+  suffix: Random
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: WeaponPistolViper
+          prob: 0.5
+        - id: MagazinePistol
+          amount: 3
+          prob: 0.3
+        - id: WeaponRifleLecter
+          prob: 0.1
+        - id: MagazineRifle
+          prob: 0.2
+          amount: 3
+        - id: ExGrenade
+          prob: 0.2
+          amount: 3
+        - id: BoxMRE
+          prob: 0.5
+
+- type: entity
+  id: LockerMilitaryPersonal
+  name: armory closet
+  parent: LockerBaseSecure
+  suffix: Military
+  description: It's a personal storage unit for miliary gear.
+  components:
+    - type: Appearance
+      visuals:
+        - type: StorageVisualizer
+          state: syndicate
+          state_open: syndicate_open
+          state_closed: syndicate_door
+    - type: StorageFill
+      contents:
+        - id: WeaponPistolViper
+        - id: MagazinePistol
+          amount: 3
+        - id: WeaponRifleLecter
+        - id: MagazineRifle
+          amount: 3
+        - id: ExGrenade
+          amount: 3
+        - id: BoxMRE

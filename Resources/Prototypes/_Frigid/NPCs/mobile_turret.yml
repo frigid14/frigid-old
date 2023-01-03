@@ -1,0 +1,8 @@
+﻿# -- Ranged --
+# Tries to shoot a target in LOS in range.
+- type: htnCompound
+  id: MobileTurretCompound
+  branches:
+    - tasks:
+        - id: PickRangedTargetPrimitive
+        - id: RangedAttackTargetCompound

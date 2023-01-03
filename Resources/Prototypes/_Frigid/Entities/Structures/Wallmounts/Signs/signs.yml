@@ -1,0 +1,8 @@
+﻿- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalBank
+  name: bank sign
+  description: A direction sign, pointing out which way the bank is.
+  components:
+    - type: Sprite
+      state: direction_bank

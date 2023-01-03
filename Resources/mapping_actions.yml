@@ -690,129 +690,31 @@
 - action: !type:InstantAction
     checkCanInteract: False
     icon:
-      entity: AirlockMaintLocked
-    name: AirlockMaintLocked
+      entity: WoodDoor
+    name: WoodDoor
     keywords: []
     clientExclusive: True
     autoPopulate: False
     temporary: True
     event: !type:StartPlacementActionEvent
       placementOption: SnapgridCenter
-      entityType: AirlockMaintLocked
+      entityType: WoodDoor
   assignments:
   - 6: 0
 - action: !type:InstantAction
     checkCanInteract: False
     icon:
-      entity: AirlockGlass
-    name: AirlockGlass
+      entity: MetalDoor
+    name: MetalDoor
     keywords: []
     clientExclusive: True
     autoPopulate: False
     temporary: True
     event: !type:StartPlacementActionEvent
       placementOption: SnapgridCenter
-      entityType: AirlockGlass
+      entityType: MetalDoor
   assignments:
   - 6: 1
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockServiceLocked
-    name: AirlockServiceLocked
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockServiceLocked
-  assignments:
-  - 6: 2
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockSecurityLocked
-    name: AirlockSecurityLocked
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockSecurityLocked
-  assignments:
-  - 6: 3
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockCommand
-    name: AirlockCommand
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockCommand
-  assignments:
-  - 6: 4
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockScience
-    name: AirlockScience
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockScience
-  assignments:
-  - 6: 5
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockMedical
-    name: AirlockMedical
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockMedical
-  assignments:
-  - 6: 6
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockEngineering
-    name: AirlockEngineering
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockEngineering
-  assignments:
-  - 6: 7
-- action: !type:InstantAction
-    checkCanInteract: False
-    icon:
-      entity: AirlockCargo
-    name: AirlockCargo
-    keywords: []
-    clientExclusive: True
-    autoPopulate: False
-    temporary: True
-    event: !type:StartPlacementActionEvent
-      placementOption: SnapgridCenter
-      entityType: AirlockCargo
-  assignments:
-  - 6: 8
 - action: !type:WorldTargetAction
     repeat: True
     checkCanAccess: False

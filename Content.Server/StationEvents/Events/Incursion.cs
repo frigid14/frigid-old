@@ -11,7 +11,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class Incursion : StationEventSystem
 {
     public static List<string> SpawnedPrototypeChoices = new List<string>()
-        {"MobGiantSpiderAngry", "MobZed", "MobMimic", "MobSkeletonBoxer"};
+        {"MobGiantSpiderAngry", "MobZed", "MobSkeletonBoxer"};
     public override string Prototype => "Incursion";
 
     public override void Started()
