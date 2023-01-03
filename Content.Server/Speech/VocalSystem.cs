@@ -69,8 +69,7 @@ public sealed class VocalSystem : EntitySystem
         if (!_blocker.CanSpeak(uid))
             return false;
 
-        _popup.PopupEntity(Loc.GetString("chat-manager-entity-scream-message",
-            ("entityName", Name(uid))), uid, Filter.Pvs(uid, entityManager: EntityManager));
+        _popup.PopupEntity(Loc.GetString("chat-manager-entity-scream-message", ("entityName", Name(uid))), uid);
 
         var sex = CompOrNull<HumanoidComponent>(uid)?.Sex ?? Sex.Unsexed;
 

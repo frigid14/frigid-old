@@ -53,7 +53,7 @@ namespace Content.Server.Zombies
                 return;
             }
             component.InfectionDamage -= 0.1f;
-        }}
+        }
 
         private void HandleInit(EntityUid uid, ZombifyOnInitComponent component, MapInitEvent args)
         {

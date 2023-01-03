@@ -29,7 +29,7 @@ public sealed class StaggerableSystem : EntitySystem
             {
                 var message = Loc.GetString("staggered-single-message");
 
-                _popupSystem.PopupEntity(Loc.GetString("staggered-single-message"), uid, Filter.Pvs(uid), PopupType.LargeCaution);
+                _popupSystem.PopupEntity(Loc.GetString("staggered-single-message"), uid, PopupType.LargeCaution);
                 _stunSystem.TryKnockdown(uid, TimeSpan.FromMilliseconds(damage.Int() * 100), true);
             }
         }

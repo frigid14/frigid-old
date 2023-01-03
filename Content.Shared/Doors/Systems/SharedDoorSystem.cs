@@ -208,7 +208,7 @@ public abstract class SharedDoorSystem : EntitySystem
 
         SetState(uid, DoorState.Denying, door);
 
-        _popupSystem.PopupEntity(Loc.GetString("airlock-component-access-denied"), uid, Filter.Pvs(uid), PopupType.Small);
+        _popupSystem.PopupEntity(Loc.GetString("airlock-component-access-denied"), uid);
 
         if (door.DenySound != null)
             PlaySound(uid, door.DenySound, AudioParams.Default.WithVolume(-3), user, predicted);
