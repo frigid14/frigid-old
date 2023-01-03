@@ -506,7 +506,6 @@
   metabolisms:
     Medicine:
       effects:
-        - !type:ChemCureDisease
         - !type:ChemTreatInfection
 
 - type: reagent
@@ -698,6 +697,7 @@
   desc: reagent-desc-cognizine
   group: Medicine
   physicalDesc: reagent-physical-desc-enigmatic
+  flavor: magical
   color: "#b50ee8"
   metabolisms:
     Medicine:

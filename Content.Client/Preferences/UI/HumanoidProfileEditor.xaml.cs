@@ -470,7 +470,7 @@ namespace Content.Client.Preferences.UI
 
             _antagPreferences = new List<AntagPreferenceSelector>();
 
-            foreach (var antag in prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => a.Name))
+            foreach (var antag in prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
             {
                 if (!antag.SetPreference)
                 {
@@ -492,7 +492,7 @@ namespace Content.Client.Preferences.UI
 
             #region Traits
 
-            var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => t.Name).ToList();
+            var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
             _traitPreferences = new List<TraitPreferenceSelector>();
             _tabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
@@ -1099,6 +1099,7 @@ namespace Content.Client.Preferences.UI
 
             private StripeBack _lockStripe;
             private Label _requirementsLabel;
+            private Label _jobTitle;
 
             public JobPrioritySelector(JobPrototype job)
             {
@@ -1156,13 +1157,26 @@ namespace Content.Client.Preferences.UI
                     }
                 };
 
+                _jobTitle = new Label()
+                {
+                    Text = job.LocalizedName,
+                    MinSize = (175, 0),
+                    MouseFilter = MouseFilterMode.Stop
+                };
+
+                if (job.LocalizedDescription != null)
+                {
+                    _jobTitle.ToolTip = job.LocalizedDescription;
+                    _jobTitle.TooltipDelay = 0.2f;
+                }
+
                 AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     Children =
                     {
                         icon,
-                        new Label {Text = job.LocalizedName, MinSize = (175, 0)},
+                        _jobTitle,
                         _optionButton,
                         _lockStripe,
                     }
@@ -1224,8 +1238,14 @@ namespace Content.Client.Preferences.UI
             {
                 Antag = antag;
 
-                _checkBox = new CheckBox {Text = $"{antag.Name}"};
+                _checkBox = new CheckBox {Text = Loc.GetString(antag.Name)};
                 _checkBox.OnToggled += OnCheckBoxToggled;
+
+                if (antag.Description != null)
+                {
+                    _checkBox.ToolTip = Loc.GetString(antag.Description);
+                    _checkBox.TooltipDelay = 0.2f;
+                }
 
                 AddChild(new BoxContainer
                 {
@@ -1260,8 +1280,14 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox {Text = $"{trait.Name}"};
+                _checkBox = new CheckBox {Text = Loc.GetString(trait.Name)};
                 _checkBox.OnToggled += OnCheckBoxToggled;
+
+                if (trait.Description is { } desc)
+                {
+                    _checkBox.ToolTip = Loc.GetString(desc);
+                    _checkBox.TooltipDelay = 0.2f;
+                }
 
                 AddChild(new BoxContainer
                 {

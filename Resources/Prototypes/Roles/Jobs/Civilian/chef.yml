@@ -1,6 +1,7 @@
 ﻿- type: job
   id: Chef
   name: job-name-chef
+  description: job-description-chef
   playTimeTracker: JobChef
   requirements:
     - !type:DepartmentTimeRequirement

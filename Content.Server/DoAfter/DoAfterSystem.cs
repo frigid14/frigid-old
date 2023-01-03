@@ -90,7 +90,7 @@ namespace Content.Server.DoAfter
 
         private void OnStateChanged(EntityUid uid, DoAfterComponent component, MobStateChangedEvent args)
         {
-            if (!args.CurrentMobState.IsIncapacitated() || !args.CurrentMobState.IsSoftCrit())
+            if (!args.CurrentMobState.IsIncapacitated())
                 return;
 
             foreach (var (doAfter, _) in component.DoAfters)
@@ -150,13 +150,16 @@ namespace Content.Server.DoAfter
                 {
                     Cancelled(comp, doAfter);
 
-                    if (EntityManager.EntityExists(doAfter.EventArgs.User) && doAfter.EventArgs.UserCancelledEvent != null)
+                    if(EntityManager.EntityExists(doAfter.EventArgs.User) && doAfter.EventArgs.UserCancelledEvent != null)
                         RaiseLocalEvent(doAfter.EventArgs.User, doAfter.EventArgs.UserCancelledEvent, false);
 
-                    if (doAfter.EventArgs.Target is { } target && EntityManager.EntityExists(target) && doAfter.EventArgs.TargetCancelledEvent != null)
+                    if (doAfter.EventArgs.Used is {} used && EntityManager.EntityExists(used) && doAfter.EventArgs.UsedCancelledEvent != null)
+                        RaiseLocalEvent(used, doAfter.EventArgs.UsedCancelledEvent);
+
+                    if(doAfter.EventArgs.Target is {} target && EntityManager.EntityExists(target) && doAfter.EventArgs.TargetCancelledEvent != null)
                         RaiseLocalEvent(target, doAfter.EventArgs.TargetCancelledEvent, false);
 
-                    if (doAfter.EventArgs.BroadcastCancelledEvent != null)
+                    if(doAfter.EventArgs.BroadcastCancelledEvent != null)
                         RaiseLocalEvent(doAfter.EventArgs.BroadcastCancelledEvent);
                 }
 
@@ -164,13 +167,16 @@ namespace Content.Server.DoAfter
                 {
                     Finished(comp, doAfter);
 
-                    if (EntityManager.EntityExists(doAfter.EventArgs.User) && doAfter.EventArgs.UserFinishedEvent != null)
+                    if(EntityManager.EntityExists(doAfter.EventArgs.User) && doAfter.EventArgs.UserFinishedEvent != null)
                         RaiseLocalEvent(doAfter.EventArgs.User, doAfter.EventArgs.UserFinishedEvent, false);
 
-                    if (doAfter.EventArgs.Target is { } target && EntityManager.EntityExists(target) && doAfter.EventArgs.TargetFinishedEvent != null)
+                    if(doAfter.EventArgs.Used is {} used && EntityManager.EntityExists(used) && doAfter.EventArgs.UsedFinishedEvent != null)
+                        RaiseLocalEvent(used, doAfter.EventArgs.UsedFinishedEvent);
+
+                    if(doAfter.EventArgs.Target is {} target && EntityManager.EntityExists(target) && doAfter.EventArgs.TargetFinishedEvent != null)
                         RaiseLocalEvent(target, doAfter.EventArgs.TargetFinishedEvent, false);
 
-                    if (doAfter.EventArgs.BroadcastFinishedEvent != null)
+                    if(doAfter.EventArgs.BroadcastFinishedEvent != null)
                         RaiseLocalEvent(doAfter.EventArgs.BroadcastFinishedEvent);
                 }
             }

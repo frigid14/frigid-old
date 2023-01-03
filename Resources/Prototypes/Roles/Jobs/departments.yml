@@ -1,5 +1,7 @@
 - type: department
   id: Civilian
+  description: department-Civilian-description
+  color: "#9FED58"
   roles:
   - Chef
   - Civilian
@@ -12,18 +14,24 @@
 
 - type: department
   id: Engineering
+  description: department-Engineering-description
+  color: "#EFB341"
   roles:
   - StationEngineer
   - Mechanic
 
 - type: department
   id: Medical
+  description: department-Medical-description
+  color: "#52B4E9"
   roles:
   - MedicalDoctor
   - MedicalIntern
 
 - type: department
   id: Security
+  description: department-Command-description
+  color: "#DE3A3A"
   roles:
   - HeadOfSecurity
   - SecurityCadet

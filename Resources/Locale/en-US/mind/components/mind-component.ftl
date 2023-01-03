@@ -1,5 +1,7 @@
 # MindComponent localization
 
+comp-mind-ghosting-prevented = You are not able to ghost right now.
+
 ## Messages displayed when a body is examined and in a certain state
 comp-mind-examined-catatonic = { CAPITALIZE(SUBJECT($ent)) } { CONJUGATE-BE($ent) } fully catatonic. The stresses of life in this cold-world must have been too much for { OBJECT($ent) }. Any recovery is unlikely.
 comp-mind-examined-dead = { CAPITALIZE(POSS-ADJ($ent)) } looks limp, {POSS-ADJ($entityName)} eyes, dead and lifeless...
