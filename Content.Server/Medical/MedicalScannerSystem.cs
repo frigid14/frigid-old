@@ -168,9 +168,6 @@ namespace Content.Server.Medical
             if (_mobStateSystem.IsCritical(uid, state))
                 return MedicalScannerStatus.Red;
 
-            if (_mobStateSystem.IsSoftCrit(uid, state))
-                return MedicalScannerStatus.Red;
-
             if (_mobStateSystem.IsDead(uid, state))
                 return MedicalScannerStatus.Death;
 

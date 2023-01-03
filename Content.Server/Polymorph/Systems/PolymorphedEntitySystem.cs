@@ -159,8 +159,7 @@ namespace Content.Server.Polymorph.Systems
                     continue;
 
                 if ((proto.RevertOnDeath && mob.IsDead()) ||
-                    (proto.RevertOnCrit && mob.IsCritical()) ||
-                    (proto.RevertOnCrit && mob.IsSoftCrit()))
+                    (proto.RevertOnCrit && mob.IsCritical()))
                     Revert(comp.Owner);
             }
         }

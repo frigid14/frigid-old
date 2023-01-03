@@ -44,13 +44,6 @@ namespace Content.Shared.MobState.Components
         }
 
         [Obsolete("Use MobStateSystem")]
-        public bool IsSoftCrit()
-        {
-            return IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedMobStateSystem>()
-                .IsSoftCrit(Owner, this);
-        }
-
-        [Obsolete("Use MobStateSystem")]
         public bool IsCritical()
         {
             return IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedMobStateSystem>()
