@@ -1,8 +1,0 @@
-﻿- type: instantAction
-  id: SafezoneTeleport
-  useDelay: 10
-  icon: _Frigid/Interface/Actions/safezone.rsi/icon.png
-  name: safezone-action-name
-  description: Teleports you to the safezone and viceversa.
-  serverEvent: !type:SafezoneTeleportActionEvent
-  checkCanInteract: false

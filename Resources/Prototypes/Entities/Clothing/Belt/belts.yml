@@ -19,18 +19,19 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - CigPack
         - WeldingFuel
+        - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
         - RCD
         - RCDAmmo
         - Welder
-        - Radio
         - PowerCell
   - type: ItemMapper
     mapLayers:
@@ -81,12 +82,14 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - Powerdrill
         - JawsOfLife
         - CigPack
+        - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -94,7 +97,6 @@
         - RCDAmmo
         - Welder
         - Flash
-        - Radio
         - Handcuff
         - PowerCell
   - type: ItemMapper
@@ -189,6 +191,8 @@
         - Flashlight
         - CigPack
         - TrashBag
+        - WetFloorSign
+        - HolosignProjector
       components:
         - LightReplacer
   - type: ItemMapper
@@ -230,9 +234,9 @@
         - CigPack
         - Pill
         - PillCanister
+        - Radio
       components:
         - Hypospray
-        - Radio
         - Injector
   - type: ItemMapper
     mapLayers:
@@ -339,6 +343,7 @@
         - CigPack
         - Taser
         - SecBeltEquip
+        - Radio
       components:
         - Stunbaton
         - FlashOnTrigger

@@ -2,6 +2,7 @@
   id: Civilian
   name: job-name-passenger
   playTimeTracker: JobCivilian
+  description: job-description-passenger
   startingGear: PassengerGear
   icon: "Passenger"
 

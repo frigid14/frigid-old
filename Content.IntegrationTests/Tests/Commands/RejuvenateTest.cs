@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Content.Server.Administration.Commands;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -25,15 +25,14 @@ namespace Content.IntegrationTests.Tests.Commands
   - type: MobState
     thresholds:
       0: Alive
-      100: SoftCrit
-      135: Critical
+      100: Critical
       200: Dead
 ";
 
         [Test]
         public async Task RejuvenateDeadTest()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true, ExtraPrototypes = Prototypes });
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
             var server = pairTracker.Pair.Server;
             var entManager = server.ResolveDependency<IEntityManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
@@ -43,15 +42,12 @@ namespace Content.IntegrationTests.Tests.Commands
 
             await server.WaitAssertion(() =>
             {
-                mapManager.CreateNewMapEntity(MapId.Nullspace);
-
                 var human = entManager.SpawnEntity("DamageableDummy", MapCoordinates.Nullspace);
 
                 // Sanity check
                 Assert.True(entManager.TryGetComponent(human, out DamageableComponent damageable));
                 Assert.True(entManager.TryGetComponent(human, out MobStateComponent mobState));
                 Assert.That(mobStateSystem.IsAlive(human, mobState), Is.True);
-                Assert.That(mobStateSystem.IsSoftCrit(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsCritical(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsDead(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.False);
@@ -65,7 +61,6 @@ namespace Content.IntegrationTests.Tests.Commands
                 // Check that it is dead
                 Assert.That(mobStateSystem.IsAlive(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsCritical(human, mobState), Is.False);
-                Assert.That(mobStateSystem.IsSoftCrit(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsDead(human, mobState), Is.True);
                 Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.True);
 
@@ -74,7 +69,6 @@ namespace Content.IntegrationTests.Tests.Commands
 
                 // Check that it is alive and with no damage
                 Assert.That(mobStateSystem.IsAlive(human, mobState), Is.True);
-                Assert.That(mobStateSystem.IsSoftCrit(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsCritical(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsDead(human, mobState), Is.False);
                 Assert.That(mobStateSystem.IsIncapacitated(human, mobState), Is.False);

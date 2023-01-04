@@ -4,20 +4,8 @@
   parent: BaseStorageItem
   id: Bible
   components:
-  # - type: Bible
-  #   damage:
-  #     groups:
-  #       Brute: -35
-  #       Burn: -35
-  #   damageOnFail:
-  #     groups:
-  #       Brute: 15
-  #       Airloss: 25
-  #   damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
-  #     groups:
-  #       Burn: 30
-  # - type: Summonable
-  #   specialItem: SpawnPointGhostRemilia
+  - type: Prayable
+    bibleUserOnly: true
   - type: Sprite
     netsync: false
     sprite: Objects/Specific/Chapel/bible.rsi

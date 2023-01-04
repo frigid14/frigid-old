@@ -31,6 +31,7 @@ public abstract class SharedDoorSystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly OccluderSystem _occluder = default!;
     [Dependency] protected readonly SharedPopupSystem _popupSystem = default!;
 
     /// <summary>
@@ -207,7 +208,7 @@ public abstract class SharedDoorSystem : EntitySystem
 
         SetState(uid, DoorState.Denying, door);
 
-        _popupSystem.PopupEntity(Loc.GetString("airlock-component-access-denied"), uid, Filter.Pvs(uid), PopupType.Small);
+        _popupSystem.PopupEntity(Loc.GetString("airlock-component-access-denied"), uid);
 
         if (door.DenySound != null)
             PlaySound(uid, door.DenySound, AudioParams.Default.WithVolume(-3), user, predicted);
@@ -321,6 +322,11 @@ public abstract class SharedDoorSystem : EntitySystem
         if (!Resolve(uid, ref door))
             return false;
 
+        // since both closing/closed and welded are door states, we need to prevent 'closing'
+        // a welded door or else there will be weird state bugs
+        if (door.State == DoorState.Welded)
+            return false;
+
         var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck);
         RaiseLocalEvent(uid, ev, false);
         if (ev.Cancelled)
@@ -390,8 +396,8 @@ public abstract class SharedDoorSystem : EntitySystem
         if (!collidable)
             door.CurrentlyCrushing.Clear();
 
-        if (door.Occludes && Resolve(uid, ref occluder, false))
-            occluder.Enabled = collidable;
+        if (door.Occludes)
+            _occluder.SetEnabled(uid, collidable);
     }
 
     /// <summary>

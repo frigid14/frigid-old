@@ -10,6 +10,7 @@ public sealed class SunSystem : SharedSunSystem
 {
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedMapSystem _sharedMapSystem = default!;
 
     private float _accumulatedFrameTime;
     private float TimeUntilNextCycle = 300;
@@ -18,13 +19,6 @@ public sealed class SunSystem : SharedSunSystem
     public override void Initialize()
     {
         base.Initialize();
-        _playerManager.PlayerStatusChanged += PlayerStatusChanged;
-    }
-
-    private void PlayerStatusChanged(object? sender, SessionStatusEventArgs e)
-    {
-        var user = e.Session;
-        UpdateLighting(user);
     }
 
     /// <summary>
@@ -54,24 +48,27 @@ public sealed class SunSystem : SharedSunSystem
     }
 
     /// <summary>
-    /// Updates the lighting of all clients, or an optionally provided one
+    /// Updates the lighting,
     /// </summary>
-    /// <param name="session"></param>
-    public void UpdateLighting(IPlayerSession? session = null)
+    public void UpdateLighting()
     {
-        var message = new TimeChangeEvent(CurrentCycle);
-        var filter = Filter.Empty();
-
-        if (session != null)
+        var color = MidnightColor;
+        switch (CurrentCycle)
         {
-            filter.AddPlayer(session);
+            case Time.Midnight:
+                color = MidnightColor;
+                break;
+            case Time.Day:
+                color = DayColor;
+                break;
+            case Time.Noon:
+                color = NoonColor;
+                break;
+            case Time.Night:
+                color = NightColor;
+                break;
         }
-        else
-        {
-            filter.AddAllPlayers();
-        }
-
-        RaiseNetworkEvent(message, filter);
+        // _sharedMapSystem.SetAmbientLight(mapId, color);
     }
 
     public override void Update(float frameTime)

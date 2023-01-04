@@ -8,7 +8,6 @@
   - type: Hunger
   - type: Thirst
   - type: Perishable
-  - type: Safezone
   - type: Staggerable
 
 - type: entity

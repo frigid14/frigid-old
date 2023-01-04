@@ -102,15 +102,11 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     netsync: false
     noRot: true
-  - type: Access
-    tags:
-    - Maintenance
-    - Janitor
   - type: UnpoweredFlashlight
     toggleAction:
       name: action-name-toggle-light
       description: action-description-toggle-light
-      icon: Objects/Tools/flashlight.rsi/flashlight.png
+      icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
       iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
       event: !type:ToggleActionEvent
   - type: PointLight
@@ -193,12 +189,6 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     netsync: false
     noRot: true
-  - type: Access
-    tags:
-    - Security
-    - Brig
-    - Maintenance
-    - Service
   - type: Strap
     buckleOffset: "0.15, -0.05"
     maxBuckleDistance: 1
@@ -243,10 +233,6 @@
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
     netsync: false
     noRot: true
-  - type: Access
-    tags:
-    - Cargo
-    - Maintenance
   - type: RandomMetadata
     descriptionSegments: [ATVDescriptions]
   - type: MovementSpeedModifier
@@ -261,7 +247,7 @@
     toggleAction:
       name: action-name-toggle-light
       description: action-description-toggle-light
-      icon: Objects/Tools/flashlight.rsi/flashlight.png
+      icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
       iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
       event: !type:ToggleActionEvent
   - type: PointLight
@@ -303,10 +289,6 @@
           map: ["enum.VehicleVisualLayers.AutoAnimate"]
       netsync: false
       noRot: true
-    - type: Access
-      tags:
-        - Maintenance
-        - Service
     - type: Strap
       buckleOffset: "0.15, -0.05"
       maxBuckleDistance: 1
@@ -353,12 +335,12 @@
       acceleration: 2
       friction: 1.5
       baseWalkSpeed: 4.5
-      baseSprintSpeed: 7 
+      baseSprintSpeed: 7
     - type: UnpoweredFlashlight
       toggleAction:
         name: action-name-toggle-light
         description: action-description-toggle-light
-        icon: Objects/Tools/flashlight.rsi/flashlight.png
+        icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
         iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
         event: !type:ToggleActionEvent
     - type: PointLight

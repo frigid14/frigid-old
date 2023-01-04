@@ -1,21 +1,24 @@
 using System.Linq;
-using Robust.Shared.Random;
 using Content.Server.Body.Systems;
+using Content.Server.Chat.Systems;
+using Content.Server.Disease;
 using Content.Server.Disease.Components;
 using Content.Server.Drone.Components;
+using Content.Server.Inventory;
+using Content.Server.Speech;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.MobState.Components;
-using Content.Server.Disease;
+using Content.Server.Chat.Systems;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Damage;
+using Content.Shared.Disease.Events;
 using Content.Shared.Inventory;
 using Content.Shared.MobState;
-using Content.Server.Inventory;
-using Robust.Shared.Prototypes;
-using Content.Server.Speech;
-using Content.Server.Chat.Systems;
-using Content.Server.Weapons.Melee.Events;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Damage;
+using Content.Shared.MobState.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server.Zombies
 {
@@ -38,6 +41,7 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, MobStateChangedEvent>(OnMobState);
             SubscribeLocalEvent<ActiveZombieComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<ZombifyOnInitComponent, MapInitEvent>(HandleInit);
+            SubscribeLocalEvent<ActiveZombieComponent, AttemptSneezeCoughEvent>(OnSneeze);
             SubscribeLocalEvent<ZombieDamageComponent, TreatInfectionAttemptEvent>(OnTryTreatInfection);
         }
 
@@ -68,6 +72,11 @@ namespace Content.Server.Zombies
         {
             if (args.DamageIncreased)
                 DoGroan(uid, component);
+        }
+
+        private void OnSneeze(EntityUid uid, ActiveZombieComponent component, ref AttemptSneezeCoughEvent args)
+        {
+            args.Cancelled = true;
         }
 
         private bool GetZombieInfectionChance(EntityUid uid, ZombieComponent component)
@@ -132,8 +141,8 @@ namespace Content.Server.Zombies
                 if (HasComp<ZombieComponent>(entity))
                     args.BonusDamage = -args.BaseDamage * zombieComp.OtherZombieDamageCoefficient;
 
-                if ((mobState.CurrentState == DamageState.Dead || mobState.CurrentState == DamageState.Critical || mobState.CurrentState == DamageState.SoftCrit)
-                             && !HasComp<ZombieComponent>(entity))
+                if ((mobState.CurrentState == DamageState.Dead || mobState.CurrentState == DamageState.Critical)
+                    && !HasComp<ZombieComponent>(entity))
                 {
                     _zombify.ZombifyEntity(entity);
                     args.BonusDamage = -args.BaseDamage;
@@ -153,6 +162,8 @@ namespace Content.Server.Zombies
                 return;
 
             if (_robustRandom.Prob(0.5f)) //this message is never seen by players so it just says this for admins
+                // What? Is this REALLY the best way we have of letting admins know there are zombies in a round?
+                // [automated maintainer groan]
                 _chat.TrySendInGameICMessage(uid, "[automated zombie groan]", InGameICChatType.Speak, false);
             else
                 _vocal.TryScream(uid);

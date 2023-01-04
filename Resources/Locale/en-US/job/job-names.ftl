@@ -39,7 +39,7 @@ job-name-prisoner = inmate
 job-name-centcomoff = CentCom Official
 job-name-ce = chief engineer
 
-job-name-soldier = U.S Military Private
+job-name-soldier = military cadet
 
 job-name-ertleader = ERT leader
 job-name-ertengineer = ERT engineer

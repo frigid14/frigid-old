@@ -1,7 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
+using Content.Shared.Database;
+using Content.Shared.Disease.Events;
 using Content.Shared.DragDrop;
 using Content.Shared.Emoting;
 using Content.Shared.FixedPoint;
@@ -29,6 +33,7 @@ namespace Content.Shared.MobState.EntitySystems
         [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
         [Dependency] protected readonly StatusEffectsSystem Status = default!;
         [Dependency] private   readonly StandingStateSystem _standing = default!;
+        [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
 
         public override void Initialize()
         {
@@ -44,7 +49,6 @@ namespace Content.Shared.MobState.EntitySystems
             SubscribeLocalEvent<MobStateComponent, InteractionAttemptEvent>(OnInteractAttempt);
             SubscribeLocalEvent<MobStateComponent, ThrowAttemptEvent>(OnThrowAttempt);
             SubscribeLocalEvent<MobStateComponent, SpeakAttemptEvent>(OnSpeakAttempt);
-            SubscribeLocalEvent<MobStateComponent, WhisperAttemptEvent>(OnWhisperAttempt);
             SubscribeLocalEvent<MobStateComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
             SubscribeLocalEvent<MobStateComponent, EmoteAttemptEvent>(OnEmoteAttempt);
             SubscribeLocalEvent<MobStateComponent, IsUnequippingAttemptEvent>(OnUnequipAttempt);
@@ -54,8 +58,22 @@ namespace Content.Shared.MobState.EntitySystems
             SubscribeLocalEvent<MobStateComponent, DamageChangedEvent>(UpdateState);
             SubscribeLocalEvent<MobStateComponent, UpdateCanMoveEvent>(OnMoveAttempt);
             SubscribeLocalEvent<MobStateComponent, StandAttemptEvent>(OnStandAttempt);
+            SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
+            SubscribeLocalEvent<MobStateComponent, AttemptSneezeCoughEvent>(OnSneezeAttempt);
             SubscribeLocalEvent<MobStateChangedEvent>(OnStateChanged);
             // Note that there's no check for Down attempts because if a mob's in crit or dead, they can be downed...
+        }
+
+        private void OnSleepAttempt(EntityUid uid, MobStateComponent component, ref TryingToSleepEvent args)
+        {
+            if(IsDead(uid, component))
+                args.Cancelled = true;
+        }
+
+        private void OnSneezeAttempt(EntityUid uid, MobStateComponent component, ref AttemptSneezeCoughEvent args)
+        {
+            if(IsDead(uid, component))
+                args.Cancelled = true;
         }
 
         private void OnGettingStripped(EntityUid uid, MobStateComponent component, BeforeGettingStrippedEvent args)
@@ -91,12 +109,7 @@ namespace Content.Shared.MobState.EntitySystems
             if (!Resolve(uid, ref component, false)) return false;
             return component.CurrentState == DamageState.Alive;
         }
-        
-        public bool IsSoftCrit(EntityUid uid, MobStateComponent? component = null)
-        {
-            if (!Resolve(uid, ref component, false)) return false;
-            return component.CurrentState == DamageState.SoftCrit;
-        }
+
         public bool IsCritical(EntityUid uid, MobStateComponent? component = null)
         {
             if (!Resolve(uid, ref component, false)) return false;
@@ -126,7 +139,6 @@ namespace Content.Shared.MobState.EntitySystems
             switch (component.CurrentState)
             {
                 case DamageState.Dead:
-                case DamageState.SoftCrit:
                 case DamageState.Critical:
                     args.Cancel();
                     break;
@@ -158,18 +170,6 @@ namespace Content.Shared.MobState.EntitySystems
             CheckAct(uid, component, args);
         }
 
-        private void OnWhisperAttempt(EntityUid uid, MobStateComponent component, WhisperAttemptEvent args)
-        {
-            switch (component.CurrentState)
-            {
-                case DamageState.Critical:
-                case DamageState.Dead:
-                    args.Cancel();
-                    return;
-                default:
-                    return;
-            }
-        }
         private void OnEquipAttempt(EntityUid uid, MobStateComponent component, IsEquippingAttemptEvent args)
         {
             // is this a self-equip, or are they being stripped?
@@ -203,7 +203,7 @@ namespace Content.Shared.MobState.EntitySystems
 
         private void OnStartPullAttempt(EntityUid uid, MobStateComponent component, StartPullAttemptEvent args)
         {
-            if (IsIncapacitated(uid, component) || IsSoftCrit(uid, component))
+            if (IsIncapacitated(uid, component))
                 args.Cancel();
         }
 
@@ -227,7 +227,7 @@ namespace Content.Shared.MobState.EntitySystems
 
         private void OnStandAttempt(EntityUid uid, MobStateComponent component, StandAttemptEvent args)
         {
-            if (IsIncapacitated(uid, component) || IsSoftCrit(uid, component))
+            if (IsIncapacitated(uid, component))
                 args.Cancel();
         }
 
@@ -250,9 +250,6 @@ namespace Content.Shared.MobState.EntitySystems
                 case DamageState.Alive:
                     EnterNormState(component.Owner);
                     break;
-                case DamageState.SoftCrit:
-                    EnterSoftCritState(component.Owner);
-                    break;
                 case DamageState.Critical:
                     EnterCritState(component.Owner);
                     break;
@@ -273,9 +270,6 @@ namespace Content.Shared.MobState.EntitySystems
                 case DamageState.Alive:
                     UpdateNormState(component.Owner, threshold);
                     break;
-                case DamageState.SoftCrit:
-                    UpdateSoftCritState(component.Owner, threshold);
-                    break;
                 case DamageState.Critical:
                     UpdateCritState(component.Owner, threshold);
                     break;
@@ -295,9 +289,6 @@ namespace Content.Shared.MobState.EntitySystems
             {
                 case DamageState.Alive:
                     ExitNormState(component.Owner);
-                    break;
-                case DamageState.SoftCrit:
-                    ExitSoftCritState(component.Owner);
                     break;
                 case DamageState.Critical:
                     ExitCritState(component.Owner);
@@ -330,6 +321,10 @@ namespace Content.Shared.MobState.EntitySystems
         /// </summary>
         private void SetMobState(MobStateComponent component, DamageState? old, (DamageState state, FixedPoint2 threshold)? current, EntityUid? origin = null)
         {
+            //if it got deleted instantly in a nuke or something
+            if (!Exists(component.Owner) || Deleted(component.Owner))
+                return;
+
             if (!current.HasValue)
             {
                 ExitState(component, old);
@@ -349,6 +344,7 @@ namespace Content.Shared.MobState.EntitySystems
             ExitState(component, old);
 
             component.CurrentState = state;
+            _adminLogger.Add(LogType.Damaged, state == DamageState.Alive ? LogImpact.Low : LogImpact.Medium, $"{ToPrettyString(component.Owner):user} state changed from {old} to {state}");
 
             EnterState(component, state);
             UpdateState(component, state, threshold);
@@ -422,11 +418,6 @@ namespace Content.Shared.MobState.EntitySystems
             return null;
         }
 
-        public (DamageState state, FixedPoint2 threshold)? GetEarliestSoftCritState(MobStateComponent component, FixedPoint2 minimumDamage)
-        {
-            return GetEarliestState(component, minimumDamage, s => s == DamageState.SoftCrit);
-        }
-
         public (DamageState state, FixedPoint2 threshold)? GetEarliestCriticalState(MobStateComponent component, FixedPoint2 minimumDamage)
         {
             return GetEarliestState(component, minimumDamage, s => s == DamageState.Critical);
@@ -440,11 +431,6 @@ namespace Content.Shared.MobState.EntitySystems
         public (DamageState state, FixedPoint2 threshold)? GetEarliestDeadState(MobStateComponent component, FixedPoint2 minimumDamage)
         {
             return GetEarliestState(component, minimumDamage, s => s == DamageState.Dead);
-        }
-
-        public (DamageState state, FixedPoint2 threshold)? GetPreviousSoftCritState(MobStateComponent component, FixedPoint2 minimumDamage)
-        {
-            return GetPreviousState(component, minimumDamage, s => s == DamageState.SoftCrit);
         }
 
         public (DamageState state, FixedPoint2 threshold)? GetPreviousCriticalState(MobStateComponent component, FixedPoint2 minimumDamage)
@@ -466,17 +452,6 @@ namespace Content.Shared.MobState.EntitySystems
 
             (state, threshold) = tuple.Value;
             return true;
-        }
-
-        public bool TryGetEarliestSoftCritState(
-            MobStateComponent component,
-            FixedPoint2 minimumDamage,
-            [NotNullWhen(true)] out DamageState? state,
-            out FixedPoint2 threshold)
-        {
-            var earliestState = GetEarliestSoftCritState(component, minimumDamage);
-
-            return TryGetState(earliestState, out state, out threshold);
         }
 
         public bool TryGetEarliestCriticalState(
