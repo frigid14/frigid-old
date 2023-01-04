@@ -1,3 +1,6 @@
+# HEY HEY READ ME ⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠⚠ I THINK THIS GOT YOUR ATTENTION
+hey buddy this repo is the old repo, go check the NEW one somewhere
+
 <p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/frigid14/frigid/master/Resources/Textures/Logo/logo.svg" /></p>
 
 Frigid 14 is a fork of [Space Station 14](https://spacestation14.io) primarily focusing on AI code and zombies.
